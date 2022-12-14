@@ -1,2 +1,2 @@
 include README.md
-recursive-include aid_latest/gui/images *
+recursive-include hortensia_latest/gui/images *
