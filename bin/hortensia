@@ -1,0 +1,146 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+import os
+import sys
+import logging
+import argparse
+from datetime import datetime
+from configparser import ConfigParser
+
+################################################################################
+#                                                                              #
+#                                    Main                                      #
+#                                                                              #
+################################################################################
+
+class SmartFormatter(argparse.HelpFormatter):
+    def _split_lines(self, text, width):
+        if text.startswith('R|'):
+            return text[2:].splitlines()
+        # this is the RawTextHelpFormatter._split_lines
+        return argparse.HelpFormatter._split_lines(self, text, width)
+
+if __name__ == "__main__":
+    from hortensia_latest import info
+
+    descr = "Program for the surface-hopping simulation of non-adiabatic " + \
+            "vibration-induced autoionization of molecular anions " + \
+            "(Version: %s)"%info.__version__
+    parser = argparse.ArgumentParser(description=descr,
+                                     formatter_class=SmartFormatter)
+    parser.add_argument("-r", "--run", help="R|run dynamics simulation "
+                        "(requires: 'basis', 'config.ini', 'structure.in')\n"
+                        "if the trajectory is restarted, additionally "
+                        "requires: \n'dynamics.xyz', 'velocities.dat', "
+                        "'tempcoef.dat', 'boundPop.dat', 'trajpop.dat'",
+                        action='store_true')
+    parser.add_argument("-g", "--gui", help="R|start the GUI of the program "
+                        "and ignore all other input options.\n"
+                        "can generate input for dynamics simulations "
+                        "including initial conditions,\nfolder structure "
+                        "generation, copying of input into calculation "
+                        "folders and \ngeneration of slurm submit scripts",
+                        action="store_true")
+    parser.add_argument("-ga", "--analysis", help="R|start the analysis GUI of "
+                        "the program and ignore all other input options. \n"
+                        "gives a variety of options to quickly analyse "
+                        "trajectory output, both for \nsingle trajectories or "
+                        "a whole ensemble ",
+                        action="store_true")
+    parser.add_argument("-ig", "--initg", help="R|create initial conditions "
+                        "for dynamics in 'INITSTRUCT' by calling \nJens' "
+                        "Wigner program for g09/g16 input; requires .fchk and "
+                        ".log files\nof a separate frequency calculation; "
+                        "also available through GUI",
+                        nargs=2, metavar=("FCHK", "LOG"))
+    parser.add_argument("-iq", "--initq", help="R|create initial conditions "
+                        "for dynamics in 'INITSTRUCT' by calling \nJens' "
+                        "Wigner program for QChem input; requires .log and "
+                        "HESS files;\nalso available through GUI",
+                        nargs=2, metavar=("LOG", "HESS"))                 
+    parser.add_argument("-n", "--ntrajs", help="total number of " + \
+                        "trajectories, necessary for options -c,-e,-d,-a,-dh",
+                        type=int)
+    parser.add_argument("-c", "--check", help="check status of trajectory "
+                        "output folders and evaluate state population",
+                        action="store_true")
+    parser.add_argument("-e", "--electron", help="evaluate the k vectors and "
+                        "energy of the free electrons the trajectories "
+                        "hopped in", action="store_true")
+    parser.add_argument("-d", "--distance", help="R|calculate the atomic "
+                        "distances between selected atoms at hopping steps\n"
+                        "DLIST is a list formatted as follows: "
+                        "[[1,2],[3,4],...] \nthis will produce output files "
+                        "in the folder 'HoppingDistances'", dest="dlist")
+    parser.add_argument("-a", "--angle", help="R|calculate selected " + \
+                        "molecular angles at hopping steps\n"
+                        "ALIST is a list formatted as follows: "
+                        "[[1,2,3],[2,3,4],...] \nthis will produce output "
+                        "files in the folder 'HoppingAngles'", dest="alist")
+    parser.add_argument("-dh", "--dihedral", help="R|calculate selected "
+                        "dihedral angles at hopping steps\n"
+                        "DHLIST is a list formatted as follows: "
+                        "[[1,2,3,4],[2,3,4,5],...]\nthis will produce output "
+                        "files in the folder 'HoppingDihedral'", dest="dhlist")
+    parser.add_argument("-wp", "--wavepacket", help="R|evaluate results of "
+                        "wavepacket hopping. \ndefault: 'False', which means "
+                        "that single state hopping is evaluated",
+                        action="store_true")
+    parser.add_argument("-s", "--submit", help="R|write slurm submit script to "
+                        "start dynamics calculations. \narguments: number of "
+                        "processors, total simulation time in fs and "
+                        "quantum \nchemistry program (g09, g16 or qchem)", 
+                        nargs=3,
+                        metavar=("NPROC", "TOTTIME", "QCMETHOD"))
+    parser.add_argument("--clean", help="R|clean the current working directory "
+                        "from all output generated by the program \n"
+                        "(be careful, since ALL .dat files are deleted)",
+                        action="store_true")
+
+    if len(sys.argv) == 1:
+        quit("No arguments given! Use -h or --help to view available options")
+
+    args = parser.parse_args()
+
+    if args.gui:
+        from hortensia_latest.gui import guiInput
+        quit()
+    elif args.analysis:
+        from hortensia_latest.gui import guiAnalysis
+        quit()
+
+    from hortensia_latest import analysis
+    anyOption = analysis.inputCheck(args.__dict__)
+
+    if not args.run:
+        if not anyOption:
+            quit("\nNo valid option given, use 'hortensia --help' for more "
+                 "information on how to use the program\n")
+        else:
+            quit()
+
+    if os.path.exists("config.ini"):
+        config = ConfigParser()
+        config.read('config.ini')
+    else:
+        quit("\nMissing config.ini file")
+
+    from hortensia_latest import nuclearDynamics as nucD
+
+    if config['Dynamics']['printlevel'] == '1':
+        logging.basicConfig(filename="out.out", level=logging.INFO)
+
+    with open("out.out", "w") as fo:
+        versionOut  = "            HORTENSIA"
+        versionOut  = " Autoionization Dynamics Program\n"
+        versionOut += "        by Kevin and Jens\n"
+        versionOut += "---------------------------------\n"
+        versionOut += "    Program Version: %s\n"%info.__version__
+        versionOut += "---------------------------------\n"
+        versionOut += "       %s\n"%datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        versionOut += "---------------------------------\n\n"
+        fo.write(versionOut)
+
+    dyn = nucD.NuclearDynamics("structure.in")
+    dyn.simulation()
