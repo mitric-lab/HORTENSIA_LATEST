@@ -13,7 +13,7 @@ The following packages are needed to run the program and downloaded during insta
 - [scipy](https://github.com/scipy/scipy), mainly for the integration of the electronic Schrödinger equation
 - [pyscf](https://github.com/pyscf/pyscf) for the calculation of two-electron integrals
 - [joblib](https://github.com/joblib/joblib) for the parallelization of the calculation of diabatic couplings
-- [matplotlib](https://github.com/matplotlib/matplotlib) for the plots produced by aid_latest/gui/guiAnalysis.py
+- [matplotlib](https://github.com/matplotlib/matplotlib) for the plots produced by hortensia_latest/gui/guiAnalysis.py
 
 #### Actual installation
 
