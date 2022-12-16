@@ -15,7 +15,7 @@ from matplotlib import cm
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
-import hortensia_latest.gui.guiInfos as gI
+import hortensia_latest.gui.infos as gI
 import hortensia_latest.misc as misc
 
 config = ConfigParser()

@@ -35,8 +35,8 @@ if __name__ == "__main__":
                         "requires: \n'dynamics.xyz', 'velocities.dat', "
                         "'tempcoef.dat', 'boundPop.dat', 'trajpop.dat'",
                         action='store_true')
-    parser.add_argument("-g", "--gui", help="R|start the GUI of the program "
-                        "and ignore all other input options.\n"
+    parser.add_argument("-g", "--gui", help="R|start the input GUI of the "
+                        "program and ignore all other input options.\n"
                         "can generate input for dynamics simulations "
                         "including initial conditions,\nfolder structure "
                         "generation, copying of input into calculation "
@@ -104,11 +104,11 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     if args.gui:
-        from hortensia_latest.gui import guiInput
+        from hortensia_latest.gui import input
         quit()
     elif args.analysis:
-        from hortensia_latest.gui import guiAnalysis
-        guiAnalysis.AnalysisRoot()
+        from hortensia_latest.gui import analysis
+        analysis.AnalysisRoot()
         quit()
 
     from hortensia_latest import analysis

@@ -7,7 +7,7 @@ import numpy as np
 import tkinter as tk
 from tkinter import ttk
 
-import hortensia_latest.gui.guiInfos as gI
+import hortensia_latest.gui.infos as gI
 
 colorbg = "#f5f5f5"
 colorab = '#fcfcfc'
@@ -95,10 +95,10 @@ def confirm():
         if event == 0:
             data = packData()
 
-            import hortensia_latest.gui.guiWriteInput as guiWriteInput
-            guiWriteInput.write(data)
+            import hortensia_latest.gui.writeInput as writeInput
+            writeInput.write(data)
             if subScript.get():
-                guiWriteInput.writeSub(Nproc.get(), steps.get()*timestep.get(),
+                writeInput.writeSub(Nproc.get(), steps.get()*timestep.get(),
                                        qcmethod.get())
 
             answer.destroy()
