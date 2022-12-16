@@ -108,6 +108,7 @@ if __name__ == "__main__":
         quit()
     elif args.analysis:
         from hortensia_latest.gui import guiAnalysis
+        guiAnalysis.AnalysisRoot()
         quit()
 
     from hortensia_latest import analysis
