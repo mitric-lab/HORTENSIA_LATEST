@@ -28,8 +28,8 @@ def inputCheck(indict):
         print("\nSlurm submit script HORTENSIAarray.sub generated\n")
         anyOption = True
 
-    if indict['init']:
-        f1, f2 = indict['init']
+    if indict['initg']:
+        f1, f2 = indict['initg']
         wignerStructures(f1, f2)
         quit("structure.in files created in INITSTRUCT/")
 
