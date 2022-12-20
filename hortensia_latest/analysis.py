@@ -10,7 +10,7 @@ import numpy.linalg as la
 
 config = ConfigParser()
 config.read('config.ini')
-kDistr = ast.literal_eval(config['Continuum']['kDistr'])
+kDistr = config['Continuum']['kDistr']
 
 ################################################################################
 #                                                                              #
@@ -30,7 +30,7 @@ def inputCheck(indict):
 
     if indict['initg']:
         f1, f2 = indict['initg']
-        wignerStructures(f1, f2)
+        wignerStructuresQChem(f1, f2)
         quit("structure.in files created in INITSTRUCT/")
 
     if indict['check']:
@@ -136,10 +136,10 @@ def wignerStructures(f1, f2):
     os.chdir(cwd+"/INITSTRUCT")
 
     linflag = input("Is molecule linear? y/[n]  ")
-    if linflag == "":
-        linflag = 0
-    elif linflag.lower() == "y":
+    if linflag.lower() == "y":
         linflag = 1
+    else:
+        linflag = 0
 
     dist_type = input("Choose the desired distribution. "
                       "Wigner = \'W\', Husimi = \'H\', "
@@ -163,6 +163,53 @@ def wignerStructures(f1, f2):
     from hortensia_latest.wigner.HarmonicGaussian import HarmonicGaussian
 
     DistClass = WignerEnsemble(HarmonicGaussian(linflag, f1, f2), temp, ncond,
+                               "structure", dist_type, excmodes)
+    DistClass.getWignerEnsemble()
+
+
+def wignerStructuresQChem(f1, f2):
+    """
+    Starts the Wigner program for the generation of initial conditions
+    """
+
+    if not os.path.exists("INITSTRUCT"):
+        os.system("mkdir INITSTRUCT")
+    else:
+        os.system("rm -rf INITSTRUCT/*")
+
+    os.system("cp %s %s INITSTRUCT"%(f1,f2))
+
+    cwd = os.getcwd()
+    os.chdir(cwd+"/INITSTRUCT")
+
+    linflag = input("Is molecule linear? y/[n]  ")
+    if linflag.lower() == "y":
+        linflag = 1
+    else:
+        linflag = 0
+
+    dist_type = input("Choose the desired distribution. "
+                      "Wigner = \'W\', Husimi = \'H\', "
+                      "|psi(x)|^2*|phi(q)|^2 for v=1: \'V1\'.    ")
+    if (dist_type.upper() == "H") or (dist_type.upper() == "V1"):
+        # excited modes only for Husimi distribution or V1
+        tmpstr   = "Enter the index of normal modes in v=1. Syntax: 1 2 3 4.   "
+        excmodes = np.asarray(input(tmpstr).split(), dtype=int)
+    else:
+        excmodes = []
+
+    if dist_type == "W":
+        # temperature effects only for Wigner distribution
+        temp = float(input("Desired temperature in K.  "))
+    else:
+        temp = 0.1
+
+    ncond = int(input("Number of initial conditions.  "))
+
+    from hortensia_latest.wigner.WignerBase import WignerEnsemble
+    from hortensia_latest.wigner.HarmonicQChem import HarmonicQChem
+
+    DistClass = WignerEnsemble(HarmonicQChem(linflag, f1, f2), temp, ncond,
                                "structure", dist_type, excmodes)
     DistClass.getWignerEnsemble()
 
