@@ -133,14 +133,28 @@ if __name__ == "__main__":
         logging.basicConfig(filename="out.out", level=logging.INFO)
 
     with open("out.out", "w") as fo:
-        versionOut  = "            HORTENSIA"
-        versionOut  = " Autoionization Dynamics Program\n"
-        versionOut += "        by Kevin and Jens\n"
-        versionOut += "---------------------------------\n"
-        versionOut += "    Program Version: %s\n"%info.__version__
-        versionOut += "---------------------------------\n"
-        versionOut += "       %s\n"%datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-        versionOut += "---------------------------------\n\n"
+        versionOut  = "\n"+15*" "+"HORTENSIA\n\n"
+        versionOut += 5*" "+"Program for the simulation of\n"
+        versionOut += 6*" "+"quantum-classical dynamics\n"
+        versionOut += 2*" "+"of vibration-induced autoionization\n"
+        versionOut += 9*" "+"in anionic molecules\n\n"
+        versionOut += 7*" "+"Developed in the group of\n"
+        versionOut += 8*" "+"Prof. Dr. Roland Mitric\n"
+        versionOut += 4*" "+"Julius-Maximilians-Universität\n"
+        versionOut += 11*" "+"Würzburg, Germany\n\n"
+        versionOut += 4*" "+"If you have questions or other\n"
+        versionOut += 9*" "+"annotations, contact\n"
+        versionOut += 4*" "+"jens.petersen@uni-wuerzburg.de\n"
+        versionOut += 39*"-"+"\n"
+        versionOut += 2*" "+"If you are publishing data obtained\n"
+        versionOut += 4*" "+"with this program, please cite:\n\n"
+        versionOut += 3*" "+"J. Chem. Phys. 158, 034107 (2023)\n"
+        versionOut += 8*" "+"DOI: 10.1063/5.0135392\n"
+        versionOut += 39*"-"+"\n"
+        versionOut += 6*" "+"Program Version: 0.2.2206.1\n"
+        versionOut += 39*"-"+"\n"
+        versionOut += 10*" "+"%s\n"%datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        versionOut += 39*"-"+"\n\n"
         fo.write(versionOut)
 
     dyn = nucD.NuclearDynamics("structure.in")
