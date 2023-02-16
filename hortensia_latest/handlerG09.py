@@ -51,7 +51,7 @@ def externalQC(stateSet, calcSet, molSet, fileNr, fo):
         aninp += "\n\nComment\n\n%i %i\n"%(charge, mult)
 
         if mult == 1:
-            neuinp += "\n\nComment\n\n%i %i\n"%(charge-1, mult+1)
+            neuinp += "\n\nComment\n\n%i %i\n"%(charge+1, mult+1)
         else:
             neuinp += "\n\nComment\n\n%i %i\n"%(charge+1, mult-1)
 
