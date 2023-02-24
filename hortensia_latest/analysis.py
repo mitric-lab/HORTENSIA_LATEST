@@ -358,15 +358,12 @@ def ionDistance(trajs, atomlist, wavepacket):
     if isinstance(atomlist[0], int):
         atomlist = [atomlist]
 
-    if wavepacket:
-        wp = 'WP'
-    else:
-        wp = ''
+    wp = ('WP' if wavepacket else '')
 
-    if not os.path.isdir("HoppingDistances%s"%wp):
-        os.system("mkdir HoppingDistances%s"%wp)
-    if os.listdir("HoppingDistances%s"%wp):
-        os.system("rm -r HoppingDistances%s/*"%wp)
+    os.system("mkdir -p HoppingDistances%s"%wp)
+    os.system("rm -rf HoppingDistances%s/*"%wp)
+    os.system("mkdir -p AllDistances%s"%wp)
+    os.system("rm -rf AllDistances%s/*"%wp)
 
     for i in range(trajs):
         if not os.path.isdir("TRAJ_%i.out"%i):
@@ -386,20 +383,31 @@ def ionDistance(trajs, atomlist, wavepacket):
         steps = np.asarray(freeEl[:,0]*5, dtype=int)
 
         with open("TRAJ_%i.out/dynamics.xyz"%i,"r") as f:
-            xyz = f.readlines()
-        nat = int(xyz[0])
+            l = f.readlines()
+        nat = int(l[0])
+
+        totsteps = len(l)//(nat+2)
+        xyz = np.zeros((totsteps, nat, 3), dtype=float)
+
+        l12 = []
+        [l12.append([]) for _ in range(len(atomlist))]
+        for t in range(totsteps):
+            for x in range(nat):
+                xyz[t, x] = l[t*(nat+2)+x+2].split()[1:4]
+            
+            for j, at in enumerate(atomlist):
+                l12[j] += [la.norm(xyz[t, at[1]-1] - xyz[t, at[0]-1])]
+
+        for j, at in enumerate(atomlist):
+            with open("AllDistances%s/%i-%i.dat"%(wp,at[0],at[1]),"a") as f:
+                for t, d in enumerate(l12[j]):
+                    f.write("%5i %12.9f\n"%(t, d))
 
         for j in atomlist:
             with open("HoppingDistances%s/%i-%i.dat"%(wp,j[0],j[1]),"a") as f:
                 for k in steps:
-                    a1  = np.asarray(xyz[(nat+2)*k+1+j[0]].split()[1:],
-                                     dtype=float)
-                    a2  = np.asarray(xyz[(nat+2)*k+1+j[1]].split()[1:],
-                                     dtype=float)
-
-                    l12 = la.norm(a1 - a2)
-
-                    f.write("%5i %12.9f\n"%(k,l12))
+                    l12 = la.norm(xyz[k, j[1]-1] - xyz[k, j[0]-1])
+                    f.write("%5i %12.9f\n"%(k, l12))
 
 
 def hoppingAngle(trajs, inp, wavepacket):
@@ -420,14 +428,12 @@ def hoppingAngle(trajs, inp, wavepacket):
     if isinstance(inp[0], int):
         inp = [inp]
 
-    if wavepacket:
-        wp = 'WP'
-    else:
-        wp = ''
+    wp = ('WP' if wavepacket else '')
 
-    if not os.path.isdir("HoppingAngles%s"%wp):
-        os.system("mkdir HoppingAngles%s"%wp)
+    os.system("mkdir -p HoppingAngles%s"%wp)
     os.system("rm -rf HoppingAngles%s/*"%wp)
+    os.system("mkdir -p AllAngles%s"%wp)
+    os.system("rm -rf AllAngles%s/*"%wp)
 
     for i in range(trajs):
         if not os.path.isdir("TRAJ_%i.out"%i):
@@ -447,22 +453,41 @@ def hoppingAngle(trajs, inp, wavepacket):
         steps = np.asarray(freeEl[:,0]*5, dtype=int)
 
         with open("TRAJ_%i.out/dynamics.xyz"%i,"r") as f:
-            xyz = f.readlines()
-        nat = int(xyz[0])
+            l = f.readlines()
+        nat = int(l[0])
+
+        totsteps = len(l)//(nat+2)
+        xyz = np.zeros((totsteps, nat, 3), dtype=float)
+
+        angle = []
+        [angle.append([]) for _ in range(len(inp))]
+        for t in range(totsteps):
+            for x in range(nat):
+                xyz[t, x] = l[t*(nat+2)+x+2].split()[1:4]
+            
+            for j, at in enumerate(inp):
+                d1 = xyz[t, at[0]-1] - xyz[t, at[1]-1]
+                d2 = xyz[t, at[2]-1] - xyz[t, at[1]-1]
+
+                a = 180 / np.pi * (np.arccos(np.dot(d1, d2) /
+                                   (la.norm(d1) * la.norm(d2))))
+                if a > 180:
+                    a = 360 - a
+
+                angle[j] += [a]
+
+        for j, at in enumerate(inp):
+            filename = "%i-%i-%i.dat"%(at[0], at[1], at[2])
+            with open("AllAngles%s/%s"%(wp, filename), "a") as f:
+                for t, a in enumerate(angle[j]):
+                    f.write("%5i %6.3f\n"%(t, a))
 
         for j in inp:
-            filename = "%i-%i-%i.dat"%(j[0],j[1],j[2])
-
-            with open("HoppingAngles%s/%s"%(wp,filename),"a") as f:
+            filename = "%i-%i-%i.dat"%(j[0], j[1], j[2])
+            with open("HoppingAngles%s/%s"%(wp, filename),"a") as f:
                 for k in steps:
-                    a1 = np.asarray(xyz[(nat+2)*k+1+j[0]].split()[1:],
-                                    dtype=float)
-                    a2 = np.asarray(xyz[(nat+2)*k+1+j[1]].split()[1:],
-                                    dtype=float)
-                    a3 = np.asarray(xyz[(nat+2)*k+1+j[2]].split()[1:],
-                                    dtype=float)
-
-                    d1, d2 = a1-a2, a3-a2
+                    d1 = xyz[k, at[0]-1] - xyz[k, at[1]-1]
+                    d2 = xyz[k, at[2]-1] - xyz[k, at[1]-1]
 
                     angle = 180 / np.pi * (np.arccos(np.dot(d1, d2) /
                                           (la.norm(d1) * la.norm(d2))))
@@ -489,14 +514,13 @@ def hoppingDihedrals(trajs, inp, wavepacket):
     inp = ast.literal_eval(inp)
     if isinstance(inp[0], int):
         inp = [inp]
-    if wavepacket:
-        wp = 'WP'
-    else:
-        wp = ''
 
-    if not os.path.isdir("HoppingDihedrals%s"%wp):
-        os.system("mkdir HoppingDihedrals%s"%wp)
+    wp = ('WP' if wavepacket else '')
+
+    os.system("mkdir -p HoppingDihedrals%s"%wp)
     os.system("rm -rf HoppingDihedrals%s/*"%wp)
+    os.system("mkdir -p AllDihedrals%s"%wp)
+    os.system("rm -rf AllDihedrals%s/*"%wp)
 
     for i in range(trajs):
         if not os.path.isdir("TRAJ_%i.out"%i):
@@ -516,25 +540,50 @@ def hoppingDihedrals(trajs, inp, wavepacket):
         steps = np.asarray(freeEl[:,0]*5, dtype=int)
 
         with open("TRAJ_%i.out/dynamics.xyz"%i,"r") as f:
-            xyz = f.readlines()
-        nat = int(xyz[0])
+            l = f.readlines()
+        nat = int(l[0])
+
+        totsteps = len(l)//(nat+2)
+        xyz = np.zeros((totsteps, nat, 3), dtype=float)
+
+        angle = []
+        [angle.append([]) for _ in range(len(inp))]
+        for t in range(totsteps):
+            for x in range(nat):
+                xyz[t, x] = l[t*(nat+2)+x+2].split()[1:4]
+            
+            for j, at in enumerate(inp):
+                d1  = xyz[t, at[0]-1] - xyz[t, at[1]-1]
+                d2  = xyz[t, at[3]-1] - xyz[t, at[2]-1]
+                dx  = xyz[t, at[2]-1] - xyz[t, at[1]-1]
+
+                d1 -= np.dot(d1, dx) / la.norm(dx)**2 * dx
+                d2 -= np.dot(d2, dx) / la.norm(dx)**2 * dx
+
+                det = np.dot(dx, np.cross(d1, d2))
+                testa = np.arctan2(det, np.dot(d1, d2))
+
+                a = 180/np.pi * (np.arccos(np.dot(d1, d2) /
+                                           (la.norm(d1) * la.norm(d2))))
+                if testa > 0:
+                    a = 360 - a
+
+                angle[j] += [a]
+
+        for j, at in enumerate(inp):
+            filename = "%i-%i-%i-%i.dat"%(at[0], at[1], at[2], at[3])
+            with open("AllDihedrals%s/%s"%(wp, filename), "a") as f:
+                for t, a in enumerate(angle[j]):
+                    f.write("%5i %6.3f\n"%(t, a))
 
         for j in inp:
             filename = "%i-%i-%i-%i.dat"%(j[0], j[1], j[2], j[3])
 
             with open("HoppingDihedrals%s/%s"%(wp,filename),"a") as f:
                 for k in steps:
-                    a0 = np.asarray(xyz[(nat+2)*k+1+j[0]].split()[1:],
-                                    dtype=float)
-                    a1 = np.asarray(xyz[(nat+2)*k+1+j[1]].split()[1:],
-                                    dtype=float)
-                    a2 = np.asarray(xyz[(nat+2)*k+1+j[2]].split()[1:],
-                                    dtype=float)
-                    a3 = np.asarray(xyz[(nat+2)*k+1+j[3]].split()[1:],
-                                    dtype=float)
-
-                    d1, d2 = a0 - a1, a3 - a2
-                    dx = a2 - a1
+                    d1  = xyz[k, at[0]-1] - xyz[k, at[1]-1]
+                    d2  = xyz[k, at[3]-1] - xyz[k, at[2]-1]
+                    dx  = xyz[k, at[2]-1] - xyz[k, at[1]-1]
 
                     d1 -= np.dot(d1,dx)/la.norm(dx)**2*dx
                     d2 -= np.dot(d2,dx)/la.norm(dx)**2*dx
