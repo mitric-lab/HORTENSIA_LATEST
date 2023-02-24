@@ -62,27 +62,34 @@ if __name__ == "__main__":
     parser.add_argument("-n", "--ntrajs", help="total number of " + \
                         "trajectories, necessary for options -c,-e,-d,-a,-dh",
                         type=int)
-    parser.add_argument("-c", "--check", help="check status of trajectory "
-                        "output folders and evaluate state population",
+    parser.add_argument("-c", "--check", help="R|requires option --ntrajs \n"
+                        "check status of trajectory output folders and "
+                        "evaluate state population", action="store_true")
+    parser.add_argument("-e", "--electron", help="R|requires option --ntrajs \n"
+                        "evaluate the k vectors and energy of the free "
+                        "electrons the trajectories \nhopped in", 
                         action="store_true")
-    parser.add_argument("-e", "--electron", help="evaluate the k vectors and "
-                        "energy of the free electrons the trajectories "
-                        "hopped in", action="store_true")
-    parser.add_argument("-d", "--distance", help="R|calculate the atomic "
-                        "distances between selected atoms at hopping steps\n"
-                        "DLIST is a list formatted as follows: "
-                        "[[1,2],[3,4],...] \nthis will produce output files "
-                        "in the folder 'HoppingDistances'", dest="dlist")
-    parser.add_argument("-a", "--angle", help="R|calculate selected " + \
-                        "molecular angles at hopping steps\n"
+    parser.add_argument("-d", "--distance", help="R|requires option --ntrajs \n"
+                        "calculate the atomic distances between selected atoms "
+                        "at hopping steps \nDLIST is a list formatted as "
+                        "follows: [[1,2],[3,4],...] \nwith indices starting at "
+                        "1 for the first atom of a molecule \nthis will "
+                        "produce output files in the folder 'HoppingDistances'", 
+                        dest="dlist")
+    parser.add_argument("-a", "--angle", help="R|requires option --ntrajs \n"
+                        "calculate selected molecular angles at hopping steps\n"
                         "ALIST is a list formatted as follows: "
-                        "[[1,2,3],[2,3,4],...] \nthis will produce output "
-                        "files in the folder 'HoppingAngles'", dest="alist")
-    parser.add_argument("-dh", "--dihedral", help="R|calculate selected "
-                        "dihedral angles at hopping steps\n"
-                        "DHLIST is a list formatted as follows: "
-                        "[[1,2,3,4],[2,3,4,5],...]\nthis will produce output "
-                        "files in the folder 'HoppingDihedral'", dest="dhlist")
+                        "[[1,2,3],[2,3,4],...] \nwith indices starting at "
+                        "1 for the first atom of a molecule \nthis will "
+                        "produce output files in the folder 'HoppingAngles'", 
+                        dest="alist")
+    parser.add_argument("-dh", "--dihedral", help="R|requires option --ntrajs "
+                        "\ncalculate selected dihedral angles at hopping "
+                        "steps\nDHLIST is a list formatted as follows: "
+                        "[[1,2,3,4],[2,3,4,5],...]\nwith indices starting at "
+                        "1 for the first atom of a molecule \nthis will "
+                        "produce output files in the folder 'HoppingDihedral'", 
+                        dest="dhlist")
     parser.add_argument("-wp", "--wavepacket", help="R|evaluate results of "
                         "wavepacket hopping. \ndefault: 'False', which means "
                         "that single state hopping is evaluated",
