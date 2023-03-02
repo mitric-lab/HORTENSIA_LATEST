@@ -30,6 +30,11 @@ def inputCheck(indict):
 
     if indict['initg']:
         f1, f2 = indict['initg']
+        wignerStructures(f1, f2)
+        quit("structure.in files created in INITSTRUCT/")
+
+    if indict['initq']:
+        f1, f2 = indict['initq']
         wignerStructuresQChem(f1, f2)
         quit("structure.in files created in INITSTRUCT/")
 
@@ -399,15 +404,15 @@ def ionDistance(trajs, atomlist, wavepacket):
                 l12[j] += [la.norm(xyz[t, at[1]-1] - xyz[t, at[0]-1])]
 
         for j, at in enumerate(atomlist):
-            with open("AllDistances%s/%i-%i.dat"%(wp,at[0],at[1]),"a") as f:
+            filename = "%i-%i.dat"%(at[0], at[1])
+            with open("AllDistances%s/%s"%(wp, filename),"a") as f:
                 for t, d in enumerate(l12[j]):
                     f.write("%5i %12.9f\n"%(t, d))
 
-        for j in atomlist:
-            with open("HoppingDistances%s/%i-%i.dat"%(wp,j[0],j[1]),"a") as f:
+            with open("HoppingDistances%s/%s"%(wp, filename),"a") as f:
                 for k in steps:
-                    l12 = la.norm(xyz[k, j[1]-1] - xyz[k, j[0]-1])
-                    f.write("%5i %12.9f\n"%(k, l12))
+                    lh = la.norm(xyz[k, at[1]-1] - xyz[k, at[0]-1])
+                    f.write("%5i %12.9f\n"%(k, lh))
 
 
 def hoppingAngle(trajs, inp, wavepacket):
@@ -482,19 +487,17 @@ def hoppingAngle(trajs, inp, wavepacket):
                 for t, a in enumerate(angle[j]):
                     f.write("%5i %6.3f\n"%(t, a))
 
-        for j in inp:
-            filename = "%i-%i-%i.dat"%(j[0], j[1], j[2])
             with open("HoppingAngles%s/%s"%(wp, filename),"a") as f:
                 for k in steps:
                     d1 = xyz[k, at[0]-1] - xyz[k, at[1]-1]
                     d2 = xyz[k, at[2]-1] - xyz[k, at[1]-1]
 
-                    angle = 180 / np.pi * (np.arccos(np.dot(d1, d2) /
-                                          (la.norm(d1) * la.norm(d2))))
-                    if angle > 180:
-                        angle = 360 - angle
+                    a = 180 / np.pi * (np.arccos(np.dot(d1, d2) /
+                                                 (la.norm(d1) * la.norm(d2))))
+                    if a > 180:
+                        a = 360 - a
 
-                    f.write("%5i %6.3f\n"%(k,angle))
+                    f.write("%5i %6.3f\n"%(k,a))
 
 
 def hoppingDihedrals(trajs, inp, wavepacket):
@@ -576,9 +579,6 @@ def hoppingDihedrals(trajs, inp, wavepacket):
                 for t, a in enumerate(angle[j]):
                     f.write("%5i %6.3f\n"%(t, a))
 
-        for j in inp:
-            filename = "%i-%i-%i-%i.dat"%(j[0], j[1], j[2], j[3])
-
             with open("HoppingDihedrals%s/%s"%(wp,filename),"a") as f:
                 for k in steps:
                     d1  = xyz[k, at[0]-1] - xyz[k, at[1]-1]
@@ -591,12 +591,12 @@ def hoppingDihedrals(trajs, inp, wavepacket):
                     det = np.dot(dx, np.cross(d1,d2))
                     testa = np.arctan2(det, np.dot(d1,d2))
 
-                    angle = 180/np.pi * (np.arccos(np.dot(d1, d2) /
-                                         (la.norm(d1) * la.norm(d2))))
+                    a = 180/np.pi * (np.arccos(np.dot(d1, d2) /
+                                               (la.norm(d1) * la.norm(d2))))
                     if testa > 0:
-                        angle = 360 - angle
+                        a = 360 - a
 
-                    f.write("%5i %6.3f\n"%(k,angle))
+                    f.write("%5i %6.3f\n"%(k, a))
 
 
 def cleanFolder():
