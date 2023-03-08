@@ -85,6 +85,6 @@ q22 = "|\u03a8(x)|\u00B2|\u03a8(q)|\u00B2\t: distribution according to " + \
 q23 = "Vibrational modes sorted by rising energy, starting with index 1\n\n" + \
       "Temperature in K"
 
-qb = "The 'Quit Now' button exits the program.\n\n"+\
+qb = "Generates input files and exits the program.\n\n"+\
      "A prompt will open that lets you generate input according to the "+\
      "provided\nsettings."
