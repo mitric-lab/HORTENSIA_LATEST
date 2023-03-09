@@ -5,10 +5,9 @@ import os
 import tkinter as tk
 
 import hortensia_latest.gui.infos as gI
-#from hortensia_latest.gui.baseWindow import BaseWin
-from baseWindow import BaseWin
-from singleWindow import OneWin
-from ensembleWindow import AllWin
+from hortensia_latest.gui.baseWindow import BaseWin
+from hortensia_latest.gui.singleWindow import OneWin
+from hortensia_latest.gui.ensembleWindow import AllWin
 
 colorbg = "#f5f5f5"
 colorab = '#fcfcfc'
