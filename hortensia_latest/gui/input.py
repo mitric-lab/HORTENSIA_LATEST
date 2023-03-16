@@ -108,7 +108,8 @@ def confirm():
             saved.geometry("300x120")
             saved.resizable(False,False)
             saved.configure(bg='white')
-            saved.iconphoto(False, tk.PhotoImage(file=hortensiacwd+'logo_new.png'))
+            saved.iconphoto(False,
+                            tk.PhotoImage(file=hortensiacwd+'logo_new.png'))
             tk.Label(saved, image=logoS, bg='white'
                 ).place(x=0, y=0, width=300, height=120)
             tk.Label(saved, text='config.ini\nwritten successfully!',
@@ -142,15 +143,15 @@ def confirm():
     tk.Frame(answer, bg=coloruw, width=270, height=2).place(x=15, y=63)
 
     tk.Button(answer,
-        text="Save & Quit", bg="white",
+        text="Save & Quit", bg="white", fg='black', activeforeground='black',
         command=lambda: confirmclick(0)).place(
             x=15, y=80, width=85, height=30)
     tk.Button(answer,
-        text="Don't Save", bg="white",
+        text="Don't Save", bg="white", fg='black', activeforeground='black',
         command=lambda: confirmclick(1)).place(
             x=150, y=80, width=85, height=30, anchor='n')
     tk.Button(answer,
-        text="Cancel", bg="white",
+        text="Cancel", bg="white", fg='black', activeforeground='black',
         command=lambda: confirmclick(2)).place(
             x=285, y=80, width=85, height=30, anchor='ne')
 
@@ -324,8 +325,8 @@ steps = tk.IntVar(value=5000)
 tk.Frame(frame1, bg=colorbg, width=270, height=45).place(x=20, y=60)
 tk.Label(frame1, text="Number of nuclear dynamics steps", bg=coloruw,
     fg='white', font=("Helvetica", 10)).place(x=20, y=60, width=270, height=20)
-tk.Entry(frame1, bg=colorbg, textvariable=steps, font=("Helvetica", 9),
-    justify='center', borderwidth=0, highlightthickness=0
+tk.Entry(frame1, bg=colorbg, fg='black', textvariable=steps,
+    font=("Helvetica", 9), justify='center', borderwidth=0, highlightthickness=0
     ).place(x=20, y=80, width=270, height=25)
 
 # timestep
@@ -333,8 +334,8 @@ timestep = tk.DoubleVar(value=0.2)
 tk.Frame(frame1, bg=colorbg, width=270, height=45).place(x=20, y=115)
 tk.Label(frame1, text="Nuclear dynamics time step (fs)", bg=coloruw, fg='white',
     font=("Helvetica", 10)).place(x=20, y=115, width=270, height=20)
-tk.Entry(frame1, bg=colorbg, textvariable=timestep, font=("Helvetica", 9),
-    justify='center', borderwidth=0, highlightthickness=0
+tk.Entry(frame1, bg=colorbg, fg='black', textvariable=timestep,
+    font=("Helvetica", 9), justify='center', borderwidth=0, highlightthickness=0
     ).place(x=20, y=135, width=270, height=25)
 
 # number of popsteps per nuclear step
@@ -342,8 +343,8 @@ popsteps = tk.IntVar(value=100)
 tk.Frame(frame1, bg=colorbg, width=270, height=45).place(x=20, y=170)
 tk.Label(frame1, text="Number of integration steps", bg=coloruw, fg='white',
     font=("Helvetica", 10)).place(x=20, y=170, width=270, height=20)
-tk.Entry(frame1, bg=colorbg, textvariable=popsteps, font=("Helvetica", 9),
-    justify='center', borderwidth=0, highlightthickness=0
+tk.Entry(frame1, bg=colorbg, fg='black', textvariable=popsteps,
+    font=("Helvetica", 9), justify='center', borderwidth=0, highlightthickness=0
     ).place(x=20, y=190, width=270, height=25)
 # tooltip
 q0 = tk.Label(frame1, image=question, bg=coloruw)
@@ -357,8 +358,8 @@ nrpertraj = tk.IntVar(value=100)
 tk.Frame(frame1, bg=colorbg, width=270, height=45).place(x=20, y=225)
 tk.Label(frame1, text="Number of subtrajectories", bg=coloruw, fg='white',
     font=("Helvetica", 10)).place(x=20, y=225, width=270, height=20)
-tk.Entry(frame1, bg=colorbg, textvariable=nrpertraj, font=("Helvetica", 9),
-    justify='center', borderwidth=0, highlightthickness=0
+tk.Entry(frame1, bg=colorbg, fg='black', textvariable=nrpertraj,
+    font=("Helvetica", 9), justify='center', borderwidth=0, highlightthickness=0
     ).place(x=20, y=245, width=270, height=25)
 # tooltip
 q1 = tk.Label(frame1, image=question, bg=coloruw)
@@ -372,10 +373,12 @@ tk.Frame(frame1, bg=colorbg, width=270, height=45).place(x=20, y=280)
 tk.Label(frame1, text="Trajectory restart", bg=coloruw, fg='white',
     font=("Helvetica", 10)).place(x=20, y=280, width=270, height=20)
 tk.Radiobutton(frame1, text='New Trajectory', value=False, variable=restart,
-    bg=colorbg, highlightthickness=0, activebackground=colorab,
-    font=("Helvetica", 9)).place(x=20, y=300, width=135, height=25)
+    bg=colorbg, fg='black', highlightthickness=0, activebackground=colorab,
+    activeforeground='black', font=("Helvetica", 9)
+    ).place(x=20, y=300, width=135, height=25)
 tk.Radiobutton(frame1, text='Restart', value=True, variable=restart, bg=colorbg,
-    highlightthickness=0, activebackground=colorab, font=("Helvetica", 9)
+    fg='black', highlightthickness=0, activebackground=colorab,
+    activeforeground='black', font=("Helvetica", 9)
     ).place(x=155, y=300, width=135, height=25)
 
 # headline
@@ -388,8 +391,8 @@ output = tk.StringVar(value='out.out')
 tk.Frame(frame1, bg=colorbg, width=270, height=45).place(x=310, y=60)
 tk.Label(frame1, text="Output file name", bg=coloruw, fg='white',
     font=("Helvetica", 10)).place(x=310, y=60, width=270, height=20)
-tk.Entry(frame1, bg=colorbg, textvariable=output, font=("Helvetica", 9),
-    justify='center', borderwidth=0, highlightthickness=0
+tk.Entry(frame1, bg=colorbg, fg='black', textvariable=output,
+    font=("Helvetica", 9), justify='center', borderwidth=0, highlightthickness=0
     ).place(x=310, y=80, width=270, height=25)
 
 # couplings print options
@@ -403,12 +406,14 @@ tk.Frame(frame1, bg=colorbg, width=270, height=155).place(x=310, y=60)
 tk.Label(frame1, text="Print level of calculated variables", bg=coloruw,
     fg='white', font=("Helvetica", 10)).place(x=310, y=60, width=270, height=20)
 
-tk.Label(frame1, text="total couplings", bg=colorbg, font=("Helvetica", 9)
-    ).place(x=310, y=80, width=180, height=25)
+tk.Label(frame1, text="total couplings", bg=colorbg, fg='black',
+    font=("Helvetica", 9)).place(x=310, y=80, width=180, height=25)
 coupOpt = tk.OptionMenu(frame1, coupprint, *['full', 'summed', 'none'])
-coupOpt.configure(bg=colorbg, borderwidth=0, highlightthickness=0,
+coupOpt.configure(bg=colorbg, fg='black', activebackground=colorab,
+    activeforeground='black', borderwidth=0, highlightthickness=0,
     font=("Helvetica", 9))
-coupOpt['menu'].configure(bg='white')
+coupOpt['menu'].configure(bg='white', fg='black', activebackground=colorab,
+    activeforeground='black')
 coupOpt.place(x=580, y=80, width=90, height=25, anchor='ne')
 # tooltip
 q2 = tk.Label(frame1, image=questionB, bg=colorbg)
@@ -416,12 +421,14 @@ q2.place(x=445, y=87, width=10, height=10)
 q2.bind("<Enter>", lambda event, arg=gI.q2: hover1(event, arg))
 q2.bind("<Leave>", lambda event, arg=""   : hover1(event, arg))
 
-tk.Label(frame1, text="non-ad./diab. couplings", bg=colorbg,
+tk.Label(frame1, text="non-ad./diab. couplings", bg=colorbg, fg='black',
     font=("Helvetica", 9)).place(x=310, y=107, width=180, height=25)
 nadiOpt = tk.OptionMenu(frame1, nadiaprint, *['full', 'summed', 'none'])
-nadiOpt.configure(bg=colorbg, borderwidth=0, highlightthickness=0,
+nadiOpt.configure(bg=colorbg, fg='black', activebackground=colorab,
+    activeforeground='black', borderwidth=0, highlightthickness=0,
     font=("Helvetica", 9))
-nadiOpt['menu'].configure(bg='white')
+nadiOpt['menu'].configure(bg='white', fg='black', activebackground=colorab,
+    activeforeground='black')
 nadiOpt.place(x=580, y=107, width=90, height=25, anchor='ne')
 # tooltip
 q3 = tk.Label(frame1, image=questionB, bg=colorbg)
@@ -429,12 +436,14 @@ q3.place(x=471, y=114, width=10, height=10)
 q3.bind("<Enter>", lambda event, arg=gI.q2: hover1(event, arg))
 q3.bind("<Leave>", lambda event, arg=""   : hover1(event, arg))
 
-tk.Label(frame1, text="coefficients", bg=colorbg, font=("Helvetica", 9)
-    ).place(x=310, y=134, width=180, height=25)
+tk.Label(frame1, text="coefficients", bg=colorbg, fg='black',
+    font=("Helvetica", 9)).place(x=310, y=134, width=180, height=25)
 coefOpt = tk.OptionMenu(frame1, coefprint, *['full', 'summed', 'none'])
-coefOpt.configure(bg=colorbg, borderwidth=0, highlightthickness=0,
+coefOpt.configure(bg=colorbg, fg='black', activebackground=colorab,
+    activeforeground='black', borderwidth=0, highlightthickness=0,
     font=("Helvetica", 9))
-coefOpt['menu'].configure(bg='white')
+coefOpt['menu'].configure(bg='white', fg='black', activebackground=colorab,
+    activeforeground='black')
 coefOpt.place(x=580, y=134, width=90, height=25, anchor='ne')
 # tooltip
 q4 = tk.Label(frame1, image=questionB, bg=colorbg)
@@ -442,12 +451,14 @@ q4.place(x=435, y=141, width=10, height=10)
 q4.bind("<Enter>", lambda event, arg=gI.q4: hover1(event, arg))
 q4.bind("<Leave>", lambda event, arg=""   : hover1(event, arg))
 
-tk.Label(frame1, text="probabilities", bg=colorbg, font=("Helvetica", 9)
-    ).place(x=310, y=161, width=180, height=25)
+tk.Label(frame1, text="probabilities", bg=colorbg, fg='black',
+    font=("Helvetica", 9)).place(x=310, y=161, width=180, height=25)
 probOpt = tk.OptionMenu(frame1, probprint, *['full', 'summed', 'none'])
-probOpt.configure(bg=colorbg, borderwidth=0, highlightthickness=0,
+probOpt.configure(bg=colorbg, fg='black', activebackground=colorab,
+    activeforeground='black', borderwidth=0, highlightthickness=0,
     font=("Helvetica", 9))
-probOpt['menu'].configure(bg='white')
+probOpt['menu'].configure(bg='white', fg='black', activebackground=colorab,
+    activeforeground='black')
 probOpt.place(x=580, y=161, width=90, height=25, anchor='ne')
 # tooltip
 q5 = tk.Label(frame1, image=questionB, bg=colorbg)
@@ -455,12 +466,14 @@ q5.place(x=437, y=168, width=10, height=10)
 q5.bind("<Enter>", lambda event, arg=gI.q5: hover1(event, arg))
 q5.bind("<Leave>", lambda event, arg=""   : hover1(event, arg))
 
-tk.Label(frame1, text="energies", bg=colorbg, font=("Helvetica", 9)
+tk.Label(frame1, text="energies", bg=colorbg, fg='black', font=("Helvetica", 9)
     ).place(x=310, y=188, width=180, height=25)
 enerOpt = tk.OptionMenu(frame1, enerprint, *['full', 'none'])
-enerOpt.configure(bg=colorbg, borderwidth=0, highlightthickness=0,
+enerOpt.configure(bg=colorbg, fg='black', activebackground=colorab,
+    activeforeground='black', borderwidth=0, highlightthickness=0,
     font=("Helvetica", 9))
-enerOpt['menu'].configure(bg='white')
+enerOpt['menu'].configure(bg='white', fg='black', activebackground=colorab,
+    activeforeground='black')
 enerOpt.place(x=580, y=188, width=90, height=25, anchor='ne')
 # tooltip
 q6 = tk.Label(frame1, image=questionB, bg=colorbg)
@@ -475,9 +488,11 @@ tk.Label(frame1, text="Print level", bg=coloruw, fg='white',
     font=("Helvetica",10)).place(x=310, y=225, width=270, height=20)
 optMenu1 = tk.OptionMenu(frame1, printlevel, *[-1, 0, 1],
     command=lambda event, arg=printlevel: disableSkip(event, arg))
-optMenu1.configure(bg=colorbg, borderwidth=0, highlightthickness=0,
+optMenu1.configure(bg=colorbg, fg='black', activebackground=colorab,
+    activeforeground='black', borderwidth=0, highlightthickness=0,
     font=("Helvetica", 9))
-optMenu1['menu'].configure(bg='white')
+optMenu1['menu'].configure(bg='white', fg='black', activebackground=colorab,
+    activeforeground='black')
 optMenu1.place(x=310, y=245, width=270, height=25)
 # tooltip
 q7 = tk.Label(frame1, image=question, bg=coloruw)
@@ -490,7 +505,7 @@ skipstep = tk.IntVar(value=0)
 tk.Frame(frame1, bg=colorbg, width=270, height=45).place(x=310, y=280)
 tk.Label(frame1, text="Skipped steps", bg=coloruw, fg='white',
     font=("Helvetica", 10)).place(x=310, y=280, width=270, height=20)
-skipPrint = tk.Entry(frame1, bg=colorbg, textvariable=skipstep,
+skipPrint = tk.Entry(frame1, bg=colorbg, fg='black', textvariable=skipstep,
     font=("Helvetica", 9), justify='center', borderwidth=0,
     highlightthickness=0, state='disabled')
 skipPrint.place(x=310, y=300, width=270, height=25)
@@ -525,8 +540,8 @@ charge = tk.IntVar(value=-1)
 tk.Frame(frame2, bg=colorbg, width=270, height=45).place(x=20, y=60)
 tk.Label(frame2, text="Molecular charge", bg=coloruw, fg='white',
     font=("Helvetica", 10)).place(x=20, y=60, width=270, height=20)
-tk.Entry(frame2, bg=colorbg, textvariable=charge, font=("Helvetica", 9),
-    justify='center', borderwidth=0, highlightthickness=0
+tk.Entry(frame2, bg=colorbg, fg='black', textvariable=charge,
+    font=("Helvetica", 9), justify='center', borderwidth=0, highlightthickness=0
     ).place(x=20, y=80, width=270, height=25)
 
 # multiplicity
@@ -534,8 +549,8 @@ mult = tk.IntVar(value=2)
 tk.Frame(frame2, bg=colorbg, width=270, height=45).place(x=20, y=115)
 tk.Label(frame2, text="Multiplicity of system", bg=coloruw, fg='white',
     font=("Helvetica", 10)).place(x=20, y=115, width=270, height=20)
-tk.Entry(frame2, bg=colorbg, textvariable=mult, font=("Helvetica", 9),
-    justify='center', borderwidth=0, highlightthickness=0
+tk.Entry(frame2, bg=colorbg, fg='black', textvariable=mult,
+    font=("Helvetica", 9), justify='center', borderwidth=0, highlightthickness=0
     ).place(x=20, y=135, width=270, height=25)
 
 # QC Method
@@ -544,22 +559,25 @@ tk.Frame(frame2, bg=colorbg, width=270, height=45).place(x=310, y=60)
 tk.Label(frame2, text="External quantum chemistry program", bg=coloruw,
     fg='white', font=("Helvetica", 10)).place(x=310, y=60, width=270, height=20)
 tk.Radiobutton(frame2, text='Gaussian09', value='g09', variable=qcmethod,
-    bg=colorbg, highlightthickness=0, activebackground=colorab,
-    font=("Helvetica", 9)).place(x=310, y=80, width=90, height=25)
+    bg=colorbg, fg='black', highlightthickness=0, activebackground=colorab,
+    activeforeground='black', font=("Helvetica", 9)
+    ).place(x=310, y=80, width=90, height=25)
 tk.Radiobutton(frame2, text='Gaussian16', value='g16', variable=qcmethod,
-    bg=colorbg, highlightthickness=0, activebackground=colorab,
-    font=("Helvetica", 9)).place(x=400, y=80, width=90, height=25)
+    bg=colorbg, fg='black', highlightthickness=0, activebackground=colorab,
+    activeforeground='black', font=("Helvetica", 9)
+    ).place(x=400, y=80, width=90, height=25)
 tk.Radiobutton(frame2, text='QChem', value='qchem', variable=qcmethod,
-    bg=colorbg, highlightthickness=0, activebackground=colorab,
-    font=("Helvetica", 9)).place(x=490, y=80, width=90, height=25)
+    bg=colorbg, fg='black', highlightthickness=0, activebackground=colorab,
+    activeforeground='black', font=("Helvetica", 9)
+    ).place(x=490, y=80, width=90, height=25)
 
 # functional
 func = tk.StringVar(value='wB97XD')
 tk.Frame(frame2, bg=colorbg, width=270, height=45).place(x=310, y=115)
 tk.Label(frame2, text="Functional for DFT calculation", bg=coloruw, fg='white',
     font=("Helvetica", 10)).place(x=310, y=115, width=270, height=20)
-tk.Entry(frame2, bg=colorbg, textvariable=func, font=("Helvetica", 9),
-    justify='center', borderwidth=0, highlightthickness=0
+tk.Entry(frame2, bg=colorbg, fg='black', textvariable=func,
+    font=("Helvetica", 9), justify='center', borderwidth=0, highlightthickness=0
     ).place(x=310, y=135, width=270, height=25)
 
 # Number of threads
@@ -568,8 +586,8 @@ tk.Frame(frame2, bg=colorbg, width=270, height=45).place(x=310, y=170)
 tk.Label(frame2, text="Number of threads for DFT calculation", bg=coloruw,
     fg='white', font=("Helvetica", 10)
     ).place(x=310, y=170, width=270, height=20)
-tk.Entry(frame2, bg=colorbg, textvariable=Nproc, font=("Helvetica", 9),
-    justify='center', borderwidth=0, highlightthickness=0
+tk.Entry(frame2, bg=colorbg, fg='black', textvariable=Nproc,
+    font=("Helvetica", 9), justify='center', borderwidth=0, highlightthickness=0
     ).place(x=310, y=190, width=270, height=25)
 
 # SCF convergence
@@ -578,8 +596,8 @@ tk.Frame(frame2, bg=colorbg, width=270, height=45).place(x=310, y=225)
 tk.Label(frame2, text="SCF convergence criterion (10\u207B\u207F)", bg=coloruw,
     fg='white', font=("Helvetica", 10)
     ).place(x=310, y=225, width=270, height=20)
-tk.Entry(frame2, bg=colorbg, textvariable=convergence, font=("Helvetica", 9),
-    justify='center', borderwidth=0, highlightthickness=0
+tk.Entry(frame2, bg=colorbg, fg='black', textvariable=convergence,
+    font=("Helvetica", 9), justify='center', borderwidth=0, highlightthickness=0
     ).place(x=310, y=245, width=270, height=25)
 
 # maximum number of SCF iterations
@@ -588,8 +606,8 @@ tk.Frame(frame2, bg=colorbg, width=270, height=45).place(x=310, y=280)
 tk.Label(frame2, text="Maximum number of SCF iterations", bg=coloruw,
     fg='white', font=("Helvetica", 10)
     ).place(x=310, y=280, width=270, height=20)
-tk.Entry(frame2, bg=colorbg, textvariable=maxiter, font=("Helvetica", 9),
-    justify='center', borderwidth=0, highlightthickness=0
+tk.Entry(frame2, bg=colorbg, fg='black', textvariable=maxiter,
+    font=("Helvetica", 9), justify='center', borderwidth=0, highlightthickness=0
     ).place(x=310, y=300, width=270, height=25)
 
 # tooltips frame
@@ -624,8 +642,8 @@ anion_states  = tk.StringVar(value='0')
 tk.Frame(frame3, bg=colorbg, width=270, height=45).place(x=20, y=60)
 tk.Label(frame3, text="Anion states (comma separated)", bg=coloruw, fg='white',
     font=("Helvetica", 10)).place(x=20, y=60, width=270, height=20)
-tk.Entry(frame3, bg=colorbg, textvariable=anion_states, font=("Helvetica", 9),
-    justify='center', borderwidth=0, highlightthickness=0
+tk.Entry(frame3, bg=colorbg, fg='black', textvariable=anion_states,
+    font=("Helvetica", 9), justify='center', borderwidth=0, highlightthickness=0
     ).place(x=20, y=80, width=270, height=25)
 # tooltip
 q8 = tk.Label(frame3, image=question, bg=coloruw)
@@ -639,8 +657,8 @@ tk.Frame(frame3, bg=colorbg, width=270, height=45).place(x=20, y=115)
 tk.Label(frame3, text="Starting state (index of list above)", bg=coloruw,
     fg='white', font=("Helvetica", 10)
     ).place(x=20, y=115, width=270, height=20)
-tk.Entry(frame3, bg=colorbg, textvariable=starting_state, font=("Helvetica", 9),
-    justify='center', borderwidth=0, highlightthickness=0
+tk.Entry(frame3, bg=colorbg, fg='black', textvariable=starting_state,
+    font=("Helvetica", 9), justify='center', borderwidth=0, highlightthickness=0
     ).place(x=20, y=135, width=270, height=25)
 
 # precision
@@ -648,8 +666,8 @@ precision = tk.DoubleVar(value=99.5)
 tk.Frame(frame3, bg=colorbg, width=270, height=45).place(x=20, y=170)
 tk.Label(frame3, text="Precision for excited states in %", bg=coloruw,
     fg='white', font=("Helvetica", 10)).place(x=20, y=170, width=270, height=20)
-tk.Entry(frame3, bg=colorbg, textvariable=precision, font=("Helvetica", 9),
-    justify='center', borderwidth=0, highlightthickness=0
+tk.Entry(frame3, bg=colorbg, fg='black', textvariable=precision,
+    font=("Helvetica", 9), justify='center', borderwidth=0, highlightthickness=0
     ).place(x=20, y=190, width=270, height=25)
 # tooltip
 q9 = tk.Label(frame3, image=question, bg=coloruw)
@@ -662,8 +680,8 @@ max_micro = tk.IntVar(value=50)
 tk.Frame(frame3, bg=colorbg, width=270, height=45).place(x=310, y=60)
 tk.Label(frame3, text="Maximum number of microstates", bg=coloruw, fg='white',
     font=("Helvetica", 10)).place(x=310, y=60, width=270, height=20)
-tk.Entry(frame3, bg=colorbg, textvariable=max_micro, font=("Helvetica", 9),
-    justify='center', borderwidth=0, highlightthickness=0
+tk.Entry(frame3, bg=colorbg, fg='black', textvariable=max_micro,
+    font=("Helvetica", 9), justify='center', borderwidth=0, highlightthickness=0
     ).place(x=310, y=80, width=270, height=25)
 # tooltip
 q10 = tk.Label(frame3, image=question, bg=coloruw)
@@ -677,8 +695,8 @@ tk.Frame(frame3, bg=colorbg, width=270, height=45).place(x=310, y=115)
 tk.Label(frame3, text="Energy shift anion/neutral (in eV)", bg=coloruw,
     fg='white', font=("Helvetica", 10)
     ).place(x=310, y=115, width=270, height=20)
-tk.Entry(frame3, bg=colorbg, textvariable=Eshift, font=("Helvetica", 9),
-    justify='center', borderwidth=0, highlightthickness=0
+tk.Entry(frame3, bg=colorbg, fg='black', textvariable=Eshift,
+    font=("Helvetica", 9), justify='center', borderwidth=0, highlightthickness=0
     ).place(x=310, y=135, width=270, height=25)
 # tooltip
 q11 = tk.Label(frame3, image=question, bg=coloruw)
@@ -691,8 +709,8 @@ tau = tk.DoubleVar(value=1)
 tk.Frame(frame3, bg=colorbg, width=270, height=45).place(x=310, y=170)
 tk.Label(frame3, text="resonance lifetime in fs", bg=coloruw, fg='white',
     font=("Helvetica", 10)).place(x=310, y=170, width=270, height=20)
-tk.Entry(frame3, bg=colorbg, textvariable=tau, font=("Helvetica", 9),
-    justify='center', borderwidth=0, highlightthickness=0
+tk.Entry(frame3, bg=colorbg, fg='black', textvariable=tau,
+    font=("Helvetica", 9), justify='center', borderwidth=0, highlightthickness=0
     ).place(x=310, y=190, width=270, height=25)
 # tooltip
 q12 = tk.Label(frame3, image=question, bg=coloruw)
@@ -752,22 +770,24 @@ tk.Frame(frame4, bg=colorbg, width=270, height=45).place(x=165, y=60)
 tk.Label(frame4, text="Type of orthogonalization", bg=coloruw, fg='white',
     font=("Helvetica", 10)).place(x=165, y=60, width=270, height=20)
 rbOrthoM = tk.Radiobutton(frame4, text='MO', value='mo', variable=orthotype,
-    bg=colorbg, highlightthickness=0, activebackground=colorab,
-    font=("Helvetica", 9), command=lambda: disableExact())
+    bg=colorbg, fg='black', highlightthickness=0, activebackground=colorab,
+    activeforeground='black', font=("Helvetica", 9),
+    command=lambda: disableExact())
 rbOrthoM.place(x=165, y=80, width=67, height=25)
 rbOrthoS = tk.Radiobutton(frame4, text='State', value='state',
-    variable=orthotype, bg=colorbg, highlightthickness=0,
-    activebackground=colorab, font=("Helvetica", 9),
+    variable=orthotype, bg=colorbg, fg='black', highlightthickness=0,
+    activebackground=colorab, activeforeground='black', font=("Helvetica", 9),
     command=lambda: disableExact())
 rbOrthoS.place(x=232, y=80, width=68, height=25)
 rbOrthoD = tk.Radiobutton(frame4, text='Dyson', value='dyson',
-    variable=orthotype, bg=colorbg, highlightthickness=0,
-    activebackground=colorab, font=("Helvetica", 9),
+    variable=orthotype, bg=colorbg, fg='black', highlightthickness=0,
+    activebackground=colorab, activeforeground='black', font=("Helvetica", 9),
     command=lambda: disableExact())
 rbOrthoD.place(x=300, y=80, width=68, height=25)
 rbOrthoN = tk.Radiobutton(frame4, text='None', value='none', variable=orthotype,
-    bg=colorbg, highlightthickness=0, activebackground=colorab,
-    font=("Helvetica", 9), command=lambda: disableExact())
+    bg=colorbg, fg='black', highlightthickness=0, activebackground=colorab,
+    activeforeground='black', font=("Helvetica", 9),
+    command=lambda: disableExact())
 rbOrthoN.place(x=368, y=80, width=67, height=25)
 # tooltip
 q24 = tk.Label(frame4, image=question, bg=coloruw)
@@ -790,13 +810,13 @@ tk.Label(frame4, text="Calculation for 4-center integrals", bg=coloruw,
     fg='white', font=("Helvetica", 10)
     ).place(x=165, y=115, width=270, height=20)
 rbExact1 = tk.Radiobutton(frame4, text='Exact', value='True',
-    variable=exact2elInt, bg=colorbg, highlightthickness=0,
-    activebackground=colorab, font=("Helvetica", 9),
+    variable=exact2elInt, bg=colorbg, fg='black', highlightthickness=0,
+    activebackground=colorab, activeforeground='black', font=("Helvetica", 9),
     command=lambda: disableInt())
 rbExact1.place(x=165, y=135, width=135, height=25)
 rbExact2 = tk.Radiobutton(frame4, text='Approximate', value='False',
-    variable=exact2elInt, bg=colorbg, highlightthickness=0,
-    activebackground=colorab, font=("Helvetica", 9),
+    variable=exact2elInt, bg=colorbg, fg='black', highlightthickness=0,
+    activebackground=colorab, activeforeground='black', font=("Helvetica", 9),
     command=lambda: disableInt())
 rbExact2.place(x=300, y=135, width=135, height=25)
 # tooltip
@@ -811,9 +831,11 @@ tk.Frame(frame4, bg=colorbg, width=270, height=45).place(x=165, y=170)
 tk.Label(frame4, text="Number of k vectors per energy", bg=coloruw, fg='white',
     font=("Helvetica", 10)).place(x=165, y=170, width=270, height=20)
 intNkOpt = tk.OptionMenu(frame4, intNk, *[2, 6, 8, 12])
-intNkOpt.configure(state='disabled', bg=colorbg, borderwidth=0,
+intNkOpt.configure(state='disabled', bg=colorbg, fg='black',
+    activebackground=colorab, activeforeground='black', borderwidth=0,
     font=("Helvetica", 9), highlightthickness=0)
-intNkOpt['menu'].configure(bg='white')
+intNkOpt['menu'].configure(bg='white', fg='black', activebackground=colorab,
+    activeforeground='black')
 intNkOpt.place(x=165, y=190, width=270, height=25)
 
 # number of k energies
@@ -822,7 +844,7 @@ tk.Frame(frame4, bg=colorbg, width=270, height=45).place(x=165, y=225)
 tk.Label(frame4,
     text="Number of k energies", bg=coloruw, fg='white',
     font=("Helvetica", 10)).place(x=165, y=225, width=270, height=20)
-intkSkipEntry = tk.Entry(frame4, bg=colorbg, textvariable=intkSkip,
+intkSkipEntry = tk.Entry(frame4, bg=colorbg, fg='black', textvariable=intkSkip,
     font=("Helvetica", 9), justify='center', borderwidth=0,
     highlightthickness=0, state='disabled')
 intkSkipEntry.place(x=165, y=245, width=270, height=25)
@@ -962,7 +984,7 @@ nGrids = tk.IntVar(value='1')
 tk.Frame(frame5, bg=colorbg, width=270, height=45).place(x=165, y=60)
 tk.Label(frame5, text="Number of different grids", bg=coloruw, fg='white',
     font=("Helvetica", 10)).place(x=165, y=60, width=270, height=20)
-tk.Entry(frame5, bg=colorbg, justify='center', textvariable=nGrids,
+tk.Entry(frame5, bg=colorbg, fg='black', justify='center', textvariable=nGrids,
     font=("Helvetica", 9), borderwidth=0, highlightthickness=0).place(
     x=165, y=80, width=270, height=25)
 nGrids.trace_add('write', lambda a,b,c,d=nGrids: refreshSelection(d))
@@ -978,9 +1000,11 @@ tk.Frame(frame5, bg=colorbg, width=270, height=45).place(x=165, y=115)
 tk.Label(frame5, text="Selected grid", bg=coloruw, fg='white',
     font=("Helvetica", 10)).place(x=165, y=115, width=270, height=20)
 selectOpt = tk.OptionMenu(frame5, selected, *[1])
-selectOpt.configure(bg=colorbg, borderwidth=0, highlightthickness=0,
-                    font=("Helvetica", 9))
-selectOpt['menu'].configure(bg='white')
+selectOpt.configure(bg=colorbg, fg='black', activebackground=colorab,
+    activeforeground='black', borderwidth=0, highlightthickness=0,
+    font=("Helvetica", 9))
+selectOpt['menu'].configure(bg='white', fg='black', activebackground=colorab,
+    activeforeground='black')
 selectOpt.place(x=165, y=135, width=270, height=25)
 
 # type of discretization
@@ -989,16 +1013,19 @@ tk.Frame(frame5, bg=colorbg, width=270, height=45).place(x=20, y=170)
 tk.Label(frame5, text="Type of discretization", bg=coloruw, fg='white',
     font=("Helvetica",10)).place(x=20, y=170, width=270, height=20)
 tk.Radiobutton(frame5, text="Fibonacci", value="fib", font=("Helvetica", 9),
-    variable=PWtype, bg=colorbg, highlightthickness=0, activebackground=colorab,
+    variable=PWtype, bg=colorbg, fg='black', highlightthickness=0,
+    activebackground=colorab, activeforeground='black',
     command=lambda b=PWtype, c=selected: changeType(PWtype, selected)
     ).place(x=20, y=190, width=90, height=25)
 tk.Radiobutton(frame5, text="Snub", value="snub", variable=PWtype, bg=colorbg,
+    fg='black', activebackground=colorab, activeforeground='black',
     command=lambda b=PWtype, c=selected: changeType(PWtype, selected),
-    highlightthickness=0, activebackground=colorab, font=("Helvetica", 9)
+    highlightthickness=0, font=("Helvetica", 9)
     ).place(x=155, y=190, width=90, height=25, anchor='n')
 tk.Radiobutton(frame5, text="Cubic", value="cubic", variable=PWtype, bg=colorbg,
+    fg='black', activebackground=colorab, activeforeground='black',
     command=lambda b=PWtype, c=selected: changeType(PWtype, selected),
-    highlightthickness=0, activebackground=colorab, font=("Helvetica", 9)
+    highlightthickness=0, font=("Helvetica", 9)
     ).place(x=290, y=190, width=90, height=25, anchor='ne')
 # tooltip
 q15 = tk.Label(frame5, image=question, bg=coloruw)
@@ -1012,8 +1039,8 @@ tk.Frame(frame5, bg=colorbg, width=270, height=45).place(x=310, y=170)
 klabel = tk.Label(frame5, text="Maximum plane wave energy (in eV)", bg=coloruw,
     fg='white', font=("Helvetica", 10))
 klabel.place(x=310, y=170, width=270, height=20)
-tk.Entry(frame5, bg=colorbg, textvariable=maxEn, font=("Helvetica", 9),
-    justify='center', borderwidth=0, highlightthickness=0
+tk.Entry(frame5, bg=colorbg, fg='black', textvariable=maxEn,
+    font=("Helvetica", 9), justify='center', borderwidth=0, highlightthickness=0
     ).place(x=310, y=190, width=270, height=25)
 maxEn.trace_add('write', lambda a,b,c,d=maxEn: changeMaxEn(d, PWtype, selected))
 # tooltip
@@ -1028,8 +1055,8 @@ tk.Frame(frame5, bg=colorbg, width=270, height=45).place(x=20, y=225)
 nElabel = tk.Label(frame5, text="Number of plane wave energies", bg=coloruw,
     fg='white', font=("Helvetica", 10))
 nElabel.place(x=20, y=225, width=270, height=20)
-tk.Entry(frame5, bg=colorbg, textvariable=nEnergy, font=("Helvetica", 9),
-    justify='center', borderwidth=0, highlightthickness=0
+tk.Entry(frame5, bg=colorbg, fg='black', textvariable=nEnergy,
+    font=("Helvetica", 9), justify='center', borderwidth=0, highlightthickness=0
     ).place(x=20, y=245, width=270, height=25)
 nEnergy.trace_add('write',
     lambda a,b,c,d=nEnergy: changeNEnergy(d, PWtype, selected))
@@ -1040,8 +1067,9 @@ tk.Frame(frame5, bg=colorbg, width=270, height=45).place(x=310, y=225)
 tk.Label(frame5, text="Number of plane waves per energy", bg=coloruw,
     fg='white', font=("Helvetica", 10)
     ).place(x=310, y=225, width=270, height=20)
-fibEntry = tk.Entry(frame5, bg=colorbg, textvariable=nkPerEn, justify='center',
-    font=("Helvetica", 9), borderwidth=0, highlightthickness=0)
+fibEntry = tk.Entry(frame5, bg=colorbg, fg='black', textvariable=nkPerEn,
+    justify='center', font=("Helvetica", 9), borderwidth=0,
+    highlightthickness=0)
 fibEntry.place(x=310, y=245, width=270, height=25)
 nkPerEn.trace_add('write',
                   lambda a,b,c,d=nkPerEn: changeNkPerEn(d, PWtype, selected))
@@ -1077,8 +1105,8 @@ nrTraj = tk.IntVar(value=100)
 tk.Frame(frame6, bg=colorbg, width=270, height=45).place(x=165, y=60)
 tk.Label(frame6, text="Number of trajectories", bg=coloruw, fg='white',
     font=("Helvetica", 10)).place(x=165, y=60, width=270, height=20)
-tk.Entry(frame6, bg=colorbg, textvariable=nrTraj, font=("Helvetica", 9),
-    justify='center', borderwidth=0, highlightthickness=0
+tk.Entry(frame6, bg=colorbg, fg='black', textvariable=nrTraj,
+    font=("Helvetica", 9), justify='center', borderwidth=0, highlightthickness=0
     ).place(x=165, y=80, width=270, height=25)
 # tooltip
 q17 = tk.Label(frame6, image=question, bg=coloruw)
@@ -1093,11 +1121,13 @@ tk.Label(frame6, text="Create dynamics folder structure", bg=coloruw,
     fg='white', font=("Helvetica", 10)
     ).place(x=165, y=115, width=270, height=20)
 tk.Radiobutton(frame6, text='Yes', value=True, variable=createFolders,
-    bg=colorbg, highlightthickness=0, activebackground=colorab,
-    font=("Helvetica", 9)).place(x=165, y=135, width=135, height=25)
+    bg=colorbg, fg='black', highlightthickness=0, activebackground=colorab,
+    activeforeground='black', font=("Helvetica", 9)
+    ).place(x=165, y=135, width=135, height=25)
 tk.Radiobutton(frame6, text='No', value=False, variable=createFolders,
-    bg=colorbg, highlightthickness=0, activebackground=colorab,
-    font=("Helvetica", 9)).place(x=300, y=135, width=135, height=25)
+    bg=colorbg, fg='black', highlightthickness=0, activebackground=colorab,
+    activeforeground='black', font=("Helvetica", 9)
+    ).place(x=300, y=135, width=135, height=25)
 # tooltip
 q18 = tk.Label(frame6, image=question, bg=coloruw)
 q18.place(x=407, y=120, width=10, height=10)
@@ -1110,10 +1140,12 @@ tk.Frame(frame6, bg=colorbg, width=270, height=45).place(x=165, y=170)
 tk.Label(frame6, text="Copy input to folders", bg=coloruw, fg='white',
     font=("Helvetica",10)).place(x=165, y=170, width=270, height=20)
 tk.Radiobutton(frame6, text='Yes', value=True, variable=cpFiles, bg=colorbg,
-    highlightthickness=0, activebackground=colorab, font=("Helvetica", 9)
+    fg='black', highlightthickness=0, activebackground=colorab,
+    activeforeground='black', font=("Helvetica", 9)
     ).place(x=165, y=190, width=135, height=25)
 tk.Radiobutton(frame6, text='No', value=False, variable=cpFiles, bg=colorbg,
-    highlightthickness=0, activebackground=colorab, font=("Helvetica", 9)
+    fg='black', highlightthickness=0, activebackground=colorab,
+    activeforeground='black', font=("Helvetica", 9)
     ).place(x=300, y=190, width=135, height=25)
 # tooltip
 q19 = tk.Label(frame6, image=question, bg=coloruw)
@@ -1128,10 +1160,12 @@ tk.Label(frame6, text="Write submit script for dynamics", bg=coloruw,
     fg='white', font=("Helvetica", 10)
     ).place(x=165, y=225, width=270, height=20)
 tk.Radiobutton(frame6, text='Yes', value=True, variable=subScript, bg=colorbg,
-    highlightthickness=0, activebackground=colorab, font=("Helvetica", 9)
+    fg='black', highlightthickness=0, activebackground=colorab,
+    activeforeground='black', font=("Helvetica", 9)
     ).place(x=165, y=245, width=135, height=25)
 tk.Radiobutton(frame6, text='No', value=False, variable=subScript, bg=colorbg,
-    highlightthickness=0, activebackground=colorab, font=("Helvetica", 9)
+    fg='black', highlightthickness=0, activebackground=colorab,
+    activeforeground='black', font=("Helvetica", 9)
     ).place(x=300, y=245, width=135, height=25)
 # tooltip
 q20 = tk.Label(frame6, image=question, bg=coloruw)
@@ -1240,11 +1274,13 @@ tk.Frame(frame7, bg=colorbg, width=270, height=45).place(x=20, y=60)
 tk.Label(frame7, text="Generate initial conditions", bg=coloruw, fg='white',
     font=("Helvetica", 10)).place(x=20, y=60, width=270, height=20)
 tk.Radiobutton(frame7, text='Yes', value=True, variable=doWigner, bg=colorbg,
-    highlightthickness=0, activebackground=colorab, font=("Helvetica", 9),
+    fg='black', highlightthickness=0, activebackground=colorab,
+    activeforeground='black', font=("Helvetica", 9),
     command=lambda c=doWigner: activateDist(c)).place(
     x=20, y=80, width=135, height=25)
 tk.Radiobutton(frame7, text='No', value=False, variable=doWigner, bg=colorbg,
-    highlightthickness=0, activebackground=colorab, font=("Helvetica", 9),
+    fg='black', highlightthickness=0, activebackground=colorab,
+    activeforeground='black', font=("Helvetica", 9),
     command=lambda c=doWigner: activateDist(c)).place(
     x=155, y=80, width=135, height=25)
 # tooltip
@@ -1259,12 +1295,12 @@ tk.Frame(frame7, bg=colorbg, width=270, height=45).place(x=310, y=60)
 tk.Label(frame7, text="Molecule is linear", bg=coloruw, fg='white',
     font=("Helvetica", 10)).place(x=310, y=60, width=270, height=20)
 linWignerRB1 = tk.Radiobutton(frame7, state="disabled", text='Yes', value=True,
-    variable=linWigner, bg=colorbg, highlightthickness=0,
-    activebackground=colorab, font=("Helvetica", 9))
+    variable=linWigner, bg=colorbg, fg='black', highlightthickness=0,
+    activebackground=colorab, activeforeground='black', font=("Helvetica", 9))
 linWignerRB1.place(x=310, y=80, width=135, height=25)
 linWignerRB2 = tk.Radiobutton(frame7, state="disabled", text='No', value=False,
-    variable=linWigner, bg=colorbg, highlightthickness=0,
-    activebackground=colorab, font=("Helvetica",9))
+    variable=linWigner, bg=colorbg, fg='black', highlightthickness=0,
+    activebackground=colorab, activeforeground='black', font=("Helvetica",9))
 linWignerRB2.place(x=445, y=80, width=135, height=25)
 
 # type of distribution
@@ -1275,17 +1311,18 @@ tk.Label(frame7,
     font=("Helvetica", 10)).place(x=20, y=115, width=270, height=20)
 rbDist1 = tk.Radiobutton(frame7, state="disabled",
     text='|\u03a8(x)|\u00B2|\u03a8(q)|\u00B2', value='v1', variable=distType,
-    bg=colorbg, highlightthickness=0, activebackground=colorab,
-    font=("Helvetica", 10), command=lambda c=distType: changeDist(c))
+    bg=colorbg, fg='black', highlightthickness=0, activebackground=colorab,
+    activeforeground='black', font=("Helvetica", 10),
+    command=lambda c=distType: changeDist(c))
 rbDist1.place(x=20, y=135, width=100, height=25)
 rbDist2 = tk.Radiobutton(frame7, state="disabled", text='Husimi', value='h',
-    variable=distType, bg=colorbg, highlightthickness=0,
-    activebackground=colorab, font=("Helvetica", 9),
+    variable=distType, bg=colorbg, fg='black', highlightthickness=0,
+    activebackground=colorab, activeforeground='black', font=("Helvetica", 9),
     command=lambda c=distType: changeDist(c))
 rbDist2.place(x=120, y=135, width=85, height=25)
 rbDist3 = tk.Radiobutton(frame7, state="disabled", text='Wigner', value='w',
-    variable=distType, bg=colorbg, highlightthickness=0,
-    activebackground=colorab, font=("Helvetica", 9),
+    variable=distType, bg=colorbg, fg='black', highlightthickness=0,
+    activebackground=colorab, activeforeground='black', font=("Helvetica", 9),
     command=lambda c=distType: changeDist(c))
 rbDist3.place(x=205, y=135, width=85, height=25)
 # tooltip
@@ -1299,9 +1336,9 @@ nrInCon = tk.IntVar(value=100)
 tk.Frame(frame7, bg=colorbg, width=270, height=45).place(x=310, y=115)
 tk.Label(frame7, text="Number of initial conditions", bg=coloruw, fg='white',
     font=("Helvetica", 10)).place(x=310, y=115, width=270, height=20)
-inConEntry = tk.Entry(frame7, bg=colorbg, textvariable=nrInCon, borderwidth=0,
-    font=("Helvetica", 9), justify='center', highlightthickness=0,
-    state="disabled")
+inConEntry = tk.Entry(frame7, bg=colorbg, fg='black', textvariable=nrInCon,
+    borderwidth=0, font=("Helvetica", 9), justify='center',
+    highlightthickness=0, state="disabled")
 inConEntry.place(x=310, y=135, width=270, height=25)
 
 # excited modes (h or v1) or temperature (w)
@@ -1310,9 +1347,9 @@ tk.Frame(frame7, bg=colorbg, width=270, height=45).place(x=165, y=170)
 modeTemp = tk.Label(frame7, text="Excited Modes (comma-separated)", bg=coloruw,
     fg='white', font=("Helvetica", 10))
 modeTemp.place(x=165, y=170, width=270, height=20)
-modeTempEntry = tk.Entry(frame7, bg=colorbg, textvariable=modes, borderwidth=0,
-    font=("Helvetica", 9), justify='center', highlightthickness=0,
-    state="disabled")
+modeTempEntry = tk.Entry(frame7, bg=colorbg, fg='black', textvariable=modes,
+    borderwidth=0, font=("Helvetica", 9), justify='center',
+    highlightthickness=0, state="disabled")
 modeTempEntry.place(x=165, y=190, width=270, height=25)
 # tooltip
 q23 = tk.Label(frame7, image=question, bg=coloruw)
@@ -1325,12 +1362,14 @@ qcWigner = tk.StringVar(value='g09')
 tk.Frame(frame7, bg=colorbg, width=270, height=45).place(x=165, y=225)
 tk.Label(frame7, text="QC program for distribution", bg=coloruw, fg='white',
     font=("Helvetica", 10)).place(x=165, y=225, width=270, height=20)
-WigQCOpt = tk.OptionMenu(frame7, qcWigner, *["g09", "QChem", "Molpro", 
-    "Turbomole", "MNDO"], command=lambda event, 
+WigQCOpt = tk.OptionMenu(frame7, qcWigner, *["g09", "QChem", "Molpro",
+    "Turbomole", "MNDO"], command=lambda event,
     arg=qcWigner: changeQC(event, arg))
-WigQCOpt.configure(bg=colorbg, borderwidth=0, highlightthickness=0,
+WigQCOpt.configure(bg=colorbg, fg='black', activebackground=colorab,
+    activeforeground='black', borderwidth=0, highlightthickness=0,
     font=("Helvetica", 9))
-WigQCOpt['menu'].configure(bg='white')
+WigQCOpt['menu'].configure(bg='white', fg='black', activebackground=colorab,
+    activeforeground='black')
 WigQCOpt["state"] = "disabled"
 WigQCOpt.place(x=165, y=245, width=270, height=25)
 
@@ -1340,9 +1379,9 @@ tk.Frame(frame7, bg=colorbg, width=270, height=45).place(x=20, y=280)
 inpLabel1 = tk.Label(frame7, text="Formatted g09 checkpoint file", bg=coloruw,
     fg='white', font=("Helvetica", 10))
 inpLabel1.place(x=20, y=280, width=270, height=20)
-inpEntry1 = tk.Entry(frame7, bg=colorbg, textvariable=input1, borderwidth=0,
-    font=("Helvetica", 9), justify='center', highlightthickness=0,
-    state="disabled")
+inpEntry1 = tk.Entry(frame7, bg=colorbg, fg='black', textvariable=input1,
+    borderwidth=0, font=("Helvetica", 9), justify='center',
+    highlightthickness=0, state="disabled")
 inpEntry1.place(x=20, y=300, width=270, height=25)
 
 # input2
@@ -1351,9 +1390,9 @@ tk.Frame(frame7, bg=colorbg, width=270, height=45).place(x=310, y=280)
 inpLabel2 = tk.Label(frame7, text="g09 standard output file", bg=coloruw,
     fg='white', font=("Helvetica", 10))
 inpLabel2.place(x=310, y=280, width=270, height=20)
-inpEntry2 = tk.Entry(frame7, bg=colorbg, textvariable=input2, borderwidth=0,
-    font=("Helvetica", 9), justify='center', highlightthickness=0,
-    state="disabled")
+inpEntry2 = tk.Entry(frame7, bg=colorbg, fg='black', textvariable=input2,
+    borderwidth=0, font=("Helvetica", 9), justify='center',
+    highlightthickness=0, state="disabled")
 inpEntry2.place(x=310, y=300, width=270, height=25)
 
 # tooltips frame
