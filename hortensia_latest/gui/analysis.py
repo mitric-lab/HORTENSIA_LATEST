@@ -5,9 +5,10 @@ import os
 import tkinter as tk
 
 import hortensia_latest.gui.infos as gI
-from hortensia_latest.gui.baseWindow import BaseWin
-from hortensia_latest.gui.singleWindow import OneWin
-from hortensia_latest.gui.ensembleWindow import AllWin
+#from hortensia_latest.gui.baseWindow import BaseWin
+from baseWindow import BaseWin
+from singleWindow import OneWin
+from ensembleWindow import AllWin
 
 colorbg = "#f5f5f5"
 colorab = '#fcfcfc'
@@ -29,11 +30,12 @@ class AnalysisRoot(tk.Tk):
 
         logo       = tk.PhotoImage(file=hortcwd+'logo_old.png')
         logoS      = tk.PhotoImage(file=hortcwd+'logo_old_small.png')
-        quitButton = tk.PhotoImage(file=hortcwd+'quitbutton_blue.png')
+        quitButton = tk.PhotoImage(file=hortcwd+'quitbutton.png')
         question   = tk.PhotoImage(file=hortcwd+'question_white.png')
         questionB  = tk.PhotoImage(file=hortcwd+'question_black.png')
+        logoNew    = tk.PhotoImage(file=hortcwd+'logo_new.png')
 
-        images = [logo, logoS, quitButton, question, questionB]
+        images = [logo, logoS, quitButton, question, questionB, logoNew]
 
         TitleScreen(self.master, images)
         self.mainloop()
@@ -43,7 +45,6 @@ class TitleScreen(BaseWin):
     def __init__(self, master, images):
         super().__init__(master, images)
         self.geometry('400x300+450+350')
-        self.iconphoto(False, tk.PhotoImage(file=hortcwd+'logo_new.png'))
 
         self.logo   = self.images[0].zoom(2,2)
         self.logo   = self.logo.subsample(3,3)

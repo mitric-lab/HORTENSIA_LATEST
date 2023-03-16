@@ -21,9 +21,10 @@ class BaseWin(tk.Toplevel):
 
         self.protocol("WM_DELETE_WINDOW", self.on_close)
         self.title(" HORTENSIA Analysis Tool ")
-        self.geometry("1200x900+50+50")
+        self.geometry("900x900+450+50")
         self.resizable(False, False)
         self.configure(bg="white")
+        self.iconphoto(False, self.images[-1])
         self.option_add('*Dialog.msg.font', 'Helvetica 10')
 
     def on_close(self):
@@ -42,58 +43,24 @@ class AnalysisWin(BaseWin):
         bg = tk.Label(self, image=self.logo, bg='white')
         bg.place(x=0, y=0, width=1200, height=900)
 
-        ### Left box
-        tk.Frame(self, bg=colorbg, width=280, height=575).place(x=15, y=15)
-
-        ### Lower box with slider
-        def get_current_time():
-            return "%.1f"%(tReturn.get()*0.2)
-        def get_current_step():
-            return "%i"%tReturn.get()
-        def slider_changed(event):
-            timelabel.configure(text=get_current_time())
-            steplabel.configure(text=get_current_step())
-
-        tk.Frame(self, bg=colorbg, width=1170, height=275).place(x=15,y=610)
-
-        tReturn = tk.DoubleVar()
-        tslide = tk.Scale(self,
-            from_=0, to=15000, bg=colorbg, troughcolor=colorfg,
-            showvalue=0, orient='horizontal',
-            command=slider_changed, variable=tReturn)
-        tslide.place(x=30,y=630,width=1140)
-
-        tk.Label(self, 
-            text="Time Step:", bg=colorbg, anchor='w',font=("Helvetica",12)
-            ).place(x=565,y=655,width=150,height=20)
-        steplabel = tk.Label(self,
-            bg=colorbg, anchor='e', font=("Helvetica",12), 
-            text=get_current_step(),)
-        steplabel.place(x=655,y=655,width=60,height=20)
-
-        tk.Label(self,
-            text="Time:               fs", bg=colorbg, anchor='w',
-            font=("Helvetica",12)).place(x=725,y=655,width=150,height=20)
-        timelabel = tk.Label(self,
-            bg=colorbg, anchor='e', font=("Helvetica",12),
-            text=get_current_time())
-        timelabel.place(x=775,y=655,width=65,height=20)
-
         # Quit button
+        #tk.Frame(self, bg=colorbg, width=100, height=100
+        #    ).place(x=15, y=885, anchor='sw')
         quitbutton = tk.Button(self, borderwidth=0, highlightthickness=0,
             background='white', command=self.confirm)
         quitbutton['image'] = self.images[2]
-        quitbutton.place(x=30, y=870, width=70, height=70, anchor="sw")
+        quitbutton.place(x=15, y=885, width=70, height=70, anchor="sw")
+
 
         ### Main box
-        self.mainframe = tk.Frame(self, bg=colorbg, width=875, height=575)
-        self.mainframe.place(x=310, y=15)
+        self.mainframe = tk.Frame(self, bg=colorbg, width=870, height=580)
+        self.mainframe.place(x=15, y=60)
         px = 1 / plt.rcParams['figure.dpi']
-        self.figure = Figure(figsize=(865 * px, 565 * px), dpi=100)
+        self.figure = Figure(figsize=(850 * px, 560 * px), dpi=100)
         self.fica = FigureCanvasTkAgg(self.figure, master=self)
 
-        frame = tk.Frame(self, bg=colorbg, width=875, height=30)
-        frame.place(x=315, y=585, anchor="sw")
+        frame = tk.Frame(self, bg=colorbg, width=850, height=30)
+        frame.place(x=25, y=595, anchor="nw")
         toolbar = NavigationToolbar2Tk(self.fica, frame)
         toolbar.config(bg='white')
         [i.config(bg='white') for i in toolbar.winfo_children()]
@@ -108,7 +75,7 @@ class AnalysisWin(BaseWin):
         
         self.ax1.set_position([0.11, 0.11, 0.85, 0.85])
 
-        self.fica.get_tk_widget().place(x=315, y=20)
+        self.fica.get_tk_widget().place(x=25, y=70)
         self.fica.draw()
 
     def confirm(self):

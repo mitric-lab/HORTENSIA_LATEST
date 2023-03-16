@@ -56,117 +56,128 @@ class OneWin(AnalysisWin):
 
         tk.Label(self, text="Single Trajectory Analysis", bg=colorbg, 
             font="Helvetica 15 bold", fg=coloruw
-            ).place(x=155, y=15, width=240, height=50, anchor="n")
+            ).place(x=450, y=15, width=870, height=30, anchor="n")
+        tk.Frame(self, bg=coloruw, width=870, height=2
+            ).place(x=450, y=43, anchor='n')
+
+        # Option Frames
+        tk.Frame(self, bg=colorbg, width=206, height=145
+            ).place(x=118, y=655, anchor='n')
+        tk.Frame(self, bg=colorbg, width=206, height=145
+            ).place(x=339, y=655, anchor='n')
+        tk.Frame(self, bg=colorbg, width=206, height=230
+            ).place(x=561, y=655, anchor='n')
+        tk.Frame(self, bg=colorbg, width=206, height=230
+            ).place(x=782, y=655, anchor='n')
+
+        tk.Frame(self, bg=colorbg, width=342, height=70
+            ).place(x=100, y=885, anchor='sw')
 
         # Time management
-        tk.Label(self, text="Time plot range", font="Helvetica 12", bg=colorbg
-            ).place(x=155, y=60, width=250, height=20, anchor="n")
-        textstr = "From 0 to\t            fs"
-        tk.Label(self, text=textstr, anchor="w", font="Helvetica 9", bg=colorbg
-            ).place(x=90, y=95, width=120, height=20, anchor="n")
+        tk.Label(self, text="Time plot range", font="Helvetica 12", bg=coloruw,
+            fg='white').place(x=118, y=655, width=206, height=30, anchor="n")
+        tk.Button(self, text="Max. trajectory time", bg="white", 
+            font="Helvetica 9", command=lambda: change_tmax(self.tTrj)
+            ).place(x=118, y=695, width=180, height=30, anchor="n")
+        tk.Button(self, text="Max. ensemble time", bg="white", 
+            font="Helvetica 9", command=lambda: change_tmax(self.tEns)
+            ).place(x=118, y=730, width=180, height=30, anchor="n")
+        textstr = "From 0 to\t              fs"
+        tk.Label(self, text=textstr, anchor="center", font="Helvetica 9", bg=colorbg,
+            ).place(x=118, y=769, width=140, height=20, anchor="n")
         self.tmax = tk.DoubleVar(value=self.tEns)
         tk.Entry(self, bg="white", textvariable=self.tmax, justify="center", 
             borderwidth=0, highlightthickness=0, font="Helvetica 9"
-            ).place(x=110, y=95, width=40, height=20, anchor="n")
-
-        tk.Button(self, text="Max. trajectory time", bg="white", 
-            font="Helvetica 9", command=lambda: change_tmax(self.tTrj)
-            ).place(x=220, y=85, width=120, height=20, anchor="n")
-        tk.Button(self, text="Max. ensemble time", bg="white", 
-            font="Helvetica 9", command=lambda: change_tmax(self.tEns)
-            ).place(x=220, y=105, width=120, height=20, anchor="n")
-
-        # Buttons for different files
-        tk.Label(self, text="Graph Plots", font="Helvetica 12", bg=colorbg
-            ).place(x=155, y=140, width=250, height=20, anchor="n")
-        tk.Button(self, text="trajpop.dat", bg="white", font="Helvetica 9",
-            command=lambda: self.plotData("trajpop.dat", "population", 
-                                          renorm=True)
-            ).place(x=155, y=165, width=250, height=30, anchor="n")
-        tk.Button(self, text="energies.dat", bg="white",font="Helvetica 9",
-            command=lambda: self.plotData("energies.dat", "energies / eV", 
-                                          customy=True, en=True)
-            ).place(x=155, y=200, width=250, height=30, anchor="n")
-        tk.Button(self, text="coefficients.dat", bg="white", font="Helvetica 9",
-            command=lambda: self.plotData("coefficients.dat", "|c|$^2$ / a.u.")
-            ).place(x=155, y=235, width=250, height=30, anchor="n")
-        tk.Button(self, text="couplings.dat", bg="white", font="Helvetica 9",
-            command=lambda: self.plotData("couplings.dat", "|V| / a.u.", 
-            customy=True)
-            ).place(x=155, y=270, width=250, height=30, anchor="n")
+            ).place(x=139, y=769, width=50, height=20, anchor="n")
 
         # Buttons for Histograms
-        tk.Label(self, text="Histograms", font="Helvetica 12", bg=colorbg
-            ).place(x=155, y=315, width=250, height=20, anchor="n")
+        tk.Label(self, text="Histograms", font="Helvetica 12", bg=coloruw,
+            fg='white').place(x=339, y=655, width=206, height=30, anchor="n")
         tk.Button(self, text="Hopping EKEs", bg="white",
             command=lambda: self.plotFreeEl("eke")
-            ).place(x=30, y=340, width=160, height=30, anchor="nw")
+            ).place(x=339, y=695, width=180, height=30, anchor="n")
         tk.Button(self, text="Hopping VDEs", bg="white",
             command=lambda: self.plotFreeEl("vde")
-            ).place(x=30, y=375, width=160, height=30, anchor="nw")
-        tk.Label(self, text="Number of\nhistogram bins", font="Helvetica 9", 
-            bg=colorbg
-            ).place(x=280, y=340, width=80, height=30, anchor="ne")
+            ).place(x=339, y=730, width=180, height=30, anchor="n")
+        tk.Label(self, text="Number of bins", font="Helvetica 9", bg=colorbg, 
+            anchor='w'
+            ).place(x=274, y=769, width=90, height=20, anchor="nw")
         self.nBins = tk.IntVar(value=50)
         tk.Entry(self, bg="white", textvariable=self.nBins, justify="center", 
             borderwidth=0, highlightthickness=0
-            ).place(x=280, y=375, width=80, height=30, anchor="ne")
+            ).place(x=404, y=769, width=40, height=20, anchor="ne")
+
+        # Buttons for different files
+        tk.Label(self, text="Graph Plots", font="Helvetica 12", bg=coloruw, 
+            fg='white').place(x=561, y=655, width=206, height=30, anchor="n")
+        tk.Button(self, text="trajpop.dat", bg="white", font="Helvetica 9",
+            command=lambda: self.plotData("trajpop.dat", "population", 
+                                          renorm=True)
+            ).place(x=561, y=695, width=180, height=30, anchor="n")
+        tk.Button(self, text="energies.dat", bg="white",font="Helvetica 9",
+            command=lambda: self.plotData("energies.dat", "energies / eV", 
+                                          customy=True, en=True)
+            ).place(x=561, y=730, width=180, height=30, anchor="n")
+        tk.Button(self, text="coefficients.dat", bg="white", font="Helvetica 9",
+            command=lambda: self.plotData("coefficients.dat", "|c|$^2$ / a.u.")
+            ).place(x=561, y=765, width=180, height=30, anchor="n")
+        tk.Button(self, text="couplings.dat", bg="white", font="Helvetica 9",
+            command=lambda: self.plotData("couplings.dat", "|V| / a.u.", 
+            customy=True)
+            ).place(x=561, y=800, width=180, height=30, anchor="n")
 
         # Buttons for 2D plots
-        tk.Label(self, text="2D plots", font="Helvetica 12", bg=colorbg
-            ).place(x=155, y=420, width=250, height=20, anchor="n")
+        tk.Label(self, text="2D plots", font="Helvetica 12", bg=coloruw, 
+            fg='white').place(x=782, y=655, width=206, height=30, anchor="n")
         tk.Button(self, text="Hopping EKEs", bg="white",
             command=lambda: self.plot2D("eke")
-            ).place(x=30, y=445, width=120, height=30, anchor="nw")
+            ).place(x=782, y=695, width=180, height=30, anchor="n")
         tk.Button(self, text="Hopping VDEs", bg="white",
             command=lambda: self.plot2D("vde")
-            ).place(x=280, y=445, width=120, height=30, anchor="ne")
+            ).place(x=782, y=730, width=180, height=30, anchor="n")
 
-        tk.Label(self, text="Grid size", font="Helvetica 9", 
-            bg=colorbg
-            ).place(x=30, y=475, width=100, height=30, anchor="nw")
-        tk.Label(self, text="x", font="Helvetica 9", 
-            bg=colorbg
-            ).place(x=30, y=500, width=100, height=30, anchor="nw")
+        tk.Label(self, text="Grid size", font="Helvetica 9", bg=colorbg, 
+            anchor='w'
+            ).place(x=702, y=765, width=103, height=30, anchor="nw")
+        tk.Label(self, text="x", font="Helvetica 9", bg=colorbg
+            ).place(x=812, y=765, width=100, height=30, anchor="n")
         self.n2D = [tk.IntVar(value=100), tk.IntVar(value=100)]
         tk.Entry(self, bg="white", textvariable=self.n2D[0], justify="center", 
             borderwidth=0, highlightthickness=0
-            ).place(x=30, y=500, width=40, height=30, anchor="nw")
+            ).place(x=802, y=765, width=40, height=30, anchor="ne")
         tk.Entry(self, bg="white", textvariable=self.n2D[1], justify="center", 
             borderwidth=0, highlightthickness=0
-            ).place(x=130, y=500, width=40, height=30, anchor="ne")
+            ).place(x=862, y=765, width=40, height=30, anchor="ne")
         
         self.conv = tk.BooleanVar(value=False)
-        tk.Label(self, text="Gaussian convolution", bg=colorbg,
+        tk.Label(self, text="Gaussian\nconvolution", bg=colorbg,
             font="Helvetica 9"
-            ).place(x=280, y=475, width=140, height=30, anchor="ne")
+            ).place(x=735, y=800, width=80, height=30, anchor="n")
         tk.Radiobutton(self, text='Yes', value=True, variable=self.conv,
             bg=colorbg, highlightthickness=0, activebackground=colorab,
             font="Helvetica 9", command=lambda: changedConv()
-            ).place(x=140, y=500, width=70, height=30, anchor="nw")
+            ).place(x=820, y=800, width=50, height=30, anchor="ne")
         tk.Radiobutton(self, text='No', value=False, variable=self.conv, 
             bg=colorbg, highlightthickness=0, activebackground=colorab, 
             font="Helvetica 9", command=lambda: changedConv()
-            ).place(x=280, y=500, width=70, height=30, anchor="ne")
+            ).place(x=820, y=800, width=50, height=30, anchor="nw")
 
-        tk.Label(self, text="Standard deviation", font="Helvetica 9", 
+        tk.Label(self, text="Standard\ndeviation", font="Helvetica 9", 
             bg=colorbg
-            ).place(x=280, y=530, width=140, height=30, anchor="ne")
-        tk.Label(self, text="in t", font="Helvetica 9", 
-            bg=colorbg, anchor="w"
-            ).place(x=140, y=555, width=70, height=30, anchor="nw")
-        tk.Label(self, text="in E", font="Helvetica 9", 
-            bg=colorbg, anchor="w"
-            ).place(x=280, y=555, width=70, height=30, anchor="ne")
+            ).place(x=735, y=840, width=80, height=30, anchor="n")
+        tk.Label(self, text="in t", font="Helvetica 9", bg=colorbg, anchor="w"
+            ).place(x=815, y=830, width=60, height=30, anchor="n")
+        tk.Label(self, text="in E", font="Helvetica 9", bg=colorbg, anchor="w"
+            ).place(x=815, y=850, width=60, height=30, anchor="n")
         self.w2D = [tk.DoubleVar(value=10.0), tk.DoubleVar(value=0.01)]
         self.wt = tk.Entry(self, bg="white", textvariable=self.w2D[0], 
             justify="center", borderwidth=0, highlightthickness=0, 
             state="disabled")
-        self.wt.place(x=208, y=555, width=43, height=30, anchor="ne")
+        self.wt.place(x=815, y=833, width=43, height=20, anchor="nw")
         self.we = tk.Entry(self, bg="white", textvariable=self.w2D[1], 
             justify="center", borderwidth=0, highlightthickness=0, 
             state="disabled")
-        self.we.place(x=280, y=555, width=43, height=30, anchor="ne")
+        self.we.place(x=815, y=855, width=43, height=20, anchor="nw")
 
     def plotData(self, infile, ylabel, renorm=False, customy=False, en=False):
         data = np.loadtxt(infile)
