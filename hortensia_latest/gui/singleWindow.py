@@ -11,8 +11,7 @@ import tkinter as tk
 from matplotlib import cm
 
 import hortensia_latest.misc as misc
-#from hortensia_latest.gui.baseWindow import AnalysisWin
-from baseWindow import AnalysisWin
+from hortensia_latest.gui.baseWindow import AnalysisWin
 
 config = ConfigParser()
 config.read('config.ini')
