@@ -35,17 +35,15 @@ class BaseWin(tk.Toplevel):
 class AnalysisWin(BaseWin):
     def __init__(self, master, images):
         super().__init__(master, images)
-        self.logo = self.images[0].zoom(2,2)
+        self.logo = self.images[0]
         self.make_basic_appearance()
 
     def make_basic_appearance(self):
         # Background Würzburg logo
         bg = tk.Label(self, image=self.logo, bg='white')
-        bg.place(x=0, y=0, width=1200, height=900)
+        bg.place(x=0, y=0, width=900, height=900)
 
         # Quit button
-        #tk.Frame(self, bg=colorbg, width=100, height=100
-        #    ).place(x=15, y=885, anchor='sw')
         quitbutton = tk.Button(self, borderwidth=0, highlightthickness=0,
             background='white', command=self.confirm)
         quitbutton['image'] = self.images[2]
@@ -54,13 +52,13 @@ class AnalysisWin(BaseWin):
 
         ### Main box
         self.mainframe = tk.Frame(self, bg=colorbg, width=870, height=580)
-        self.mainframe.place(x=15, y=60)
+        self.mainframe.place(x=15, y=38)
         px = 1 / plt.rcParams['figure.dpi']
         self.figure = Figure(figsize=(850 * px, 560 * px), dpi=100)
         self.fica = FigureCanvasTkAgg(self.figure, master=self)
 
         frame = tk.Frame(self, bg=colorbg, width=850, height=30)
-        frame.place(x=25, y=595, anchor="nw")
+        frame.place(x=25, y=573, anchor="nw")
         toolbar = NavigationToolbar2Tk(self.fica, frame)
         toolbar.config(bg='white')
         [i.config(bg='white') for i in toolbar.winfo_children()]
@@ -75,7 +73,7 @@ class AnalysisWin(BaseWin):
         
         self.ax1.set_position([0.11, 0.11, 0.85, 0.85])
 
-        self.fica.get_tk_widget().place(x=25, y=70)
+        self.fica.get_tk_widget().place(x=25, y=48)
         self.fica.draw()
 
     def confirm(self):

@@ -25,6 +25,8 @@ coloruw = "#063e79"
 class OneWin(AnalysisWin):
     def __init__(self, master, images):
         super().__init__(master, images)
+        self.title(" HORTENSIA Single Trajectory Analysis ")
+
         self.read_config()
         self.make_widgets()
 
@@ -53,11 +55,11 @@ class OneWin(AnalysisWin):
                 self.wt['state'] = 'disabled'
                 self.we['state'] = 'disabled'
 
-        tk.Label(self, text="Single Trajectory Analysis", bg=colorbg, 
-            font="Helvetica 15 bold", fg=coloruw
-            ).place(x=450, y=15, width=870, height=30, anchor="n")
-        tk.Frame(self, bg=coloruw, width=870, height=2
-            ).place(x=450, y=43, anchor='n')
+        #tk.Label(self, text="Single Trajectory Analysis", bg=colorbg, 
+        #    font="Helvetica 15 bold", fg=coloruw
+        #    ).place(x=450, y=15, width=870, height=30, anchor="n")
+        #tk.Frame(self, bg=coloruw, width=870, height=2
+        #    ).place(x=450, y=43, anchor='n')
 
         # Option Frames
         tk.Frame(self, bg=colorbg, width=206, height=145
@@ -82,7 +84,8 @@ class OneWin(AnalysisWin):
             font="Helvetica 9", command=lambda: change_tmax(self.tEns)
             ).place(x=118, y=730, width=180, height=30, anchor="n")
         textstr = "From 0 to\t              fs"
-        tk.Label(self, text=textstr, anchor="center", font="Helvetica 9", bg=colorbg,
+        tk.Label(self, text=textstr, anchor="center", font="Helvetica 9", 
+            bg=colorbg,
             ).place(x=118, y=769, width=140, height=20, anchor="n")
         self.tmax = tk.DoubleVar(value=self.tEns)
         tk.Entry(self, bg="white", textvariable=self.tmax, justify="center", 

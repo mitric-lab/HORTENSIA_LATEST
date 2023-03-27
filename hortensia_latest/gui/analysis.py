@@ -21,16 +21,16 @@ class AnalysisRoot(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title('')
-        self.geometry('600x450+50+50')
+        self.geometry('900x900+450+50')
         self.resizable(False, False)
         self.withdraw()  # Hide default root Tk window.
 
-        logo       = tk.PhotoImage(file=hortcwd+'logo_old.png')
-        logoS      = tk.PhotoImage(file=hortcwd+'logo_old_small.png')
+        logo       = tk.PhotoImage(file=hortcwd+'logo_big.png')
+        logoS      = tk.PhotoImage(file=hortcwd+'logo_analysis.png')
         quitButton = tk.PhotoImage(file=hortcwd+'quitbutton.png')
         question   = tk.PhotoImage(file=hortcwd+'question_white.png')
         questionB  = tk.PhotoImage(file=hortcwd+'question_black.png')
-        logoNew    = tk.PhotoImage(file=hortcwd+'logo_new.png')
+        logoNew    = tk.PhotoImage(file=hortcwd+'favicon.png')
 
         images = [logo, logoS, quitButton, question, questionB, logoNew]
 
@@ -43,8 +43,7 @@ class TitleScreen(BaseWin):
         super().__init__(master, images)
         self.geometry('400x300+450+350')
 
-        self.logo   = self.images[0].zoom(2,2)
-        self.logo   = self.logo.subsample(3,3)
+        self.logo   = self.images[1]
 
         self.make_widgets()
 
@@ -56,13 +55,13 @@ class TitleScreen(BaseWin):
         header = tk.Label(self,
             text="Do you want to analyse a \nsingle trajectory or an ensemble?", 
             fg=coloruw, bg=colorbg, font="Helvetica 12 bold")
-        header.place(x=15, y=15, width=370, height=50)
-        tk.Frame(self, bg=coloruw, width=370, height=2).place(x=15, y=63)
+        header.place(x=35, y=15, width=330, height=50)
+        tk.Frame(self, bg=coloruw, width=330, height=2).place(x=35, y=63)
 
         # Button for single trajectory evaluation
         one = tk.Button(self, text="Single Trajectory Evaluation", bg="white",
                         font="Helvetica 12", command=self.make_one)
-        one.place(x=200, y=96, width=250, height=40, anchor="n")
+        one.place(x=35, y=96, width=220, height=40, anchor="nw")
         stext  = "Opens a window for the visual representation of\n"
         stext += "output data of a single trajectory\n"
         stext += "One needs to be directly in the output folder"
@@ -72,7 +71,7 @@ class TitleScreen(BaseWin):
         # Button for ensemble evaluation
         all = tk.Button(self, text="Ensemble Evaluation", bg="white",
                         font="Helvetica 12", command=self.make_all)
-        all.place(x=200, y=146, width=250, height=40, anchor="n")
+        all.place(x=35, y=146, width=220, height=40, anchor="nw")
         etext  = "Opens a window for the visual representation of\n"
         etext += "output data of the whole ensemble of trajectories\n"
         etext += "One needs to be in the folder containing the\n"

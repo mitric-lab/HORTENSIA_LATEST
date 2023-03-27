@@ -105,11 +105,10 @@ def confirm():
 
             saved = tk.Toplevel(root)
             saved.title("Information")
-            saved.geometry("300x120")
+            saved.geometry("300x120+200+215")
             saved.resizable(False,False)
             saved.configure(bg='white')
-            saved.iconphoto(False,
-                            tk.PhotoImage(file=hortensiacwd+'logo_new.png'))
+            saved.iconphoto(False, favicon)
             tk.Label(saved, image=logoS, bg='white'
                 ).place(x=0, y=0, width=300, height=120)
             tk.Label(saved, text='config.ini\nwritten successfully!',
@@ -130,10 +129,10 @@ def confirm():
 
     answer = tk.Toplevel(root)
     answer.title("Quiting Program")
-    answer.geometry("300x120")
+    answer.geometry("300x120+200+215")
     answer.resizable(False, False)
     answer.configure(bg='white')
-    answer.iconphoto(False, tk.PhotoImage(file=hortensiacwd+'logo_new.png'))
+    answer.iconphoto(False, favicon)
     tk.Label(answer, image=logoS, bg='white'
         ).place(x=0, y=0, width=300, height=120)
 
@@ -245,21 +244,21 @@ def packData():
 
 ### root window
 root = tk.Tk(className=" HORTENSIA Input Generator ")
-root.iconphoto(False, tk.PhotoImage(file=hortensiacwd+'logo_new.png'))
 root.geometry("600x450+50+50")
 root.resizable(False,False)
 root.configure(bg='white')
 root.option_add('*Dialog.msg.font', 'Helvetica 10')
 
-#def killed(event):
-#    quit("Killed program")
-#root.bind('<Return>', killed)
-
-logo       = tk.PhotoImage(file=hortensiacwd+'logo_old.png')
-logoS      = tk.PhotoImage(file=hortensiacwd+'logo_old_small.png')
+### Images
+logo       = tk.PhotoImage(file=hortensiacwd+'logo_normal.png')
+logoS      = tk.PhotoImage(file=hortensiacwd+'logo_small.png')
+favicon    = tk.PhotoImage(file=hortensiacwd+'favicon.png')
 quitButton = tk.PhotoImage(file=hortensiacwd+'quitbutton.png')
 question   = tk.PhotoImage(file=hortensiacwd+'question_white.png')
 questionB  = tk.PhotoImage(file=hortensiacwd+'question_black.png')
+
+### Set favicon
+root.iconphoto(False, favicon)
 
 ### create a notebook
 notebook = ttk.Notebook(root)
@@ -295,6 +294,12 @@ notebook.add(frame4, text='2e-Integrals')
 notebook.add(frame5, text='Free Electrons')
 notebook.add(frame6, text='Folders')
 notebook.add(frame7, text='Wigner')
+
+### For testing
+#def killed(event):
+#    quit("Killed program")
+#root.bind('<Return>', killed)
+#
 #notebook.select(frame4) #!!!
 
 
