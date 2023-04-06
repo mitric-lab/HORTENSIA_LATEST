@@ -192,11 +192,19 @@ class PopulationDynamics:
         """
 
         def func(t, a, arg):
+            """
+            Arguments in arg:
+            arg[0] = transformation matrix to interaction picture without time
+            arg[1] = transpose of arg[0]
+            arg[2] = first rows of the total coupling matrix
+            arg[3] = first columns of the total coupling matrix
+            arg[4] = electronic resonance decay constant
+            """
             T1 = arg[0]**t
             T2 = arg[1]**t
             apBound = np.einsum("ij,ij,j->i", T1, arg[2], a)
             apFree  = np.einsum("ji,ij,i->j", T2, arg[3], a[:self.nBound])
-            apFree[:self.nBound] += apBound - arg[4] * a[self.state]
+            apFree[:self.nBound] += apBound - arg[4] * a[:self.nBound]
 
             return apFree
 
@@ -243,15 +251,17 @@ class PopulationDynamics:
 
         arg.append(Tinter1)
         arg.append(Tinter2)
-        arg.append(-1.0j*Hod - 1/(2*self.dt)*D)
+        arg.append(-1.0j*Hod - 1/(2*self.dt) * D)
         arg.append(-1.0j*np.conjugate(Hod) + 1/(2*self.dt) * np.conjugate(D))
 
         neuEn = self.Step2.ionized.total_energy
         # If IE is negative, turns on electronic resonance decay
-        if self.refEn+Hd[self.state] <= neuEn:
-            arg.append(0.0)
-        else:
-            arg.append(misc.autime2fs / (2 * float(config['States']['tau'])))
+        elDecay = np.zeros(self.nBound)
+        for i, en in Hd[:self.nBound]:
+            if self.refEn + en <= neuEn:
+                elDecay[i] = misc.autime2fs / \
+                             (2 * float(config['States']['tau']))
+        arg.append(elDecay)
 
         r = ode(func).set_integrator("zvode", method="adams",
                                      with_jacobian=False)
@@ -260,10 +270,10 @@ class PopulationDynamics:
 
         # Actual integration
         while r.successful() and r.t < self.dt:
-            r.integrate(r.t+dt)
+            r.integrate(r.t + dt)
 
         # Retransformation from interaction picture
-        self.c    = r.y * np.exp(-1.0j*Hd*r.t)
+        self.c    = r.y * np.exp(-1.0j * Hd * r.t)
         # Calls the method evaluating the hopping probabilities
         self.prob = self.calcProb(self.c, self.oldc, fo)
 
@@ -391,7 +401,7 @@ class PopulationDynamics:
                 -
                 self.Step1.renormS * oldsign[1, 0] * newsign[0, i] * (
                 self.Cross2.Smatrix[i, j:] -
-                np.einsum("j,jk->k", overt[:,i], self.Step1.Smatrix[:, j:])))
+                np.einsum("j,jk->k", overt[:, i], self.Step1.Smatrix[:, j:])))
 
             self.Dtemp[i, j:] = self.D[i, j:] / self.grid.kfact
 
