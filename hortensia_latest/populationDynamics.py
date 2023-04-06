@@ -257,8 +257,8 @@ class PopulationDynamics:
         neuEn = self.Step2.ionized.total_energy
         # If IE is negative, turns on electronic resonance decay
         elDecay = np.zeros(self.nBound)
-        for i, en in Hd[:self.nBound]:
-            if self.refEn + en <= neuEn:
+        for i, en in enumerate(Hd[:self.nBound]):
+            if self.refEn + en > neuEn:
                 elDecay[i] = misc.autime2fs / \
                              (2 * float(config['States']['tau']))
         arg.append(elDecay)
@@ -1098,7 +1098,7 @@ class PopulationDynamics:
         for decay due to negative VDE if fulfilled
         """
         Estart = self.Step2.Hdiag[self.state]
-        neuEn  = self.Step2.ionized.total_energy-self.refEn
+        neuEn  = self.Step2.ionized.total_energy - self.refEn
 
         if Estart > neuEn:
             trajpop -= 1
