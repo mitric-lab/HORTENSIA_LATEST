@@ -16,3 +16,9 @@ setup(
     ext_modules=cythonize('cython/calcD.pyx'),
     include_dirs=[numpy.get_include()],
     zip_safe=False)
+
+setup(
+    name='hortensia calcR2 module',
+    ext_modules=cythonize("cython/calcR2.pyx"),
+    include_dirs=[numpy.get_include()],
+    zip_safe=False)

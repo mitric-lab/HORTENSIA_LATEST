@@ -54,7 +54,8 @@ class Step:
         self.grid     = grid
         self.nstates  = self.nBound + self.grid.points
         self.charge   = int(config['QC']['charge'])
-        self.spin     = int(config['QC']['mult']) - 1
+        self.mult     = int(config['QC']['mult'])
+        self.spin     = self.mult - 1
 
 
     def ftDysonPre(self, fo):

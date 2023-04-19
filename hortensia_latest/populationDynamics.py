@@ -11,6 +11,7 @@ from numpy.random import rand
 import hortensia_latest.misc as misc
 import hortensia_latest.dysonAux as dyA
 import hortensia_latest.exactIntegral as exI
+import hortensia_latest.spatial_extent as spex
 
 config = ConfigParser()
 config.read('config.ini')
@@ -34,7 +35,7 @@ elif orthotype == 'none':
 
 
 class PopulationDynamics:
-    def __init__(self, states, state, Eshift, grid, coord, atS, fo, index=""):
+    def __init__(self,states,state,Eshift,grid,coord,atS,calcSet,fo,index=""):
         """
         initializes population dynamics
         """
@@ -47,7 +48,15 @@ class PopulationDynamics:
             self.state = state
             self.statenr = states[state]
 
+        self.excited = True
+        if (len(states) == 1) and (state == 0):
+            self.excited = False
+
         self.orthotype = orthotype
+
+        # Used later in the case of resonance decay
+        self.negVDE  = False
+        self.calcSet = calcSet
 
         self.Eshift  = Eshift
         self.grid    = grid
@@ -257,10 +266,48 @@ class PopulationDynamics:
         neuEn = self.Step2.ionized.total_energy
         # If IE is negative, turns on electronic resonance decay
         elDecay = np.zeros(self.nBound)
-        for i, en in enumerate(Hd[:self.nBound]):
-            if self.refEn + en > neuEn:
-                elDecay[i] = misc.autime2fs / \
-                             (2 * float(config['States']['tau']))
+        if self.negVDE:
+            for i, en in enumerate(Hd[:self.nBound]):
+                if self.refEn + en > neuEn:
+                    elDecay[i] = misc.autime2fs / \
+                                (2 * self.tau)
+            if Hd[self.state] + self.refEn <= neuEn:
+                self.negVDE = False
+                self.tau    = None
+
+        elif Hd[self.state] + self.refEn > neuEn and not self.negVDE:
+            self.negVDE = True
+
+            stateSet = [self.states, self.state, self.statenr, self.excited]
+            atS      = []
+            for i in self.Step1.atnr:
+                atS.append(misc.NrToS(i))
+            atS     = np.array(atS)
+            molSet  = [self.Step1.coord.copy(), atS, self.Step1.charge, 
+                        self.Step1.mult]
+            qcspecs = [stateSet, self.calcSet, molSet]
+
+            decay   = spex.readGaussian(qcspecs, fo)
+            decay.prepR2calc()
+
+            # Calculates pval for time 0.0, resulting in 1.0
+            # Also calculates R0 for a(n arbitrary) spatial probability of 99 %
+            p0   = decay.stepR2calc(0.0, 0.99, fo)
+            pval = [1.0, 1.0]
+            tdec = 0.0
+            while pval[1] > 1 / np.e:
+                tdec    += self.dt
+                pval[0]  = 1.0 * pval[1]
+                pval[1]  = decay.stepR2calc(tdec)/p0
+
+            self.tau = (1/np.e - pval[1]) / (pval[1] - pval[0]) * self.dtfs + \
+                tdec * misc.autime2fs
+
+            for i, en in enumerate(Hd[:self.nBound]):
+                if self.refEn + en > neuEn:
+                    elDecay[i] = misc.autime2fs / \
+                                (2 * self.tau)
+
         arg.append(elDecay)
 
         r = ode(func).set_integrator("zvode", method="adams",

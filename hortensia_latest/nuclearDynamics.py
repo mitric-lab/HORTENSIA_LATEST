@@ -244,7 +244,7 @@ class NuclearDynamics:
             kDistr = config['Continuum']['kDistr']
 
         if isinstance(kDistr, list):
-            self.popDyn = self.genPopDyn(fo, kDistr)
+            self.popDyn = self.genPopDyn(fo, kDistr, calcSet)
         else:
             if kDistr == 'snub':
                 options = [float(config['Continuum']['maxEk']),
@@ -264,7 +264,8 @@ class NuclearDynamics:
 
             self.grid = grid.Grid(kDistr, options)
             self.popDyn = [pop.PopulationDynamics(self.states, self.state,
-                           self.Eshift, self.grid, self.coord, self.atS, fo)]
+                           self.Eshift, self.grid, self.coord, self.atS, 
+                           calcSet, fo)]
 
         if self.restart:
             for i, popDyn in enumerate(self.popDyn):
@@ -293,7 +294,7 @@ class NuclearDynamics:
         fo.close()
 
 
-    def genPopDyn(self, fo, kDistr):
+    def genPopDyn(self, fo, kDistr, calcSet):
         """
         generates instances of PopulationDynamics class,
         used when multiple k-grids are propagated simulaneously
@@ -368,7 +369,7 @@ class NuclearDynamics:
             tempgrid   = grid.Grid(ktype, options)
             temppopdyn = pop.PopulationDynamics(self.states, self.state,
                                                 self.Eshift, tempgrid,
-                                                self.coord, self.atS,
+                                                self.coord, self.atS, calcSet,
                                                 fo, index=i)
             popDyn.append(temppopdyn)
         f.close()
