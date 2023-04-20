@@ -15,13 +15,17 @@ class readGaussian:
     Gaussian calculation must have been performed with the modified version 
     loaded by module load chem/g09-source
     """
-    def __init__(self, qcspecs, fo):
-        self.externalQC(qcspecs[0], qcspecs[1], qcspecs[2], fo)
+    def __init__(self, qcspecs, fo, doCalc=True):
+        if doCalc:
+            self.externalQC(qcspecs[0], qcspecs[1], qcspecs[2], fo)
+        else:
+            fo.write("\nVDE of state %i negative, "%qcspecs[0][1])
+            fo.write("starting resonance decay\n")
 
         with open("anDecay.log", "r") as f:
             self.l = f.readlines()
 
-        state = qcspecs[0][1]
+        state = qcspecs[0][2]
         moflag = 'homo' if state == 0 else 'lumo'
 
         self.getStructure()
@@ -51,10 +55,10 @@ class readGaussian:
                 inp += "scf(maxcyc=%i,conver=%i) "%(maxcyc, conv)
                 inp += "nosym Guess(Read,TCheck) "
             inp += "GFInput Pop=(minimal,nto,savento) "
-            if state == 0:
+            if statenr == 0:
                 inp += "Density=(transition=1)"
             else:
-                inp += "Density=(transition=%i)"%state
+                inp += "Density=(transition=%i)"%statenr
             inp += "\n\nComment\n\n%i %i\n"%(charge, mult)
 
             # Structure
@@ -102,7 +106,8 @@ class readGaussian:
             os.system("rm anDecay.log")
 
         # actual qc calculation
-        fo.write("\nVDE negative, starting resonance decay\n")
+        fo.write("\nVDE of state %i negative, "%state)
+        fo.write("starting resonance decay\n")
         fo.write("Calculating anionic system with NTOs...\n")
         sp.call('%s anDecay.in anDecay.log'%method, shell=True)
 
@@ -351,6 +356,7 @@ class readGaussian:
 
         if t == 0.0:
             self.R0, fvec = self.calcR0(r2, prob)
+            fo.write("")
             fo.write("Evaluated R0 value %.3f for probability of %.2f %%\n"%(
                 self.R0, prob*100))
             fo.write("Absolute error in P(R0) evaluation: %.5e\n"%fvec)
@@ -371,7 +377,6 @@ class readGaussian:
         """
 
         def optR0(x, a, prob):
-            #a, prob = args[0], args[1]
             return erf(np.sqrt(2*a) * x) - \
                 np.sqrt(8*a / np.pi) * x * np.exp(-2*a * x**2) - prob
         
@@ -380,7 +385,7 @@ class readGaussian:
 
         # Calls the fsolve function of scipy.optimize to find the roots of 
         # P(r <= R0) - prob 
-        # x0 = 20.0 Angstrom is an arbitrary starting point for R0
-        R0, i = fsolve(optR0, x0=20.0, args=(a, prob), full_output=True)[:2]
+        # x0 = 2.0 Angstrom is an arbitrary starting point for R0
+        R0, i = fsolve(optR0, x0=2.0, args=(a, prob), full_output=True)[:2]
 
-        return R0[0], i['fvec'][0]
+        return R0[-1], i['fvec'][-1]
