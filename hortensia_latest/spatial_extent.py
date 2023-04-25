@@ -161,7 +161,7 @@ class readGaussian:
 
     def getMOGaussian(self, moflag):
         for i in range(len(self.l)):
-            if "Alpha Molecular Orbital Coefficients:" in self.l[i]:
+            if "Molecular Orbital Coefficients:" in self.l[i]:
                 start = i
                 break
 
