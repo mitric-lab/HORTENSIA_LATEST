@@ -2,7 +2,7 @@ from setuptools import setup
 from setuptools.extension import Extension
 
 setup(name='hortensia_latest',
-    version='1.0.2304.1',
+    version='1.0.2305.1',
     description='Autoionization dynamics',
     url='https://github.com/mitric-lab/HORTENSIA_latest',
     author='Kevin Issler',

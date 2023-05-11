@@ -62,7 +62,10 @@ class NuclearDynamics:
         else:
             self.excited = False
 
-        self.Eshift   = float(config['States']['Eshift'])
+        self.zpeInclude = config['States']['zpeInclude'] == 'True'
+        if self.zpeInclude:
+            self.zpeDiff = ast.literal_eval(config['States']['zpeDiff'])
+            self.vibExEn = float(config['States']['vibExEn'])
 
         self.steps    = int(config['Dynamics']['steps'])
         self.dt       = float(config['Dynamics']['timestep']) / misc.autime2fs
@@ -246,26 +249,42 @@ class NuclearDynamics:
         if isinstance(kDistr, list):
             self.popDyn = self.genPopDyn(fo, kDistr, calcSet)
         else:
+            # if zpeInclude = True, the maximum plane wave energy is chosen to
+            # be the excess energy of the system, which is the vibrational
+            # excitation energy plus the difference in zero-point energy from
+            # the occupied anionic state to the neutral ground state
             if kDistr == 'snub':
-                options = [float(config['Continuum']['maxEk']),
-                           int(config['Continuum']['nEk'])]
+                if self.zpeInclude:
+                    maxEk = self.zpeDiff + self.vibExEn
+                else:
+                    maxEk = float(config['Continuum']['maxEk'])
+                options = [maxEk, int(config['Continuum']['nEk'])]
+
             elif kDistr == 'fib':
-                options = [float(config['Continuum']['maxEk']),
-                           int(config['Continuum']['nEk']),
+                if self.zpeInclude:
+                    maxEk = self.zpeDiff + self.vibExEn
+                else:
+                    maxEk = float(config['Continuum']['maxEk'])
+                options = [maxEk, int(config['Continuum']['nEk']),
                            int(config['Continuum']['nkfib'])]
+
             elif kDistr == 'cubic':
-                maxEk   = [float(config['Continuum']['maxkx']),
-                           float(config['Continuum']['maxky']),
-                           float(config['Continuum']['maxkz'])]
-                nk      = [int(config['Continuum']['nkx']),
-                           int(config['Continuum']['nky']),
-                           int(config['Continuum']['nkz'])]
+                # if zpeInclude, maxkx, maxky, maxkz will be chosen equally
+                if self.zpeInclude:
+                    totEk = self.zpeDiff + self.vibExEn
+                    maxEk = [totEk**2/3, totEk**2/3, totEk**2/3]
+                else:
+                    maxEk = [float(config['Continuum']['maxkx']),
+                             float(config['Continuum']['maxky']),
+                             float(config['Continuum']['maxkz'])]
+                nk = [int(config['Continuum']['nkx']),
+                      int(config['Continuum']['nky']),
+                      int(config['Continuum']['nkz'])]
                 options = [maxEk, nk]
 
             self.grid = grid.Grid(kDistr, options)
             self.popDyn = [pop.PopulationDynamics(self.states, self.state,
-                           self.Eshift, self.grid, self.coord, self.atS, 
-                           calcSet, fo)]
+                           self.grid, self.coord, self.atS, calcSet, fo)]
 
         if self.restart:
             for i, popDyn in enumerate(self.popDyn):
@@ -298,6 +317,8 @@ class NuclearDynamics:
         """
         generates instances of PopulationDynamics class,
         used when multiple k-grids are propagated simulaneously
+
+        Attention: self.zpeInclude will be ignored if multiple k-grids are given
         """
 
         popDyn = []
@@ -368,9 +389,8 @@ class NuclearDynamics:
 
             tempgrid   = grid.Grid(ktype, options)
             temppopdyn = pop.PopulationDynamics(self.states, self.state,
-                                                self.Eshift, tempgrid,
-                                                self.coord, self.atS, calcSet,
-                                                fo, index=i)
+                                                tempgrid, self.coord, self.atS,
+                                                calcSet, fo, index=i)
             popDyn.append(temppopdyn)
         f.close()
 

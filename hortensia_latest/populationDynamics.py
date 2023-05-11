@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import ast
 import logging
 from configparser import ConfigParser
 
@@ -35,7 +36,7 @@ elif orthotype == 'none':
 
 
 class PopulationDynamics:
-    def __init__(self,states,state,Eshift,grid,coord,atS,calcSet,fo,index=""):
+    def __init__(self, states, state, grid, coord, atS, calcSet, fo, index=""):
         """
         initializes population dynamics
         """
@@ -54,7 +55,7 @@ class PopulationDynamics:
 
         self.orthotype = orthotype
 
-        self.Eshift  = Eshift
+        self.Eshift  = float(config['States']['Eshift'])
         self.grid    = grid
         self.nBound  = len(self.states)
         self.nstates = self.nBound + self.grid.points
@@ -75,7 +76,7 @@ class PopulationDynamics:
         # dynamics equations
         self.preFT   = self.Step1.ftDysonPre(fo)
         if self.orthotype in ["mo", "none"]:
-            self.preMO   = self.Step1.ftMOpre()
+            self.preMO = self.Step1.ftMOpre()
             # Calculates the overlap of all plane waves and all anion MOs at
             # time step 1
             self.Step1.MOoverlap(self.preMO)
@@ -100,10 +101,10 @@ class PopulationDynamics:
             if self.orthotype != "none":
                 self.Step1.orthoRenorm(fo)
         else:
-            self.c             = np.zeros(self.nstates, dtype=np.complex)
+            self.c       = np.zeros(self.nstates, dtype=np.complex)
             self.c[self.state] = 1.0
-            self.trajpop       = [int(config['Dynamics']['nrpertraj']),
-                                  int(config['Dynamics']['nrpertraj'])]
+            self.trajpop = [int(config['Dynamics']['nrpertraj']),
+                            int(config['Dynamics']['nrpertraj'])]
 
             with open("trajpop%s.dat"%self.index, "w") as out:
                 out.write("%.2f %i\n"%(0.0, self.trajpop[0]))
@@ -1102,7 +1103,17 @@ class PopulationDynamics:
     def checkEnergy(self, trajpop, step, Ekin, Eel, kvec, Efin, wp, fo):
         """
         if hop is allowed by probability, checks if energy criteria
-        are fulfilled
+        are fulfilled.
+
+        energy conservation is required, i.e.
+
+        Epot,a + Ekin,a = Epot,n + Ekin,n + Eel
+        => Ekin,n = Epot,a + Ekin,a - Epot,n - Eel >= 0
+
+        in this function:
+        Estart       = Epot,a
+        Efin         = Epot,n + Eel
+        Ekin         = Ekin,a
         """
 
         Estart = self.Step2.Hdiag[self.state]
