@@ -500,10 +500,10 @@ def dominant_excitations(UCISvec, excitations, **opts):
         domex.append((excitations[indeces[i]], coef))
         if (totcontr*100 >= perc):
             break
-        if i % 2 == 1:
-            # Check every second i to make sure both spin-up and down are added
-            if len(domex) > max_excitations:
-                break
+        # Setting max_excitations to an even number is useful so both spin-up 
+        # and down are added
+        if len(domex) >= max_excitations:
+            break
 
     return (domex)
 
