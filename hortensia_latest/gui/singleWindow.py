@@ -55,12 +55,6 @@ class OneWin(AnalysisWin):
                 self.wt['state'] = 'disabled'
                 self.we['state'] = 'disabled'
 
-        #tk.Label(self, text="Single Trajectory Analysis", bg=colorbg, 
-        #    font="Helvetica 15 bold", fg=coloruw
-        #    ).place(x=450, y=15, width=870, height=30, anchor="n")
-        #tk.Frame(self, bg=coloruw, width=870, height=2
-        #    ).place(x=450, y=43, anchor='n')
-
         # Option Frames
         tk.Frame(self, bg=colorbg, width=206, height=145
             ).place(x=118, y=655, anchor='n')
