@@ -37,14 +37,13 @@ class AllWin(AnalysisWin):
     def read_data(self):
         self.tEns = float(config['Dynamics']['steps']) * \
                     float(config['Dynamics']['timestep'])
-        hopdata = np.loadtxt("trajpop.dat")
+        hopdata = np.loadtxt("pop.dat")
         self.tTrj = hopdata[-1, 0]
-        self.nTraj  = int(hopdata[0, 1])
-        self.hopped = int(hopdata[0, 1] - hopdata[-1, 1])
         self.maxEk  = float(config['Continuum']['maxEk'])
         if os.path.exists("freeelectrons.dat"):
             self.freeEl = np.loadtxt("freeelectrons.dat")
             self.freeEl[:, 4] *= misc.hartree_to_eV
+            self.hopped = len(self.freeEl)
         else:
             self.freeEl = None
         
@@ -71,10 +70,6 @@ class AllWin(AnalysisWin):
             else:
                 self.wt['state'] = 'disabled'
                 self.we['state'] = 'disabled'
-
-        #tk.Label(self, text="Ensemble Analysis", bg=colorbg, 
-        #    font="Helvetica 15 bold", fg=coloruw
-        #    ).place(x=155, y=15, width=240, height=50, anchor="n")
 
         # Option Frames
         tk.Frame(self, bg=colorbg, width=206, height=145
@@ -246,11 +241,9 @@ class AllWin(AnalysisWin):
             self.ax1.set_ylabel("hops / percent")
         elif mode == "eke":
             eke = self.freeEl[:, 4]
-            (counts, bins) = np.histogram(eke, self.nBins.get(), 
-                                          (0.0, self.maxEk))
-            self.ax1.hist(bins[:-1], bins, range=(0.0, self.maxEk), 
-                          weights=counts*100/self.hopped, ec="k")
-            self.ax1.set_xlim(0.0, self.maxEk)
+            (counts, bins) = np.histogram(eke, self.nBins.get())
+            self.ax1.hist(bins[:-1], bins, weights=counts*100/self.hopped,
+                          ec="k")
             self.ax1.set_xlabel("EKE / eV")
             self.ax1.set_ylabel("hops / percent")
         

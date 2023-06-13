@@ -39,7 +39,7 @@ class AnalysisWin(BaseWin):
         self.make_basic_appearance()
 
     def make_basic_appearance(self):
-        # Background Würzburg logo
+        # Background logo
         bg = tk.Label(self, image=self.logo, bg='white')
         bg.place(x=0, y=0, width=900, height=900)
 
@@ -48,7 +48,6 @@ class AnalysisWin(BaseWin):
             background='white', command=self.confirm)
         quitbutton['image'] = self.images[2]
         quitbutton.place(x=15, y=885, width=70, height=70, anchor="sw")
-
 
         ### Main box
         self.mainframe = tk.Frame(self, bg=colorbg, width=870, height=580)
