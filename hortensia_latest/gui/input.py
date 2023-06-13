@@ -221,7 +221,6 @@ def packData():
     data.append(precision.get())
     data.append(max_micro.get())
     data.append(Eshift.get())
-    data.append(tau.get())
     data.append(orthotype.get())
     data.append(timestep.get())
     data.append(steps.get())
@@ -239,6 +238,9 @@ def packData():
     data.append(Nproc.get())
     data.append(convergence.get())
     data.append(maxiter.get())
+    data.append(zpeInclude.get())
+    data.append(zpeDiff.get())
+    data.append(vibExEn.get())
 
     return data
 
@@ -299,8 +301,7 @@ notebook.add(frame7, text='Wigner')
 #def killed(event):
 #    quit("Killed program")
 #root.bind('<Return>', killed)
-#
-#notebook.select(frame4) #!!!
+notebook.select(frame5) #!!!
 
 
 ################################################################################
@@ -668,15 +669,15 @@ tk.Entry(frame3, bg=colorbg, fg='black', textvariable=starting_state,
 
 # precision
 precision = tk.DoubleVar(value=99.5)
-tk.Frame(frame3, bg=colorbg, width=270, height=45).place(x=20, y=170)
+tk.Frame(frame3, bg=colorbg, width=270, height=45).place(x=165, y=170)
 tk.Label(frame3, text="Precision for excited states in %", bg=coloruw,
-    fg='white', font=("Helvetica", 10)).place(x=20, y=170, width=270, height=20)
+    fg='white', font=("Helvetica", 10)).place(x=165, y=170, width=270, height=20)
 tk.Entry(frame3, bg=colorbg, fg='black', textvariable=precision,
     font=("Helvetica", 9), justify='center', borderwidth=0, highlightthickness=0
-    ).place(x=20, y=190, width=270, height=25)
+    ).place(x=165, y=190, width=270, height=25)
 # tooltip
 q9 = tk.Label(frame3, image=question, bg=coloruw)
-q9.place(x=258, y=175, width=10, height=10)
+q9.place(x=403, y=175, width=10, height=10)
 q9.bind("<Enter>", lambda event, arg=gI.q9: hover3(event, arg))
 q9.bind("<Leave>", lambda event, arg=""   : hover3(event, arg))
 
@@ -708,20 +709,6 @@ q11 = tk.Label(frame3, image=question, bg=coloruw)
 q11.place(x=553, y=120, width=10, height=10)
 q11.bind("<Enter>", lambda event, arg=gI.q11: hover3(event, arg))
 q11.bind("<Leave>", lambda event, arg=""    : hover3(event, arg))
-
-# resonance lifetime
-tau = tk.DoubleVar(value=1)
-tk.Frame(frame3, bg=colorbg, width=270, height=45).place(x=310, y=170)
-tk.Label(frame3, text="resonance lifetime in fs", bg=coloruw, fg='white',
-    font=("Helvetica", 10)).place(x=310, y=170, width=270, height=20)
-tk.Entry(frame3, bg=colorbg, fg='black', textvariable=tau,
-    font=("Helvetica", 9), justify='center', borderwidth=0, highlightthickness=0
-    ).place(x=310, y=190, width=270, height=25)
-# tooltip
-q12 = tk.Label(frame3, image=question, bg=coloruw)
-q12.place(x=523, y=175, width=10, height=10)
-q12.bind("<Enter>", lambda event, arg=gI.q12: hover3(event, arg))
-q12.bind("<Leave>", lambda event, arg=""    : hover3(event, arg))
 
 # tooltips frame
 tk.Frame(frame3, bg=colorbg).place(x=110, y=340, width=470, height=70)
@@ -887,7 +874,7 @@ def refreshSelection(nGrids):
                                       command=lambda name=i: selection(name))
     if len(gridConf) < nGrids:
         for _ in range(nGrids-len(gridConf)):
-            gridConf.append(['fib','1.5','1000','96'])
+            gridConf.append(['fib','1.5','1000','96', False, 0.0, 0.0])
 
 def selection(name):
     selected.set(name)
@@ -895,6 +882,9 @@ def selection(name):
     maxEn.set(gridConf[int(name)-1][1])
     nEnergy.set(gridConf[int(name)-1][2])
     nkPerEn.set(gridConf[int(name)-1][3])
+    zpeInclude.set(gridConf[int(name)-1][4])
+    zpeDiff.set(gridConf[int(name)-1][5])
+    vibExEn.set(gridConf[int(name)-1][6])
     if PWtype.get() != 'fib':
         fibEntry['state'] = 'disabled'
     else:
@@ -911,16 +901,21 @@ def changeType(pwtype, selected):
         maxEn.set('0.1,0.1,0.1')
         nEnergy.set('200,200,200')
         nkPerEn.set('')
-        klabel['text'] = 'Maximum values of kx,ky,kz (in a.u.)'
-        nElabel['text'] = 'Number of values for kx,ky,kz'
+        klabel['text']    = 'Maximum values of kx,ky,kz (in a.u.)'
+        nElabel['text']   = 'Number of values for kx,ky,kz'
         fibEntry['state'] = 'disabled'
+        zpeI1['state']    = 'disabled'
+        zpeI2['state']    = 'disabled'
+        zpeInclude.set(False)
     else:
         gridConf[selected-1][1] = '1.5'
         gridConf[selected-1][2] = '200,200,200'
         maxEn.set('1.5')
         nEnergy.set('1000')
-        klabel['text'] = 'Maximum plane wave energy (in eV)'
+        klabel['text']  = 'Maximum plane wave energy (in eV)'
         nElabel['text'] = 'Number of plane wave energies'
+        zpeI1['state']  = 'normal'
+        zpeI2['state']  = 'normal'
         if pwtype == 'snub':
             gridConf[selected-1][3] = '24'
             nkPerEn.set('24')
@@ -976,7 +971,36 @@ def changeNkPerEn(nkPerEn, pwtype, selected):
         return
     gridConf[selected-1][3] = nkPerEn
 
-gridConf = [['fib', '1.5', '1000', '96']]
+def changeZpeInclude(zpeInclude, selected):
+    zpeInclude = zpeInclude.get()
+    selected   = selected.get()
+    gridConf[selected-1][4] = zpeInclude
+    if zpeInclude:
+        maxEntry['state'] = 'disabled'
+        zpeEntry['state'] = 'normal'
+        vibEntry['state'] = 'normal'
+        maxEn.set(zpeDiff.get() + vibExEn.get())
+    else:
+        maxEntry['state'] = 'normal'
+        zpeEntry['state'] = 'disabled'
+        vibEntry['state'] = 'disabled'
+
+def changeZpeDiff(zpeDiff, vibExEn, selected):
+    zpeDiff  = zpeDiff.get()
+    vibExEn  = vibExEn.get()
+    selected = selected.get()
+    gridConf[selected-1][5] = zpeDiff
+    maxEn.set(zpeDiff + vibExEn)
+
+
+def changeVibExEn(zpeDiff, vibExEn, selected):
+    zpeDiff  = zpeDiff.get()
+    vibExEn  = vibExEn.get()
+    selected = selected.get()
+    gridConf[selected-1][6] = vibExEn
+    maxEn.set(zpeDiff + vibExEn)
+
+gridConf = [['fib', '1.5', '1000', '96', False, 0.0, 0.0]]
 
 # headline
 tk.Label(frame5,
@@ -986,98 +1010,156 @@ tk.Frame(frame5, bg=coloruw, width=270, height=2).place(x=165, y=43)
 
 # number of different settings
 nGrids = tk.IntVar(value='1')
-tk.Frame(frame5, bg=colorbg, width=270, height=45).place(x=165, y=60)
+tk.Frame(frame5, bg=colorbg, width=270, height=45).place(x=20, y=60)
 tk.Label(frame5, text="Number of different grids", bg=coloruw, fg='white',
-    font=("Helvetica", 10)).place(x=165, y=60, width=270, height=20)
+    font=("Helvetica", 10)).place(x=20, y=60, width=270, height=20)
 tk.Entry(frame5, bg=colorbg, fg='black', justify='center', textvariable=nGrids,
     font=("Helvetica", 9), borderwidth=0, highlightthickness=0).place(
-    x=165, y=80, width=270, height=25)
+    x=20, y=80, width=270, height=25)
 nGrids.trace_add('write', lambda a,b,c,d=nGrids: refreshSelection(d))
 # tooltip
 q14 = tk.Label(frame5, image=question, bg=coloruw)
-q14.place(x=382, y=65, width=10, height=10)
+q14.place(x=237, y=65, width=10, height=10)
 q14.bind("<Enter>", lambda event, arg=gI.q14: hover5(event, arg))
 q14.bind("<Leave>", lambda event, arg=""    : hover5(event, arg))
 
 # selected grid
 selected = tk.IntVar(value=1)
-tk.Frame(frame5, bg=colorbg, width=270, height=45).place(x=165, y=115)
+tk.Frame(frame5, bg=colorbg, width=270, height=45).place(x=310, y=60)
 tk.Label(frame5, text="Selected grid", bg=coloruw, fg='white',
-    font=("Helvetica", 10)).place(x=165, y=115, width=270, height=20)
+    font=("Helvetica", 10)).place(x=310, y=60, width=270, height=20)
 selectOpt = tk.OptionMenu(frame5, selected, *[1])
 selectOpt.configure(bg=colorbg, fg='black', activebackground=colorab,
     activeforeground='black', borderwidth=0, highlightthickness=0,
     font=("Helvetica", 9))
 selectOpt['menu'].configure(bg='white', fg='black', activebackground=colorab,
     activeforeground='black')
-selectOpt.place(x=165, y=135, width=270, height=25)
+selectOpt.place(x=310, y=80, width=270, height=25)
 
 # type of discretization
 PWtype = tk.StringVar(value='fib')
-tk.Frame(frame5, bg=colorbg, width=270, height=45).place(x=20, y=170)
+tk.Frame(frame5, bg=colorbg, width=270, height=45).place(x=165, y=115)
 tk.Label(frame5, text="Type of discretization", bg=coloruw, fg='white',
-    font=("Helvetica",10)).place(x=20, y=170, width=270, height=20)
+    font=("Helvetica",10)).place(x=165, y=115, width=270, height=20)
 tk.Radiobutton(frame5, text="Fibonacci", value="fib", font=("Helvetica", 9),
     variable=PWtype, bg=colorbg, fg='black', highlightthickness=0,
     activebackground=colorab, activeforeground='black',
     command=lambda b=PWtype, c=selected: changeType(PWtype, selected)
-    ).place(x=20, y=190, width=90, height=25)
+    ).place(x=165, y=135, width=90, height=25)
 tk.Radiobutton(frame5, text="Snub", value="snub", variable=PWtype, bg=colorbg,
     fg='black', activebackground=colorab, activeforeground='black',
     command=lambda b=PWtype, c=selected: changeType(PWtype, selected),
     highlightthickness=0, font=("Helvetica", 9)
-    ).place(x=155, y=190, width=90, height=25, anchor='n')
+    ).place(x=300, y=135, width=90, height=25, anchor='n')
 tk.Radiobutton(frame5, text="Cubic", value="cubic", variable=PWtype, bg=colorbg,
     fg='black', activebackground=colorab, activeforeground='black',
     command=lambda b=PWtype, c=selected: changeType(PWtype, selected),
     highlightthickness=0, font=("Helvetica", 9)
-    ).place(x=290, y=190, width=90, height=25, anchor='ne')
+    ).place(x=435, y=135, width=90, height=25, anchor='ne')
 # tooltip
 q15 = tk.Label(frame5, image=question, bg=coloruw)
-q15.place(x=225, y=175, width=10, height=10)
+q15.place(x=370, y=120, width=10, height=10)
 q15.bind("<Enter>", lambda event, arg=gI.q15: hover5(event, arg))
 q15.bind("<Leave>", lambda event, arg=""    : hover5(event, arg))
 
-# maximum pw energy ('fib', 'snub') or maximum k_i ('cubic')
-maxEn = tk.StringVar(value=1.5)
-tk.Frame(frame5, bg=colorbg, width=270, height=45).place(x=310, y=170)
-klabel = tk.Label(frame5, text="Maximum plane wave energy (in eV)", bg=coloruw,
-    fg='white', font=("Helvetica", 10))
-klabel.place(x=310, y=170, width=270, height=20)
-tk.Entry(frame5, bg=colorbg, fg='black', textvariable=maxEn,
-    font=("Helvetica", 9), justify='center', borderwidth=0, highlightthickness=0
-    ).place(x=310, y=190, width=270, height=25)
-maxEn.trace_add('write', lambda a,b,c,d=maxEn: changeMaxEn(d, PWtype, selected))
-# tooltip
-q16 = tk.Label(frame5, image=question, bg=coloruw)
-q16.place(x=562, y=175, width=10, height=10)
-q16.bind("<Enter>", lambda event, arg=gI.q16: hover5(event, arg))
-q16.bind("<Leave>", lambda event, arg=""    : hover5(event, arg))
-
 # number of different pw energies ('fib','snub') or number of k_i
 nEnergy = tk.StringVar(value=1000)
-tk.Frame(frame5, bg=colorbg, width=270, height=45).place(x=20, y=225)
+tk.Frame(frame5, bg=colorbg, width=270, height=45).place(x=20, y=170)
 nElabel = tk.Label(frame5, text="Number of plane wave energies", bg=coloruw,
     fg='white', font=("Helvetica", 10))
-nElabel.place(x=20, y=225, width=270, height=20)
+nElabel.place(x=20, y=170, width=270, height=20)
 tk.Entry(frame5, bg=colorbg, fg='black', textvariable=nEnergy,
     font=("Helvetica", 9), justify='center', borderwidth=0, highlightthickness=0
-    ).place(x=20, y=245, width=270, height=25)
+    ).place(x=20, y=190, width=270, height=25)
 nEnergy.trace_add('write',
     lambda a,b,c,d=nEnergy: changeNEnergy(d, PWtype, selected))
 
 # number of different k per energy ('fib')
 nkPerEn = tk.StringVar(value=96)
-tk.Frame(frame5, bg=colorbg, width=270, height=45).place(x=310, y=225)
+tk.Frame(frame5, bg=colorbg, width=270, height=45).place(x=310, y=170)
 tk.Label(frame5, text="Number of plane waves per energy", bg=coloruw,
     fg='white', font=("Helvetica", 10)
-    ).place(x=310, y=225, width=270, height=20)
+    ).place(x=310, y=170, width=270, height=20)
 fibEntry = tk.Entry(frame5, bg=colorbg, fg='black', textvariable=nkPerEn,
     justify='center', font=("Helvetica", 9), borderwidth=0,
     highlightthickness=0)
-fibEntry.place(x=310, y=245, width=270, height=25)
+fibEntry.place(x=310, y=190, width=270, height=25)
 nkPerEn.trace_add('write',
-                  lambda a,b,c,d=nkPerEn: changeNkPerEn(d, PWtype, selected))
+    lambda a,b,c,d=nkPerEn: changeNkPerEn(d, PWtype, selected))
+
+# whether to include zero-point energy
+zpeInclude = tk.BooleanVar(value=False)
+tk.Frame(frame5, bg=colorbg, width=270, height=45).place(x=20, y=225)
+tk.Label(frame5, text="Include zero-point energy of states", bg=coloruw, 
+    fg='white', font=("Helvetica",10)).place(x=20, y=225, width=270, height=20)
+zpeI1 = tk.Radiobutton(frame5, text="Include", value=True,
+    font=("Helvetica", 9), variable=zpeInclude, bg=colorbg, fg='black',
+    highlightthickness=0, activebackground=colorab, activeforeground='black')
+zpeI1.place(x=20, y=245, width=135, height=25)
+zpeI2 = tk.Radiobutton(frame5, text="Don't Include", value=False, 
+    variable=zpeInclude, bg=colorbg, fg='black', activebackground=colorab, 
+    activeforeground='black', highlightthickness=0, font=("Helvetica", 9))
+zpeI2.place(x=155, y=245, width=135, height=25)
+zpeInclude.trace_add('write', 
+    lambda a,b,c,d=zpeInclude: changeZpeInclude(d, selected))
+# tooltip
+q24 = tk.Label(frame5, image=question, bg=coloruw)
+q24.place(x=268, y=230, width=10, height=10)
+q24.bind("<Enter>", lambda event, arg=gI.q29: hover5(event, arg))
+q24.bind("<Leave>", lambda event, arg=""    : hover5(event, arg))
+
+# maximum pw energy ('fib', 'snub') or maximum k_i ('cubic')
+maxEn = tk.StringVar(value=1.5)
+tk.Frame(frame5, bg=colorbg, width=270, height=45).place(x=310, y=225)
+klabel = tk.Label(frame5, text="Maximum plane wave energy (in eV)", bg=coloruw,
+    fg='white', font=("Helvetica", 10))
+klabel.place(x=310, y=225, width=270, height=20)
+maxEntry = tk.Entry(frame5, bg=colorbg, fg='black', textvariable=maxEn,
+    font=("Helvetica", 9), justify='center', borderwidth=0,
+    highlightthickness=0)
+maxEntry.place(x=310, y=245, width=270, height=25)
+maxEn.trace_add('write', lambda a,b,c,d=maxEn: changeMaxEn(d, PWtype, selected))
+# tooltip
+q16 = tk.Label(frame5, image=question, bg=coloruw)
+q16.place(x=562, y=230, width=10, height=10)
+q16.bind("<Enter>", lambda event, arg=gI.q16: hover5(event, arg))
+q16.bind("<Leave>", lambda event, arg=""    : hover5(event, arg))
+
+# Difference of ZPE between initial and neutral ground state in eV
+zpeDiff = tk.DoubleVar(value=0.0)
+tk.Frame(frame5, bg=colorbg, width=270, height=45).place(x=20, y=280)
+zlabel = tk.Label(frame5, text="ZPE difference (in eV)", 
+    bg=coloruw, fg='white', font=("Helvetica", 10))
+zlabel.place(x=20, y=280, width=270, height=20)
+zpeEntry = tk.Entry(frame5, bg=colorbg, fg='black', textvariable=zpeDiff,
+    font=("Helvetica", 9), justify='center', borderwidth=0, state='disabled',
+    highlightthickness=0)
+zpeEntry.place(x=20, y=300, width=270, height=25)
+zpeDiff.trace_add('write', 
+    lambda a,b,c,d=zpeDiff: changeZpeDiff(d, vibExEn, selected))
+# tooltip
+q25 = tk.Label(frame5, image=question, bg=coloruw)
+q25.place(x=228, y=285, width=10, height=10)
+q25.bind("<Enter>", lambda event, arg=gI.q30: hover5(event, arg))
+q25.bind("<Leave>", lambda event, arg=""    : hover5(event, arg))
+
+# energy of excited vibrational mode in eV
+vibExEn = tk.DoubleVar(value=0.0)
+tk.Frame(frame5, bg=colorbg, width=270, height=45).place(x=310, y=280)
+vlabel = tk.Label(frame5, text="Vibrational excitation energy (in eV)", 
+    bg=coloruw, fg='white', font=("Helvetica", 10))
+vlabel.place(x=310, y=280, width=270, height=20)
+vibEntry = tk.Entry(frame5, bg=colorbg, fg='black', textvariable=vibExEn,
+    font=("Helvetica", 9), justify='center', borderwidth=0, state='disabled',
+    highlightthickness=0)
+vibEntry.place(x=310, y=300, width=270, height=25)
+vibExEn.trace_add('write', 
+    lambda a,b,c,d=zpeDiff: changeVibExEn(d, vibExEn, selected))
+# tooltip
+q26 = tk.Label(frame5, image=question, bg=coloruw)
+q26.place(x=560, y=285, width=10, height=10)
+q26.bind("<Enter>", lambda event, arg=gI.q31: hover5(event, arg))
+q26.bind("<Leave>", lambda event, arg=""    : hover5(event, arg))
 
 # tooltips frame
 tk.Frame(frame5, bg=colorbg).place(x=110, y=340, width=470, height=70)

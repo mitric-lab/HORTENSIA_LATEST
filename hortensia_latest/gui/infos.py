@@ -65,6 +65,14 @@ q15 = "Fibonacci: Distributes k-vectors approximately equally on a sphere " + \
       "Cubic\t: k-vectors are distributed with equal spacing dx, dy, dz"
 q16 = "Maximum kinetic energy of free electron,\n" + \
       "k-vectors are energetically equally spaced"
+q29 = "If included, only hops are allowed which contain a minimum kinetic " + \
+      "energy equal \nto the zero-point energy. \nAlso if included, the " + \
+      "maximum plane wave energy is then given as the \nsum of the " + \
+      "zero-point energy difference and the vibrational excitation energy"
+q30 = "Zero-point energy difference between the initial and the neutral " + \
+      "ground state"
+q31 = "Excitation energy of mode excited in the generation of initial " + \
+      "conditions"
 # Frame 6
 q17 = "Number of nuclear trajectories, on which the continuum hopping" + \
       " 'trajectories'\nare based"

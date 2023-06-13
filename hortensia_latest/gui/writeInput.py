@@ -9,27 +9,27 @@ def write(data):
 
     output += "[Dynamics]\n\n"
     output += "### time step for nuclear dynamics in fs\n"
-    output += "timestep       = %s\n"%data[16]
+    output += "timestep       = %s\n"%data[15]
     output += "### number of nuclear dynamics steps\n"
-    output += "steps          = %s\n"%data[17]
+    output += "steps          = %s\n"%data[16]
     output += "### number of population dynamics steps per "
     output += "nuclear dynamics step\n"
-    output += "popsteps       = %s\n"%data[18]
+    output += "popsteps       = %s\n"%data[17]
     output += "### number of times hopping is checked per step "
     output += "and trajectory\n"
-    output += "nrpertraj      = %s\n"%data[19]
+    output += "nrpertraj      = %s\n"%data[18]
     output += "### option for restarting "
     output += "(needs dynamics.xyz, velocities.dat, trajpop.dat)\n"
-    output += "restart        = %s\n"%data[20]
+    output += "restart        = %s\n"%data[19]
     output += "### controls the amount of output\n"
     output += "### -1: output every skipstep'th time step, no norm.dat file\n"
     output += "###  0: standard output\n"
     output += "###  1: more detailed printed output\n"
-    output += "printlevel     = %s\n"%data[21]
-    if int(data[21]) < 0:
+    output += "printlevel     = %s\n"%data[20]
+    if int(data[20]) < 0:
         output += "### if printlevel < 0, "
         output += "skipstep = n only prints every nth step\n"
-        output += "skipstep       = %s\n"%data[22]
+        output += "skipstep       = %s\n"%data[21]
     output += "### type of output for the different output files\n"
     output += "### possible options: - full   : "
     output += "prints values for every free electron state\n"
@@ -37,28 +37,28 @@ def write(data):
     output += "prints sum of all free electron states\n"
     output += "###                   - none   : "
     output += "no output is printed/ energies: an + neu\n"
-    output += "coupprint      = %s\n"%data[23][0]
-    output += "coefprint      = %s\n"%data[23][1]
-    output += "nadiaprint     = %s\n"%data[23][2]
-    output += "probprint      = %s\n"%data[23][3]
-    output += "enerprint      = %s\n\n\n"%data[23][4]
+    output += "coupprint      = %s\n"%data[22][0]
+    output += "coefprint      = %s\n"%data[22][1]
+    output += "nadiaprint     = %s\n"%data[22][2]
+    output += "probprint      = %s\n"%data[22][3]
+    output += "enerprint      = %s\n\n\n"%data[22][4]
 
     output += "[QC]\n\n"
     output += "### Quantum chemistry program "
     output += "(possible options: g09, g16, qchem)\n"
-    output += "qcmethod       = %s\n"%data[24]
+    output += "qcmethod       = %s\n"%data[23]
     output += "### Molecular charge of anion\n"
-    output += "charge         = %s\n"%data[25]
+    output += "charge         = %s\n"%data[24]
     output += "### Multiplicity of anion\n"
-    output += "mult           = %s\n"%data[26]
+    output += "mult           = %s\n"%data[25]
     output += "### Functional used for calculation\n"
-    output += "func           = %s\n"%data[27]
+    output += "func           = %s\n"%data[26]
     output += "### Amount of threads the Gaussian calculation should run on\n"
-    output += "Nproc          = %s\n"%data[28]
+    output += "Nproc          = %s\n"%data[27]
     output += "### SCF convergence criterion (10^-N)\n"
-    output += "convergence    = %s\n"%data[29]
+    output += "convergence    = %s\n"%data[28]
     output += "### Maximum number of SCF iterations\n"
-    output += "maxiter        = %s\n\n\n"%data[30]
+    output += "maxiter        = %s\n\n\n"%data[29]
 
     output += "[States]\n\n"
     output += "### list with considered bound states for dynamics\n"
@@ -74,10 +74,8 @@ def write(data):
     output += "max_micro      = %s\n"%data[12]
     output += "## energy shift of the ionized ground state (in eV)\n"
     output += "Eshift         = %s\n"%data[13]
-    output += "### lifetime of resonance in fs, where exp(-t/(2*tau))\n"
-    output += "tau            = %s\n"%data[14]
     output += "### type of orthogonalization (options: 'state', 'mo')\n"
-    output += "orthotype      = %s\n\n\n"%data[15]
+    output += "orthotype      = %s\n\n\n"%data[14]
 
     output += "[Continuum]\n\n"
     output += "### distribution of k vectors, possible options:\n"
@@ -106,6 +104,16 @@ def write(data):
         output += "nkx            = %s\n"%data[5][0]
         output += "nky            = %s\n"%data[5][1]
         output += "nkz            = %s\n"%data[5][2]
+    output += "### Whether to include zero-point energies "
+    output += "in hopping description\n"
+    output += "zpeInclude     = %s\n"%data[30]
+    if data[30]:
+        output += "### zero-point energy difference from initial state to\n"
+        output += "### neutral ground state (E0a-E0n) (in eV)\n"
+        output += "zpeDiff        = %s\n"%data[31]
+        output += "### vibrational excitation energy "
+        output += "(energy of excited mode) (in eV)\n"
+        output += "vibExEn        = %s\n"%data[32]
     output += "\n\n"
 
     output += "[2e-Integrals]\n\n"
