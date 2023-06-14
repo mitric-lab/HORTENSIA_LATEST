@@ -1,0 +1,4724 @@
+
+               HORTENSIA
+
+     Program for the simulation of
+      quantum-classical dynamics
+  of vibration-induced autoionization
+         in anionic molecules
+
+       Developed in the group of
+        Prof. Dr. Roland Mitric
+    Julius-Maximilians-Universität
+           Würzburg, Germany
+
+    If you have questions or other
+         annotations, contact
+    jens.petersen@uni-wuerzburg.de
+---------------------------------------
+  If you are publishing data obtained
+    with this program, please cite:
+
+   J. Chem. Phys. 158, 034107 (2023)
+        DOI: 10.1063/5.0135392
+---------------------------------------
+      Program Version: 1.0.2305.1
+---------------------------------------
+          2023-06-13 14:35:54
+---------------------------------------
+
+Calculating anionic system...
+Calculating ionized system...
+Calculating Dyson orbitals
+Dyson norms (summed over cation channels)
+0.92983085 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+REFERENCE ENERGY: -77.247979260899996
+
+
+---------------
+DYNAMICS STARTS
+---------------
+
+Step: 1
+2023-06-13 14:36:52
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 1.000372907
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.92984530 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.92652952 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.92962328 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  0.999405241
+  Ionization    :  0.000594759
+  Neg-VDE Decay : -0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 2
+2023-06-13 14:38:13
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 1.000548653
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.92977719 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.92676931 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.92945855 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  0.998310200
+  Ionization    :  0.001689800
+  Neg-VDE Decay : -0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+No hop due to insufficient energy! 
+
+E[kin]           :  0.025464404
+E[start]         : -0.000997703
+E[start]+E[kin]  :  0.024466702
+E[free]          :  0.065558040
+k-vector: -0.09169 0.21611 0.20417
+E[photoelectron] :  0.048398858
+E[kin,neutral]   : -0.041091339
+
+
+WAVEPACKET HOPPING
+
+Step: 3
+2023-06-13 14:39:35
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 1.000623223
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.92966613 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.92695049 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.92925963 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  0.997532101
+  Ionization    :  0.002467899
+  Neg-VDE Decay : -0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+No hop due to insufficient energy! 
+
+E[kin]           :  0.025476063
+E[start]         : -0.001009362
+E[start]+E[kin]  :  0.024466702
+E[free]          :  0.028856867
+k-vector: -0.01499 -0.07149 0.13914
+E[photoelectron] :  0.012347772
+E[kin,neutral]   : -0.004390166
+
+
+WAVEPACKET HOPPING
+
+No hop due to insufficient energy! WP
+
+E[kin]           :  0.025476063
+E[start]         : -0.001009362
+E[start]+E[kin]  :  0.024466702
+E[free]          :  0.046958061
+k-vector: 0.01883 -0.00970 0.00771
+E[photoelectron] :  0.030448966
+E[kin,neutral]   : -0.022491360
+
+
+No hop due to insufficient energy! WP
+
+E[kin]           :  0.025476063
+E[start]         : -0.001009362
+E[start]+E[kin]  :  0.024466702
+E[free]          :  0.046958061
+k-vector: 0.01883 -0.00970 0.00771
+E[photoelectron] :  0.030448966
+E[kin,neutral]   : -0.022491360
+
+
+Step: 4
+2023-06-13 14:41:05
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 1.000628523
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.92958583 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.92711231 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.92910166 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  0.997245984
+  Ionization    :  0.002754016
+  Neg-VDE Decay : -0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+No hop due to insufficient energy! 
+
+E[kin]           :  0.025114117
+E[start]         : -0.000647416
+E[start]+E[kin]  :  0.024466702
+E[free]          :  0.069498349
+k-vector: 0.10289 -0.16529 -0.26148
+E[photoelectron] :  0.053139520
+E[kin,neutral]   : -0.045031647
+
+
+No hop due to insufficient energy! 
+
+E[kin]           :  0.025114117
+E[start]         : -0.000647416
+E[start]+E[kin]  :  0.024466702
+E[free]          :  0.042432473
+k-vector: 0.12505 -0.09783 -0.16413
+E[photoelectron] :  0.026073644
+E[kin,neutral]   : -0.017965771
+
+
+WAVEPACKET HOPPING
+
+No hop due to insufficient energy! WP
+
+E[kin]           :  0.025114117
+E[start]         : -0.000647416
+E[start]+E[kin]  :  0.024466702
+E[free]          :  0.046049039
+k-vector: 0.01925 -0.00934 0.00919
+E[photoelectron] :  0.029690211
+E[kin,neutral]   : -0.021582338
+
+
+No hop due to insufficient energy! WP
+
+E[kin]           :  0.025114117
+E[start]         : -0.000647416
+E[start]+E[kin]  :  0.024466702
+E[free]          :  0.046049039
+k-vector: 0.01925 -0.00934 0.00919
+E[photoelectron] :  0.029690211
+E[kin,neutral]   : -0.021582338
+
+
+Step: 5
+2023-06-13 14:42:33
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 1.000571142
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.92964046 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.92732597 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.92908571 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  0.997513715
+  Ionization    :  0.002486285
+  Neg-VDE Decay : -0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+No hop due to insufficient energy! 
+
+E[kin]           :  0.024376733
+E[start]         :  0.000089968
+E[start]+E[kin]  :  0.024466702
+E[free]          :  0.058070479
+k-vector: 0.22891 0.14719 0.09286
+E[photoelectron] :  0.041342988
+E[kin,neutral]   : -0.033603778
+
+
+WAVEPACKET HOPPING
+
+No hop due to insufficient energy! WP
+
+E[kin]           :  0.024376733
+E[start]         :  0.000089968
+E[start]+E[kin]  :  0.024466702
+E[free]          :  0.045330000
+k-vector: 0.01885 -0.00843 0.01086
+E[photoelectron] :  0.028602509
+E[kin,neutral]   : -0.020863299
+
+
+Step: 6
+2023-06-13 14:44:02
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 1.000454030
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.92994620 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.92769226 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.92932629 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  0.998255987
+  Ionization    :  0.001744013
+  Neg-VDE Decay : -0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+No hop due to insufficient energy! 
+
+E[kin]           :  0.023288371
+E[start]         :  0.001178331
+E[start]+E[kin]  :  0.024466702
+E[free]          :  0.034030088
+k-vector: -0.05319 -0.16672 -0.04720
+E[photoelectron] :  0.016426947
+E[kin,neutral]   : -0.009563387
+
+
+No hop due to insufficient energy! 
+
+E[kin]           :  0.023288371
+E[start]         :  0.001178331
+E[start]+E[kin]  :  0.024466702
+E[free]          :  0.034140336
+k-vector: 0.15290 -0.03283 0.09283
+E[photoelectron] :  0.016537195
+E[kin,neutral]   : -0.009673635
+
+
+WAVEPACKET HOPPING
+
+No hop due to insufficient energy! WP
+
+E[kin]           :  0.023288371
+E[start]         :  0.001178331
+E[start]+E[kin]  :  0.024466702
+E[free]          :  0.044760258
+k-vector: 0.01745 -0.00687 0.01259
+E[photoelectron] :  0.027157117
+E[kin,neutral]   : -0.020293557
+
+
+No hop due to insufficient energy! WP
+
+E[kin]           :  0.023288371
+E[start]         :  0.001178331
+E[start]+E[kin]  :  0.024466702
+E[free]          :  0.044760258
+k-vector: 0.01745 -0.00687 0.01259
+E[photoelectron] :  0.027157117
+E[kin,neutral]   : -0.020293557
+
+
+Step: 7
+2023-06-13 14:45:33
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 1.000293002
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.93057456 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.92832021 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.92989434 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  0.999266180
+  Ionization    :  0.000733820
+  Neg-VDE Decay : -0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+Hop into continuum! (Option ) 
+
+E[kin]           :  0.021895875
+E[start]         :  0.002570827
+E[start]+E[kin]  :  0.024466702
+E[free]          :  0.021590871
+
+Hopped at step 7 with k-vector:  0.04972 -0.04600 -0.02652  energy gap neutral/anion: 5.175618e-01 eV
+E[photoelectron] :  0.002645951
+E[kin,neutral]   :  0.002875830
+
+
+WAVEPACKET HOPPING
+
+Step: 8
+2023-06-13 14:47:03
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 1.000085992
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.93150219 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.92927521 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.93076375 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 9
+2023-06-13 14:48:34
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.999813896
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.93261523 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.93052801 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.93181798 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 10
+2023-06-13 14:50:00
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.999449573
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.93375672 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.93195581 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.93290061 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 11
+2023-06-13 14:51:26
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.998962149
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.93480584 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.93340050 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.93388166 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 12
+2023-06-13 14:52:47
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.998337583
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.93568543 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.93473176 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.93468881 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 13
+2023-06-13 14:54:09
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.997591217
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.93637274 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.93587375 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.93528691 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 14
+2023-06-13 14:55:30
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.996787883
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.93686491 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.93679671 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.93567603 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  0.999967507
+  Ionization    :  0.000032493
+  Neg-VDE Decay : -0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 15
+2023-06-13 14:56:50
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.996064472
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.93717897 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.93749663 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.93586751 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  0.999862730
+  Ionization    :  0.000137270
+  Neg-VDE Decay : -0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 16
+2023-06-13 14:58:11
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.995610795
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.93733479 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.93798833 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.93588114 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  0.999921048
+  Ionization    :  0.000078952
+  Neg-VDE Decay : -0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 17
+2023-06-13 14:59:31
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.995579924
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.93735105 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.93828831 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.93573657 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 18
+2023-06-13 15:00:50
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.995983390
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.93724800 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.93841794 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.93545339 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 19
+2023-06-13 15:02:10
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.996679961
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.93704088 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.93839519 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.93505088 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 20
+2023-06-13 15:03:29
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.997472884
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.93673897 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.93823468 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.93454307 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 21
+2023-06-13 15:04:52
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.998209087
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.93635588 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.93795149 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.93394586 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  0.999937694
+  Ionization    :  0.000062306
+  Neg-VDE Decay : -0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 22
+2023-06-13 15:06:16
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.998810141
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.93589730 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.93755730 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.93327135 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  0.999738171
+  Ionization    :  0.000261829
+  Neg-VDE Decay : -0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 23
+2023-06-13 15:07:40
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.999256668
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.93536968 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.93706302 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.93253105 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  0.999586271
+  Ionization    :  0.000413729
+  Neg-VDE Decay : -0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+No hop due to insufficient energy! 
+
+E[kin]           :  0.014622079
+E[start]         :  0.009844623
+E[start]+E[kin]  :  0.024466702
+E[free]          :  0.048653828
+k-vector: 0.07930 -0.05958 0.12413
+E[photoelectron] :  0.012623392
+E[kin,neutral]   : -0.024187127
+
+
+WAVEPACKET HOPPING
+
+No hop due to insufficient energy! WP
+
+E[kin]           :  0.014622079
+E[start]         :  0.009844623
+E[start]+E[kin]  :  0.024466702
+E[free]          :  0.056683613
+k-vector: 0.00832 -0.00181 0.00412
+E[photoelectron] :  0.020653178
+E[kin,neutral]   : -0.032216912
+
+
+Step: 24
+2023-06-13 15:09:07
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.999563431
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.93477986 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.93647787 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.93173517 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  0.999536975
+  Ionization    :  0.000463025
+  Neg-VDE Decay : -0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+No hop due to insufficient energy! 
+
+E[kin]           :  0.016167421
+E[start]         :  0.008299280
+E[start]+E[kin]  :  0.024466702
+E[free]          :  0.062832335
+k-vector: -0.11764 -0.08838 -0.18416
+E[photoelectron] :  0.027782488
+E[kin,neutral]   : -0.038365633
+
+
+WAVEPACKET HOPPING
+
+No hop due to insufficient energy! WP
+
+E[kin]           :  0.016167421
+E[start]         :  0.008299280
+E[start]+E[kin]  :  0.024466702
+E[free]          :  0.055637058
+k-vector: 0.00917 -0.00271 0.00346
+E[photoelectron] :  0.020587211
+E[kin,neutral]   : -0.031170357
+
+
+Step: 25
+2023-06-13 15:10:32
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.999757163
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.93413001 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.93580953 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.93089198 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  0.999610108
+  Ionization    :  0.000389892
+  Neg-VDE Decay : -0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+No hop due to insufficient energy! WP
+
+E[kin]           :  0.017652215
+E[start]         :  0.006814486
+E[start]+E[kin]  :  0.024466702
+E[free]          :  0.054652172
+k-vector: 0.00908 -0.00291 0.00337
+E[photoelectron] :  0.020563745
+E[kin,neutral]   : -0.030185471
+
+
+Step: 26
+2023-06-13 15:11:57
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.999864824
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.93342506 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.93506479 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.93000852 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  0.999785386
+  Ionization    :  0.000214614
+  Neg-VDE Decay : -0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 27
+2023-06-13 15:13:23
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.999909531
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.93267028 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.93424979 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.92909342 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 28
+2023-06-13 15:14:49
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.999905784
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.93186688 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.93337133 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.92815134 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 29
+2023-06-13 15:16:15
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.999866268
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.93102058 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.93243301 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.92718799 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 30
+2023-06-13 15:17:33
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.999807722
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.93013425 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.93144143 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.92620884 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 31
+2023-06-13 15:18:52
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.999742021
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.92921250 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.93040194 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.92521897 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 32
+2023-06-13 15:20:11
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.999675079
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.92826059 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.92931986 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.92422239 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 33
+2023-06-13 15:21:30
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.999611265
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.92728224 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.92820111 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.92322366 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 34
+2023-06-13 15:22:49
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.999553658
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.92628280 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.92705207 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.92222792 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 35
+2023-06-13 15:24:14
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.999504638
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.92526586 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.92587746 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.92123769 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 36
+2023-06-13 15:25:33
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.999467277
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.92423622 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.92468307 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.92025647 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 37
+2023-06-13 15:26:53
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.999444428
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.92319969 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.92347844 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.91928980 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 38
+2023-06-13 15:28:14
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.999438105
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.92215691 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.92226398 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.91833617 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 39
+2023-06-13 15:29:33
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.999449665
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.92111273 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.92104917 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.91739973 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 40
+2023-06-13 15:30:51
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.999480039
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.92006821 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.91983478 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.91647837 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  0.999974457
+  Ionization    :  0.000025543
+  Neg-VDE Decay : -0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 41
+2023-06-13 15:32:09
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.999529555
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.91902596 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.91862942 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.91557565 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  0.999880002
+  Ionization    :  0.000119998
+  Neg-VDE Decay : -0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 42
+2023-06-13 15:33:27
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.999597799
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.91798711 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.91743428 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.91468860 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  0.999815267
+  Ionization    :  0.000184733
+  Neg-VDE Decay : -0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 43
+2023-06-13 15:34:46
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.999684285
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.91695207 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.91625315 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.91381813 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  0.999807277
+  Ionization    :  0.000192723
+  Neg-VDE Decay : -0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+No hop due to insufficient energy! WP
+
+E[kin]           :  0.026992479
+E[start]         : -0.002525777
+E[start]+E[kin]  :  0.024466702
+E[free]          :  0.051920629
+k-vector: 0.00769 -0.00316 0.00104
+E[photoelectron] :  0.022231050
+E[kin,neutral]   : -0.027453927
+
+
+Step: 44
+2023-06-13 15:36:04
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.999784406
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.91591954 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.91508798 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.91296006 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  0.999860637
+  Ionization    :  0.000139363
+  Neg-VDE Decay : -0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 45
+2023-06-13 15:37:22
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.999888251
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.91489306 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.91394566 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.91211814 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  0.999953150
+  Ionization    :  0.000046850
+  Neg-VDE Decay : -0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 46
+2023-06-13 15:38:40
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.999993408
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.91387105 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.91282563 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.91128718 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 47
+2023-06-13 15:39:59
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 1.000104094
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.91285429 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.91173111 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.91046902 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 48
+2023-06-13 15:41:18
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 1.000212475
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.91184433 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.91066554 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.90966166 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 49
+2023-06-13 15:42:38
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 1.000295466
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.91084135 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.90963052 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.90886626 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  0.999999721
+  Ionization    :  0.000000279
+  Neg-VDE Decay : -0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 50
+2023-06-13 15:43:56
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 1.000320074
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.90984938 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.90863198 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.90808237 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  0.999899096
+  Ionization    :  0.000100904
+  Neg-VDE Decay : -0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 51
+2023-06-13 15:45:15
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 1.000266931
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.90886955 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.90766982 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.90730974 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  0.999816631
+  Ionization    :  0.000183369
+  Neg-VDE Decay : -0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 52
+2023-06-13 15:46:34
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 1.000129171
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.90790716 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.90674885 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.90655008 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  0.999784381
+  Ionization    :  0.000215619
+  Neg-VDE Decay : -0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+No hop due to insufficient energy! 
+
+E[kin]           :  0.020896547
+E[start]         :  0.003570155
+E[start]+E[kin]  :  0.024466702
+E[free]          :  0.079658814
+k-vector: 0.28529 -0.01319 -0.05767
+E[photoelectron] :  0.042445467
+E[kin,neutral]   : -0.055192113
+
+
+WAVEPACKET HOPPING
+
+Step: 53
+2023-06-13 15:47:52
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.999873310
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.90696571 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.90586950 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.90580301 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  0.999807577
+  Ionization    :  0.000192423
+  Neg-VDE Decay : -0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 54
+2023-06-13 15:49:11
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.999460729
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.90604696 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.90502965 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.90506747 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  0.999862862
+  Ionization    :  0.000137138
+  Neg-VDE Decay : -0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 55
+2023-06-13 15:50:28
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.998863690
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.90515973 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.90423289 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.90434385 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  0.999911902
+  Ionization    :  0.000088098
+  Neg-VDE Decay : -0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+No hop due to insufficient energy! WP
+
+E[kin]           :  0.015369794
+E[start]         :  0.009096907
+E[start]+E[kin]  :  0.024466702
+E[free]          :  0.065999446
+k-vector: 0.00555 -0.00181 0.00226
+E[photoelectron] :  0.022904796
+E[kin,neutral]   : -0.041532745
+
+
+Step: 56
+2023-06-13 15:51:46
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.998112325
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.90430831 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.90347862 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.90363280 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  0.999923218
+  Ionization    :  0.000076782
+  Neg-VDE Decay : -0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 57
+2023-06-13 15:53:03
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.997325736
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.90349734 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.90276550 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.90293262 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  0.999890226
+  Ionization    :  0.000109774
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 58
+2023-06-13 15:54:21
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.996707495
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.90273308 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.90209224 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.90224563 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  0.999835547
+  Ionization    :  0.000164453
+  Neg-VDE Decay : -0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 59
+2023-06-13 15:55:39
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.996483477
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.90202037 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.90145815 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.90157463 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  0.999798221
+  Ionization    :  0.000201779
+  Neg-VDE Decay : -0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+No hop due to insufficient energy! WP
+
+E[kin]           :  0.010975145
+E[start]         :  0.013491556
+E[start]+E[kin]  :  0.024466702
+E[free]          :  0.070061863
+k-vector: 0.00584 -0.00241 0.00138
+E[photoelectron] :  0.022285017
+E[kin,neutral]   : -0.045595161
+
+
+Step: 60
+2023-06-13 15:56:57
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.996771912
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.90136401 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.90086640 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.90092247 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  0.999810949
+  Ionization    :  0.000189051
+  Neg-VDE Decay : -0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+No hop due to insufficient energy! 
+
+E[kin]           :  0.011061759
+E[start]         :  0.013404942
+E[start]+E[kin]  :  0.024466702
+E[free]          :  0.085818956
+k-vector: -0.26162 0.08206 0.03163
+E[photoelectron] :  0.038090673
+E[kin,neutral]   : -0.061352254
+
+
+WAVEPACKET HOPPING
+
+Step: 61
+2023-06-13 15:58:16
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.997496506
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.90076958 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.90031788 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.90029888 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  0.999880012
+  Ionization    :  0.000119988
+  Neg-VDE Decay : -0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 62
+2023-06-13 15:59:34
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.998442011
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.90024206 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.89982111 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.89971299 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  0.999979924
+  Ionization    :  0.000020076
+  Neg-VDE Decay : -0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 63
+2023-06-13 16:00:53
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.999388122
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.89978588 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.89938177 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.89917590 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 64
+2023-06-13 16:02:12
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 1.000188967
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.89940348 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.89900839 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.89869994 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 65
+2023-06-13 16:03:31
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 1.000770781
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.89909732 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.89870742 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.89829464 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 66
+2023-06-13 16:04:50
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 1.001118082
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.89887167 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.89848858 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.89797217 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  0.999975178
+  Ionization    :  0.000024822
+  Neg-VDE Decay : -0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 67
+2023-06-13 16:06:09
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 1.001263424
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.89872587 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.89835738 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.89773889 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  0.999882216
+  Ionization    :  0.000117784
+  Neg-VDE Decay : -0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 68
+2023-06-13 16:07:35
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 1.001241184
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.89866294 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.89831544 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.89759978 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  0.999824911
+  Ionization    :  0.000175089
+  Neg-VDE Decay : -0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 69
+2023-06-13 16:09:15
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 1.001057971
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.89868396 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.89836440 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.89755798 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  0.999825452
+  Ionization    :  0.000174548
+  Neg-VDE Decay : -0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 70
+2023-06-13 16:11:16
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 1.000705288
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.89878607 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.89850129 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.89761240 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  0.999876411
+  Ionization    :  0.000123589
+  Neg-VDE Decay : -0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 71
+2023-06-13 16:13:35
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 1.000178543
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.89896838 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.89872062 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.89775925 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  0.999947925
+  Ionization    :  0.000052075
+  Neg-VDE Decay : -0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 72
+2023-06-13 16:16:01
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.999506165
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.89922832 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.89901340 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.89799227 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 73
+2023-06-13 16:17:38
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.998749223
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.89956492 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.89937328 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.89830376 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 74
+2023-06-13 16:18:53
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.997999800
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.89997437 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.89978944 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.89868679 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 75
+2023-06-13 16:20:07
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.997390721
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.90045363 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.90025234 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.89913420 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 76
+2023-06-13 16:21:22
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.997058717
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.90099907 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.90075399 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.89963929 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 77
+2023-06-13 16:22:37
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.997078162
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.90160513 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.90128464 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.90019689 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 78
+2023-06-13 16:23:55
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.997414209
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.90226996 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.90183992 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.90080407 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 79
+2023-06-13 16:25:12
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.997937837
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.90298692 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.90241790 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.90145746 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 80
+2023-06-13 16:26:29
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.998500687
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.90375273 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.90301296 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.90215668 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 81
+2023-06-13 16:28:01
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.998998444
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.90456306 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.90362732 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.90290140 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 82
+2023-06-13 16:29:44
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.999386393
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.90541111 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.90425883 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.90369122 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 83
+2023-06-13 16:31:26
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.999656014
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.90629286 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.90490817 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.90452262 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 84
+2023-06-13 16:33:08
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.999807928
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.90720369 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.90557461 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.90539649 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 85
+2023-06-13 16:34:48
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.999864786
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.90813735 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.90625642 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.90631031 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 86
+2023-06-13 16:36:28
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.999860928
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.90908998 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.90695135 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.90726002 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 87
+2023-06-13 16:38:05
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.999815301
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.91005906 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.90766138 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.90824277 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 88
+2023-06-13 16:39:43
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.999740655
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.91103927 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.90838318 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.90925540 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 89
+2023-06-13 16:41:23
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.999645613
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.91202618 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.90911441 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.91029256 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 90
+2023-06-13 16:43:03
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.999544855
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.91301585 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.90985217 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.91134994 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 91
+2023-06-13 16:44:44
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.999455280
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.91400608 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.91059604 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.91242290 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 92
+2023-06-13 16:46:25
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.999382520
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.91499590 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.91134398 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.91350585 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 93
+2023-06-13 16:48:07
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.999324910
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.91598218 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.91209669 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.91459843 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 94
+2023-06-13 16:49:47
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.999283770
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.91696007 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.91285166 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.91569436 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 95
+2023-06-13 16:52:01
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.999261648
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.91793031 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.91360778 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.91678823 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 96
+2023-06-13 16:55:06
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.999259574
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.91888917 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.91436488 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.91787988 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 97
+2023-06-13 16:57:30
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.999277463
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.91983591 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.91512379 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.91896305 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 98
+2023-06-13 16:59:26
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.999314364
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.92076778 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.91588435 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.92003686 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 99
+2023-06-13 17:02:29
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.999368264
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.92168295 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.91664416 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.92109519 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+Step: 100
+2023-06-13 17:05:09
+
+Calculating anionic system...
+Calculating ionized system...
+energy conservation error in kinEn: 0.999436406
+kinetic energy rescaled
+Dyson norms (summed over cation channels)
+0.92257895 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t)|phi_N-1(t+dt)psi^k>
+Dyson norms (summed over cation channels)
+0.91740650 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+calculating cross term <phi_N(t+dt)|phi_N-1(t)psi^k>
+Dyson norms (summed over cation channels)
+0.92213790 
+
+Mean PW renormalization constant after orthogonalization:
+1.00000e+00
+Alpha orbitals considered for orthogonalization:
+0 1 2 3 4 5 6 7 
+
+Hopping Probabilities:
+  State  0      :  1.000000000
+  Ionization    :  0.000000000
+  Neg-VDE Decay :  0.000000000
+
+CURRENT ELECTRONIC STATE: 0
+
+SINGLE WAVE HOPPING
+
+WAVEPACKET HOPPING
+
+2023-06-13 17:07:05
+Dynamics finished
