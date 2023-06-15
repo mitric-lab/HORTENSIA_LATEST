@@ -31,7 +31,7 @@ class HarmonicQChem(HarmonicBase.HarmonicBase):
                     nat += 1
 
                 xyz = np.zeros((nat, 3), dtype=float)
-                s   = np.zeros(nat, dtype=str)
+                s   = np.zeros(nat, dtype='U2')
                 for n, x in enumerate(self.f1[-i+2:-i+2+nat]):
                     xyz[n] = x.split()[2:]
                     s[n]   = x.split()[1]

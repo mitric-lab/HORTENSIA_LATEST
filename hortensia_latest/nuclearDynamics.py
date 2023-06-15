@@ -177,7 +177,7 @@ class NuclearDynamics:
 
         self.nat          = int(lines[0])
         self.atnr         = np.zeros(self.nat, dtype=int)
-        self.atS          = np.zeros(self.nat, dtype=str)
+        self.atS          = np.zeros(self.nat, dtype='U2')
         self.coord        = np.zeros((self.nat, 3))
         self.coord_angs   = np.zeros((self.nat, 3))
         self.velo         = np.zeros((self.nat, 3))
