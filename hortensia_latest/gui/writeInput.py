@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import hortensia_latest.info as info
-
 def write(data):
     output  = "### Input configuration file for the "
     output += "HORTENSIA program package\n\n"
@@ -75,7 +73,9 @@ def write(data):
     output += "## energy shift of the ionized ground state (in eV)\n"
     output += "Eshift         = %s\n"%data[13]
     output += "### type of orthogonalization (options: 'state', 'mo')\n"
-    output += "orthotype      = %s\n\n\n"%data[14]
+    output += "orthotype      = %s\n"%data[14]
+    output += "### Whether to use adiabatic decay in case of negative VDEs\n"
+    output += "adiaDecay      = %s\n\n\n"%data[33]
 
     output += "[Continuum]\n\n"
     output += "### distribution of k vectors, possible options:\n"

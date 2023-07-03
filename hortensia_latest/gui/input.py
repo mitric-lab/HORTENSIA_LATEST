@@ -241,6 +241,7 @@ def packData():
     data.append(zpeInclude.get())
     data.append(zpeDiff.get())
     data.append(vibExEn.get())
+    data.append(adiaDecay.get())
 
     return data
 
@@ -301,7 +302,7 @@ notebook.add(frame7, text='Wigner')
 #def killed(event):
 #    quit("Killed program")
 #root.bind('<Return>', killed)
-notebook.select(frame5) #!!!
+#notebook.select(frame3) #!!!
 
 
 ################################################################################
@@ -643,7 +644,7 @@ tk.Label(frame3,
     font="Helvetica 12").place(x=165, y=10, width=270, height=35)
 tk.Frame(frame3, bg=coloruw, width=270, height=2).place(x=165, y=43)
 
-# Anion States
+# anion States
 anion_states  = tk.StringVar(value='0')
 tk.Frame(frame3, bg=colorbg, width=270, height=45).place(x=20, y=60)
 tk.Label(frame3, text="Anion states (comma separated)", bg=coloruw, fg='white',
@@ -659,22 +660,38 @@ q8.bind("<Leave>", lambda event, arg=""   : hover3(event, arg))
 
 # starting state
 starting_state = tk.IntVar(value=0)
-tk.Frame(frame3, bg=colorbg, width=270, height=45).place(x=20, y=115)
-tk.Label(frame3, text="Starting state (index of list above)", bg=coloruw,
+tk.Frame(frame3, bg=colorbg, width=270, height=45).place(x=310, y=60)
+tk.Label(frame3, text="Starting state (index of state list)", bg=coloruw,
     fg='white', font=("Helvetica", 10)
-    ).place(x=20, y=115, width=270, height=20)
+    ).place(x=310, y=60, width=270, height=20)
 tk.Entry(frame3, bg=colorbg, fg='black', textvariable=starting_state,
     font=("Helvetica", 9), justify='center', borderwidth=0, highlightthickness=0
-    ).place(x=20, y=135, width=270, height=25)
+    ).place(x=310, y=80, width=270, height=25)
+
+# energy shift
+Eshift = tk.DoubleVar(value=0.0)
+tk.Frame(frame3, bg=colorbg, width=270, height=45).place(x=165, y=115)
+tk.Label(frame3, text="Energy shift anion/neutral (in eV)", bg=coloruw,
+    fg='white', font=("Helvetica", 10)
+    ).place(x=165, y=115, width=270, height=20)
+tk.Entry(frame3, bg=colorbg, fg='black', textvariable=Eshift,
+    font=("Helvetica", 9), justify='center', borderwidth=0, highlightthickness=0
+    ).place(x=165, y=135, width=270, height=25)
+# tooltip
+q11 = tk.Label(frame3, image=question, bg=coloruw)
+q11.place(x=408, y=120, width=10, height=10)
+q11.bind("<Enter>", lambda event, arg=gI.q11: hover3(event, arg))
+q11.bind("<Leave>", lambda event, arg=""    : hover3(event, arg))
 
 # precision
 precision = tk.DoubleVar(value=99.5)
-tk.Frame(frame3, bg=colorbg, width=270, height=45).place(x=165, y=170)
+tk.Frame(frame3, bg=colorbg, width=270, height=45).place(x=20, y=170)
 tk.Label(frame3, text="Precision for excited states in %", bg=coloruw,
-    fg='white', font=("Helvetica", 10)).place(x=165, y=170, width=270, height=20)
+    fg='white', font=("Helvetica", 10)).place(x=20, y=170, width=270, 
+    height=20)
 tk.Entry(frame3, bg=colorbg, fg='black', textvariable=precision,
     font=("Helvetica", 9), justify='center', borderwidth=0, highlightthickness=0
-    ).place(x=165, y=190, width=270, height=25)
+    ).place(x=20, y=190, width=270, height=25)
 # tooltip
 q9 = tk.Label(frame3, image=question, bg=coloruw)
 q9.place(x=403, y=175, width=10, height=10)
@@ -683,32 +700,32 @@ q9.bind("<Leave>", lambda event, arg=""   : hover3(event, arg))
 
 # max microstates
 max_micro = tk.IntVar(value=50)
-tk.Frame(frame3, bg=colorbg, width=270, height=45).place(x=310, y=60)
+tk.Frame(frame3, bg=colorbg, width=270, height=45).place(x=310, y=170)
 tk.Label(frame3, text="Maximum number of microstates", bg=coloruw, fg='white',
-    font=("Helvetica", 10)).place(x=310, y=60, width=270, height=20)
+    font=("Helvetica", 10)).place(x=310, y=170, width=270, height=20)
 tk.Entry(frame3, bg=colorbg, fg='black', textvariable=max_micro,
     font=("Helvetica", 9), justify='center', borderwidth=0, highlightthickness=0
-    ).place(x=310, y=80, width=270, height=25)
+    ).place(x=310, y=190, width=270, height=25)
 # tooltip
 q10 = tk.Label(frame3, image=question, bg=coloruw)
-q10.place(x=550, y=65, width=10, height=10)
+q10.place(x=550, y=175, width=10, height=10)
 q10.bind("<Enter>", lambda event, arg=gI.q10: hover3(event, arg))
 q10.bind("<Leave>", lambda event, arg=""    : hover3(event, arg))
 
-# energy shift
-Eshift = tk.DoubleVar(value=0.0)
-tk.Frame(frame3, bg=colorbg, width=270, height=45).place(x=310, y=115)
-tk.Label(frame3, text="Energy shift anion/neutral (in eV)", bg=coloruw,
+# Whether to include adiabatic decay in case of negative VDE
+adiaDecay = tk.BooleanVar(value=False)
+tk.Frame(frame3, bg=colorbg, width=270, height=45).place(x=165, y=225)
+tk.Label(frame3, text="Include adiabatic decay for neg. VDE", bg=coloruw,
     fg='white', font=("Helvetica", 10)
-    ).place(x=310, y=115, width=270, height=20)
-tk.Entry(frame3, bg=colorbg, fg='black', textvariable=Eshift,
-    font=("Helvetica", 9), justify='center', borderwidth=0, highlightthickness=0
-    ).place(x=310, y=135, width=270, height=25)
-# tooltip
-q11 = tk.Label(frame3, image=question, bg=coloruw)
-q11.place(x=553, y=120, width=10, height=10)
-q11.bind("<Enter>", lambda event, arg=gI.q11: hover3(event, arg))
-q11.bind("<Leave>", lambda event, arg=""    : hover3(event, arg))
+    ).place(x=165, y=225, width=270, height=20)
+rbAdia1 = tk.Radiobutton(frame3, text='True', value=True,
+    variable=adiaDecay, bg=colorbg, fg='black', highlightthickness=0,
+    activebackground=colorab, activeforeground='black', font=("Helvetica", 9))
+rbAdia1.place(x=165, y=245, width=135, height=25)
+rbAdia2 = tk.Radiobutton(frame3, text='False', value=False,
+    variable=adiaDecay, bg=colorbg, fg='black', highlightthickness=0,
+    activebackground=colorab, activeforeground='black', font=("Helvetica", 9))
+rbAdia2.place(x=300, y=245, width=135, height=25)
 
 # tooltips frame
 tk.Frame(frame3, bg=colorbg).place(x=110, y=340, width=470, height=70)

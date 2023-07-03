@@ -63,6 +63,10 @@ class PopulationDynamics:
         self.dtfs    = float(config['Dynamics']['timestep'])
 
         # Used later in the case of resonance decay
+        if config['States']['adiaDecay'].lower() == 'true':
+            self.adiaDecay = True
+        else:
+            self.adiaDecay = False
         self.calcSet = calcSet
         self.negVDE  = np.zeros(self.nBound, dtype=bool)
         self.tau     = np.zeros(self.nBound)
@@ -270,44 +274,46 @@ class PopulationDynamics:
         neuEn = self.Step2.ionized.total_energy
         elDecay = np.zeros(self.nBound)
 
-        for i, en in enumerate(Hd[:self.nBound]):
-            if self.negVDE[i]:
-                elDecay[i] = misc.autime2fs / (2 * self.tau[i])
-            elif en + self.refEn > neuEn:
-                stateSet = [self.states, i, self.states[i], self.excited]
-                atS      = []
-                for at in self.Step1.atnr:
-                    atS.append(misc.NrToS(at))
-                atS     = np.array(atS)
-                molSet  = [self.Step1.coord.copy(), atS, self.Step1.charge, 
-                            self.Step1.mult]
-                qcspecs = [stateSet, self.calcSet, molSet]
+        if self.adiaDecay:
+            for i, en in enumerate(Hd[:self.nBound]):
+                if self.negVDE[i]:
+                    elDecay[i] = misc.autime2fs / (2 * self.tau[i])
+                elif en + self.refEn > neuEn:
+                    stateSet = [self.states, i, self.states[i], self.excited]
+                    atS      = []
+                    for at in self.Step1.atnr:
+                        atS.append(misc.NrToS(at))
+                    atS     = np.array(atS)
+                    molSet  = [self.Step1.coord.copy(), atS, self.Step1.charge, 
+                                self.Step1.mult]
+                    qcspecs = [stateSet, self.calcSet, molSet]
 
-                if (i==1) and (Hd[0]+self.refEn > neuEn) and not self.negVDE[0]:
-                    # If the GS is also unbound, there is no need to perform a 
-                    # new NTO calculation
-                    decay   = spex.readGaussian(qcspecs, fo, False)
-                else:
-                    decay   = spex.readGaussian(qcspecs, fo)
+                    if ((i==1) and (Hd[0]+self.refEn > neuEn) and 
+                        (not self.negVDE[0])):
+                            # If the GS is also unbound, there is no need to 
+                            # perform a new NTO calculation
+                            decay   = spex.readGaussian(qcspecs, fo, False)
+                    else:
+                        decay   = spex.readGaussian(qcspecs, fo)
 
-                decay.prepR2calc()
+                    decay.prepR2calc()
 
-                # Calculates pval for time 0.0, resulting in 1.0
-                # Also calculates R0 for a(n arbitrary) spatial 
-                # probability of 99 %
-                p0   = decay.stepR2calc(0.0, 0.99, fo)
-                pval = [1.0, 1.0]
-                tdec = 0.0
-                while pval[1] > 1 / np.e:
-                    tdec    += self.dt
-                    pval[0]  = 1.0 * pval[1]
-                    pval[1]  = decay.stepR2calc(tdec)/p0
+                    # Calculates pval for time 0.0, resulting in 1.0
+                    # Also calculates R0 for a(n arbitrary) spatial 
+                    # probability of 99 %
+                    p0   = decay.stepR2calc(0.0, 0.99, fo)
+                    pval = [1.0, 1.0]
+                    tdec = 0.0
+                    while pval[1] > 1 / np.e:
+                        tdec    += self.dt
+                        pval[0]  = 1.0 * pval[1]
+                        pval[1]  = decay.stepR2calc(tdec)/p0
 
-                self.tau[i] = (1/np.e - pval[1]) / (pval[1] - pval[0]) * \
-                    self.dtfs + tdec * misc.autime2fs
-                fo.write("tau_%i = %5e\n"%(self.states[i], self.tau[i]))
+                    self.tau[i] = (1/np.e - pval[1]) / (pval[1] - pval[0]) * \
+                        self.dtfs + tdec * misc.autime2fs
+                    fo.write("tau_%i = %5e\n"%(self.states[i], self.tau[i]))
 
-                elDecay[i] = misc.autime2fs / (2 * self.tau[i])
+                    elDecay[i] = misc.autime2fs / (2 * self.tau[i])
         
         self.negVDE = (Hd[:self.nBound] + self.refEn > neuEn)
 
