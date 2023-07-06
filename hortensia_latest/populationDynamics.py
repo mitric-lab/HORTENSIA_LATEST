@@ -97,9 +97,7 @@ class PopulationDynamics:
         self.oldsign = np.ones((2, self.nBound))
 
         if config['Dynamics']['restart'] == 'True':
-            self.trajpop = [int(np.loadtxt("trajpop%s.dat"%self.index)[-1, 1])]
-            self.trajpop.append(
-                int(np.loadtxt("trajpopWP%s.dat"%self.index)[-1, 1]))
+            self.trajpop = int(np.loadtxt("trajpop%s.dat"%self.index)[-1, 1])
             tempcoef     = np.loadtxt("tempcoef%s.dat"%self.index)
             self.c       = tempcoef[0, :] + 1j * tempcoef[1, :]
             if self.orthotype != "none":
@@ -107,14 +105,10 @@ class PopulationDynamics:
         else:
             self.c       = np.zeros(self.nstates, dtype=np.complex)
             self.c[self.state] = 1.0
-            self.trajpop = [int(config['Dynamics']['nrpertraj']),
-                            int(config['Dynamics']['nrpertraj'])]
+            self.trajpop = int(config['Dynamics']['nrpertraj'])
 
             with open("trajpop%s.dat"%self.index, "w") as out:
-                out.write("%.2f %i\n"%(0.0, self.trajpop[0]))
-
-            with open("trajpopWP%s.dat"%self.index, "w") as out:
-                out.write("%.2f %i\n"%(0.0, self.trajpop[1]))
+                out.write("%.2f %i\n"%(0.0, self.trajpop))
 
             with open("boundPop%s.dat"%self.index, "w") as out:
                 out.write("%.2f %i\n"%(0.0, self.statenr))
@@ -335,10 +329,8 @@ class PopulationDynamics:
 
         # Evaluation of autoionization hops
         fo.write("\nCURRENT ELECTRONIC STATE: %i\n"%(self.states[self.state]))
-        self.trajpop[0] = self.singleWaveHop(rand(self.trajpop[0]),
-                                             self.trajpop[0], step, kinEn, fo)
-        self.trajpop[1] = self.wavepacketHop(rand(self.trajpop[1]),
-                                             self.trajpop[1], step, kinEn, fo)
+        self.trajpop = self.singleWaveHop(rand(self.trajpop), self.trajpop,
+                                          step, kinEn, fo)
         # Evaluation of bound state (surface hopping) hop
         if self.nBound > 1:
             kinEn = self.boundHop(rand(1), kinEn, fo)
@@ -1012,54 +1004,12 @@ class PopulationDynamics:
                         Eel     = la.norm(kvec)**2 / 2
                         Efin    = self.Step2.Hdiag[i]
                         trajpop = self.checkEnergy(trajpop, step, Ekin,
-                                                   Eel, kvec, Efin, "", fo)
+                                                   Eel, kvec, Efin, fo)
                     elif i == self.nstates:
-                        trajpop = self.checkEnRes(trajpop, step, Ekin, "", fo)
+                        trajpop = self.checkEnRes(trajpop, step, Ekin, fo)
                     break
                 else:
                     probsum += prob
-
-        return trajpop
-
-
-    def wavepacketHop(self, rNr, trajpop, step, Ekin, fo):
-        """
-        Check if hopping criteria are met
-        Hopping is evaluated for a weighted average of plane waves
-        """
-
-        fo.write("\nWAVEPACKET HOPPING\n")
-
-        Efin = np.einsum("k,k->", self.Step2.Hdiag[self.nBound:],
-                         abs(self.c[self.nBound:])**2) / \
-               sum(abs(self.c[self.nBound:])**2)
-
-        kvec = np.einsum("kx,k->x", self.grid.kbasis,
-                         abs(self.c[self.nBound:])**2) / \
-               sum(abs(self.c[self.nBound:])**2)
-
-        Eel  = (la.norm(self.grid.kbasis, axis=1) * \
-                abs(self.c[self.nBound:]))**2
-        Eel  = sum(Eel) / (2 * sum(abs(self.c[self.nBound:])**2))
-
-        prob = np.zeros(self.nBound+2)
-        prob[:self.nBound] = self.prob[:self.nBound]
-        prob[-2] = sum(self.prob[self.nBound:-1])
-        prob[-1] = self.prob[-1]
-
-        for j, randNr in enumerate(rNr):
-            probsum = 0.0
-            for i in range(self.nBound+2):
-                if (prob[i] + probsum) > randNr:
-                    # only hopping into free-electron states is allowed here
-                    if i == self.nBound:
-                        trajpop = self.checkEnergy(trajpop, step, Ekin,
-                                                   Eel, kvec, Efin, "WP", fo)
-                    elif i == self.nBound+1:
-                        trajpop = self.checkEnRes(trajpop, step, Ekin, "WP", fo)
-                    break
-                else:
-                    probsum += prob[i]
 
         return trajpop
 
@@ -1106,7 +1056,7 @@ class PopulationDynamics:
         return Ekin
 
 
-    def checkEnergy(self, trajpop, step, Ekin, Eel, kvec, Efin, wp, fo):
+    def checkEnergy(self, trajpop, step, Ekin, Eel, kvec, Efin, fo):
         """
         if hop is allowed by probability, checks if energy criteria
         are fulfilled.
@@ -1126,10 +1076,9 @@ class PopulationDynamics:
 
         if Estart + Ekin - Efin >= 0:
             trajpop -= 1
-            temp     = "\nHop into continuum! (Option %s) %s\n\n"%(
-                       self.index, wp)
+            temp     = "\nHop into continuum! (Option %s)\n\n"%(self.index)
         else:
-            temp     = "\nNo hop due to insufficient energy! %s\n\n"%wp
+            temp     = "\nNo hop due to insufficient energy!\n\n"
 
         temp += "E[kin]           : %12.9f\n"%Ekin
         temp += "E[start]         : %12.9f\n"%Estart
@@ -1142,7 +1091,7 @@ class PopulationDynamics:
             temp += "energy gap neutral/anion: "
             temp += "%e eV\n"%(27.211386 * (Efin - Estart))
 
-            with open("freeEl%s%s.dat"%(self.index, wp), "a") as f:
+            with open("freeEl%s.dat"%(self.index), "a") as f:
                 f.write("%.2f %.5e %.5e %.5e"%(
                         step * self.dtfs, kvec[0], kvec[1], kvec[2]))
                 f.write(" %12.9f %12.9f\n"%(Eel, 27.211386*(Efin - Estart)))
@@ -1158,7 +1107,7 @@ class PopulationDynamics:
         return trajpop
 
 
-    def checkEnRes(self, trajpop, step, Ekin, wp, fo):
+    def checkEnRes(self, trajpop, step, Ekin, fo):
         """
         if hop is allowed by probability, checks if energy criteria
         for decay due to negative VDE if fulfilled
@@ -1168,8 +1117,7 @@ class PopulationDynamics:
 
         if Estart > neuEn:
             trajpop -= 1
-            temp     = "\nHop into continuum! (Option %s) %s\n\n"%(self.index,
-                                                                    wp)
+            temp     = "\nHop into continuum! (Option %s)\n\n"%(self.index)
         else:
             temp     = "\nNo hop due to insufficient energy!\n\n"
 
@@ -1184,7 +1132,7 @@ class PopulationDynamics:
             temp += "VDE neutral/anion: "
             temp += "%e eV\n"%(27.211386*(neuEn - Estart))
 
-            with open("freeEl%s%s.dat"%(self.index, wp), "a") as f:
+            with open("freeEl%s.dat"%(self.index), "a") as f:
                 f.write("%.2f %.5e %.5e %.5e"%(
                         step * self.dtfs, 0.0, 0.0, 0.0))
                 f.write(" %.9f %.9f\n"%(
@@ -1317,9 +1265,7 @@ class PopulationDynamics:
                                       self.diaTemp[self.state, self.nBound:])))
 
         with open("trajpop%s.dat"%self.index, "a") as f:
-            f.write("%.2f %i\n"%(t, self.trajpop[0]))
-        with open("trajpopWP%s.dat"%self.index, "a") as f:
-            f.write("%.2f %i\n"%(t, self.trajpop[1]))
+            f.write("%.2f %i\n"%(t, self.trajpop))
         with open("boundPop%s.dat"%self.index, "a") as out:
             out.write("%.2f %i\n"%(t, self.statenr))
 

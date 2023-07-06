@@ -19,7 +19,7 @@ kDistr = ast.literal_eval(config['Continuum']['kDistr'])
 ################################################################################
 
 
-def trajCheck(trajs, wavepacket):
+def trajCheck(trajs):
     """
     Checks for erroneous trajectories and moves them to .error,
     evaluates the total hopping statistics and writes pop.dat files with the
@@ -38,11 +38,6 @@ def trajCheck(trajs, wavepacket):
     nnohop = np.zeros(dynl, dtype=int)
 
     pop    = np.zeros((dynl, int(config['Dynamics']['steps']) + 1, states + 1))
-
-    if wavepacket:
-        wp = 'WP'
-    else:
-        wp = ''
 
     for i in range(trajs):
         if os.path.exists("TRAJ_%i.out"%i):
@@ -66,8 +61,8 @@ def trajCheck(trajs, wavepacket):
                 os.system("rm -r TRAJ_%i"%i)
 
             for j in range(dynl):
-                bound = np.loadtxt("TRAJ_%i.out/boundPop%i.dat"%(i,j))
-                temp  = np.loadtxt("TRAJ_%i.out/trajpop%s%i.dat"%(i,wp,j))
+                bound = np.loadtxt("TRAJ_%i.out/boundPop%i.dat"%(i, j))
+                temp  = np.loadtxt("TRAJ_%i.out/trajpop%i.dat"%(i, j))
                 bound = np.asarray(bound[:,1], dtype=int)
                 temp  = np.asarray(temp[:,1] , dtype=int)
                 print("Option %i: %5i bound, %5i hopped"%(j, temp[-1,1],
@@ -88,7 +83,7 @@ def trajCheck(trajs, wavepacket):
             quit("\nNo trajectories evaluated, quitting program")
         else:
             pop[j] /= (nhop[j] + nnohop[j])
-            with open("pop%s%i.dat"%(wp,j),"w") as f:
+            with open("pop%i.dat"%(j),"w") as f:
                 for i,k in enumerate(pop[j]):
                     tmpt = i * float(config['Dynamics']['timestep'])
                     f.write("%5.2f "%(tmpt))
@@ -107,19 +102,14 @@ def trajCheck(trajs, wavepacket):
     print("\n")
 
 
-def freeElectron(trajs, wavepacket):
+def freeElectron(trajs):
     """
     combines all TRAJ_X.out/freeEl.dat files into one
     !!! This function was not properly tested !!!
     """
 
-    if wavepacket:
-        wp = 'WP'
-    else:
-        wp = ''
-
     for j, jDistr in enumerate(kDistr):
-        with open("freeelectrons%i%s.dat"%(j,wp),"w") as f:
+        with open("freeelectrons%i.dat"%(j), "w") as f:
             out  = "#   t/fs      "
             out += "kx           "
             out += "ky           "
@@ -133,22 +123,22 @@ def freeElectron(trajs, wavepacket):
             print("Trajectory %i"%i)
 
             for j, jDistr in enumerate(kDistr):
-                if os.path.exists("TRAJ_%i.out/freeEl.dat%i%s"%(i,j,wp)):
-                    temp = np.loadtxt("TRAJ_%i.out/freeEl%i%s.dat"%(i,j,wp))
+                if os.path.exists("TRAJ_%i.out/freeEl.dat%i"%(i, j)):
+                    temp = np.loadtxt("TRAJ_%i.out/freeEl%i.dat"%(i, j))
                 else:
                     continue
 
                 if np.shape(temp) == (6,):
                     temp = np.asarray([temp])
 
-                with open("freeelectrons%i%s.dat"%(j,wp),"a") as f:
+                with open("freeelectrons%i.dat"%(j), "a") as f:
                     for k in temp:
                         f.write("%8.2f %12.5e "%(k[0], k[1]))
                         f.write("%12.5e %12.5e "%(k[2], k[3]))
                         f.write("%14.7e %14.7e\n"%(k[4], k[5]))
 
 
-def ionDistance(trajs, atomlist, wavepacket):
+def ionDistance(trajs, atomlist):
     """
     calculates atomic distances for given centers at all hopping instances and
     writes it to HoppingDistances/OptionX/
@@ -159,15 +149,10 @@ def ionDistance(trajs, atomlist, wavepacket):
     if isinstance(atomlist[0], int):
         atomlist = [atomlist]
 
-    if wavepacket:
-        wp = 'WP'
-    else:
-        wp = ''
-
-    if not os.path.isdir("HoppingDistances%s"%wp):
-        os.system("mkdir HoppingDistances%s"%wp)
-    if os.listdir("HoppingDistances%s"%wp):
-        os.system("rm -r HoppingDistances%s/*"%wp)
+    if not os.path.isdir("HoppingDistances"):
+        os.system("mkdir HoppingDistances")
+    if os.listdir("HoppingDistances"):
+        os.system("rm -r HoppingDistances/*")
 
     for i in range(trajs):
         if not os.path.isdir("TRAJ_%i.out"%i):
@@ -180,12 +165,12 @@ def ionDistance(trajs, atomlist, wavepacket):
         nat = int(xyz[0])
 
         for j, jDistr in enumerate(kDistr):
-            path = "HoppingDistances%s/Option%i"%(wp,j)
+            path = "HoppingDistances/Option%i"%(j)
             if not os.path.isdir(path):
                 os.system("mkdir %s"%path)
 
-            if os.path.exists("TRAJ_%i.out/freeEl%i%s.dat"%(i,j,wp)):
-                freeEl = np.loadtxt("TRAJ_%i.out/freeEl%i%s.dat"%(i,j,wp))
+            if os.path.exists("TRAJ_%i.out/freeEl%i.dat"%(i, j)):
+                freeEl = np.loadtxt("TRAJ_%i.out/freeEl%i.dat"%(i, j))
             else:
                 print("   No hops in trajectory (option %i)"%j)
                 continue
@@ -196,7 +181,7 @@ def ionDistance(trajs, atomlist, wavepacket):
             steps = np.asarray(freeEl[:,0]*5, dtype=int)
 
             for k in atomlist:
-                with open("%s/%i-%i%s.dat"%(path, k[0], k[1],wp), "a") as f:
+                with open("%s/%i-%i.dat"%(path, k[0], k[1]), "a") as f:
                     for l in steps:
                         a1  = np.asarray(xyz[(nat+2)*l+1+k[0]].split()[1:],
                                         dtype=float)
@@ -208,7 +193,7 @@ def ionDistance(trajs, atomlist, wavepacket):
                         f.write("%5i %12.9f\n"%(l,l12))
 
 
-def hoppingAngle(trajs, inp, wavepacket):
+def hoppingAngle(trajs, inp):
     """
     calculates given angles at all hopping instances and writes it to
     HoppingAngles/OptionX/
@@ -219,15 +204,10 @@ def hoppingAngle(trajs, inp, wavepacket):
     if isinstance(inp[0], int):
         inp = [inp]
 
-    if wavepacket:
-        wp = 'WP'
-    else:
-        wp = ''
-
-    if not os.path.isdir("HoppingAngles%s"%wp):
-        os.system("mkdir HoppingAngles%s"%wp)
-    if os.listdir("HoppingAngles%s"%wp):
-        os.system("rm -r HoppingAngles%s/*"%wp)
+    if not os.path.isdir("HoppingAngles"):
+        os.system("mkdir HoppingAngles")
+    if os.listdir("HoppingAngles"):
+        os.system("rm -r HoppingAngles/*")
 
     for i in range(trajs):
         if not os.path.isdir("TRAJ_%i.out"%i):
@@ -240,12 +220,12 @@ def hoppingAngle(trajs, inp, wavepacket):
         nat = int(xyz[0])
 
         for j, jDistr in enumerate(kDistr):
-            path = "HoppingAngles%s/Option%i"%(wp,j)
+            path = "HoppingAngles/Option%i"%(j)
             if not os.path.isdir(path):
                 os.system("mkdir %s"%path)
 
-            if os.path.exists("TRAJ_%i.out/freeEl%i%s.dat"%(i,j,wp)):
-                freeEl = np.loadtxt("TRAJ_%i.out/freeEl%i%s.dat"%(i,j,wp))
+            if os.path.exists("TRAJ_%i.out/freeEl%i.dat"%(i, j)):
+                freeEl = np.loadtxt("TRAJ_%i.out/freeEl%i.dat"%(i,j))
             else:
                 print("   No hops in trajectory (option %i)"%j)
                 continue
@@ -277,7 +257,7 @@ def hoppingAngle(trajs, inp, wavepacket):
                         f.write("%5i %6.3f\n"%(l,angle))
 
 
-def hoppingDihedrals(trajs, inp, wavepacket):
+def hoppingDihedrals(trajs, inp):
     """
     calculates dihedral angles at all hopping instances and writes it to
     HoppingDihedrals/OptionX/
@@ -288,14 +268,9 @@ def hoppingDihedrals(trajs, inp, wavepacket):
     if isinstance(inp[0], int):
         inp = [inp]
 
-    if wavepacket:
-        wp = 'WP'
-    else:
-        wp = ''
-
-    if not os.path.isdir("HoppingDihedrals%s"%wp):
-        os.system("mkdir HoppingDihedrals%s"%wp)
-    os.system("rm -rf HoppingDihedrals%s/*"%wp)
+    if not os.path.isdir("HoppingDihedrals"):
+        os.system("mkdir HoppingDihedrals")
+    os.system("rm -rf HoppingDihedrals/*")
 
     for i in range(trajs):
         if not os.path.isdir("TRAJ_%i.out"%i):
@@ -308,12 +283,12 @@ def hoppingDihedrals(trajs, inp, wavepacket):
         nat = int(xyz[0])
 
         for j, jDistr in enumerate(kDistr):
-            path = "HoppingAngles%s/Option%i"%(wp,j)
+            path = "HoppingAngles/Option%i"%(j)
             if not os.path.isdir(path):
                 os.system("mkdir %s"%path)
 
-            if os.path.exists("TRAJ_%i.out/freeEl%i%s.dat"%(i,j,wp)):
-                freeEl = np.loadtxt("TRAJ_%i.out/freeEl%i%s.dat"%(i,j,wp))
+            if os.path.exists("TRAJ_%i.out/freeEl%i.dat"%(i, j)):
+                freeEl = np.loadtxt("TRAJ_%i.out/freeEl%i.dat"%(i, j))
             else:
                 print("   No hops in trajectory (option %i)"%j)
                 continue

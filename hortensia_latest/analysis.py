@@ -42,14 +42,14 @@ def inputCheck(indict):
         if indict['ntrajs'] == None:
             quit("\nTotal number of trajectories (option --ntrajs) needed "
                  "as input!\n")
-        trajCheck(indict['ntrajs'], indict['wavepacket'])
+        trajCheck(indict['ntrajs'])
         anyOption = True
 
     if indict['electron']:
         if indict['ntrajs'] == None:
             quit("\nTotal number of trajectories (option --ntrajs) needed "
                  "as input!\n")
-        freeElectron(indict['ntrajs'], indict['wavepacket'])
+        freeElectron(indict['ntrajs'])
         print("\nfreeelectrons.dat written\n")
         anyOption = True
 
@@ -57,7 +57,7 @@ def inputCheck(indict):
         if indict['ntrajs'] == None:
             quit("\nTotal number of trajectories (option --ntrajs) needed "
                  "as input!\n")
-        ionDistance(indict['ntrajs'], indict['dlist'], indict['wavepacket'])
+        ionDistance(indict['ntrajs'], indict['dlist'])
         print("\nHopping distances calculated!\n")
         anyOption = True
 
@@ -65,7 +65,7 @@ def inputCheck(indict):
         if indict['ntrajs'] == None:
             quit("\nTotal number of trajectories (option --ntrajs) needed "
                  "as input!\n")
-        hoppingAngle(indict['ntrajs'], indict['alist'], indict['wavepacket'])
+        hoppingAngle(indict['ntrajs'], indict['alist'])
         print("\nHopping angles calculated!\n")
         anyOption = True
 
@@ -73,8 +73,7 @@ def inputCheck(indict):
         if indict['ntrajs'] == None:
             quit("\nTotal number of trajectories (option --ntrajs) needed "
                  "as input!\n")
-        hoppingDihedrals(indict['ntrajs'], indict['dhlist'],
-                         indict['wavepacket'])
+        hoppingDihedrals(indict['ntrajs'], indict['dhlist'])
         print("\nHopping dihedrals calculated!\n")
         anyOption = True
 
@@ -219,7 +218,7 @@ def wignerStructuresQChem(f1, f2):
     DistClass.getWignerEnsemble()
 
 
-def trajCheck(trajs, wavepacket):
+def trajCheck(trajs):
     """
     Checks for erroneous trajectories and moves them to .error,
     evaluates the total hopping statistics and writes pop.dat files with the
@@ -228,7 +227,7 @@ def trajCheck(trajs, wavepacket):
 
     if isinstance(kDistr, list):
         import hortensia_latest.analysis_list as analysis_list
-        analysis_list.trajCheck(trajs, wavepacket)
+        analysis_list.trajCheck(trajs)
 
         return
 
@@ -240,11 +239,6 @@ def trajCheck(trajs, wavepacket):
     nerror = 0
 
     pop = np.zeros((int(config['Dynamics']['steps']) + 1, states + 1))
-
-    if wavepacket:
-        wp = 'WP'
-    else:
-        wp = ''
 
     for i in range(trajs):
         if os.path.exists("TRAJ_%i.out"%i):
@@ -268,7 +262,7 @@ def trajCheck(trajs, wavepacket):
                 os.system("rm -r TRAJ_%i"%i)
 
             bound = np.loadtxt("TRAJ_%i.out/boundPop.dat"%(i))
-            temp  = np.loadtxt("TRAJ_%i.out/trajpop%s.dat"%(i,wp))
+            temp  = np.loadtxt("TRAJ_%i.out/trajpop.dat"%(i))
             bound = np.asarray(bound[:,1], dtype=int)
             temp  = np.asarray(temp[:,1] , dtype=int)
             print("   Hopped into continuum: %5i"%(nrpertraj-temp[-1]))
@@ -286,7 +280,7 @@ def trajCheck(trajs, wavepacket):
         quit("\nNo trajectories evaluated, quitting program")
     else:
         pop /= (nhop + nnohop)
-        with open("pop%s.dat"%wp,"w") as f:
+        with open("pop.dat","w") as f:
             for i,j in enumerate(pop):
                 f.write("%5.2f "%(i * float(config['Dynamics']['timestep'])))
                 for k in j:
@@ -303,23 +297,18 @@ def trajCheck(trajs, wavepacket):
            100 * nhop / (nnohop+nhop)))
 
 
-def freeElectron(trajs, wavepacket):
+def freeElectron(trajs):
     """
     combines all freeEl.dat files into one
     """
 
     if isinstance(kDistr, list):
         import hortensia_latest.analysis_list as analysis_list
-        analysis_list.freeElectron(trajs, wavepacket)
+        analysis_list.freeElectron(trajs)
 
         return
 
-    if wavepacket:
-        wp = 'WP'
-    else:
-        wp = ''
-
-    with open("freeelectrons%s.dat"%wp,"w") as f:
+    with open("freeelectrons.dat", "w") as f:
         out  = "#   t/fs      "
         out += "kx           "
         out += "ky           "
@@ -332,22 +321,22 @@ def freeElectron(trajs, wavepacket):
         if os.path.exists("TRAJ_%i.out"%i):
             print("Trajectory %i"%i)
 
-            if os.path.exists("TRAJ_%i.out/freeEl%s.dat"%(i,wp)):
-                temp = np.loadtxt("TRAJ_%i.out/freeEl%s.dat"%(i,wp))
+            if os.path.exists("TRAJ_%i.out/freeEl.dat"%(i)):
+                temp = np.loadtxt("TRAJ_%i.out/freeEl.dat"%(i))
             else:
                 continue
 
             if np.shape(temp) == (6,):
                 temp = np.asarray([temp])
 
-            with open("freeelectrons%s.dat"%(wp),"a") as f:
+            with open("freeelectrons.dat", "a") as f:
                 for k in temp:
                     f.write("%8.2f %12.5e "%(k[0], k[1]))
                     f.write("%12.5e %12.5e "%(k[2], k[3]))
                     f.write("%14.7e %14.7e\n"%(k[4], k[5]))
 
 
-def ionDistance(trajs, atomlist, wavepacket):
+def ionDistance(trajs, atomlist):
     """
     calculates atomic distances for given centers at all hopping instances and
     writes it to HoppingDistances/
@@ -355,7 +344,7 @@ def ionDistance(trajs, atomlist, wavepacket):
 
     if isinstance(kDistr, list):
         import hortensia_latest.analysis_list as analysis_list
-        analysis_list.ionDistance(trajs, atomlist, wavepacket)
+        analysis_list.ionDistance(trajs, atomlist)
 
         return
 
@@ -363,12 +352,10 @@ def ionDistance(trajs, atomlist, wavepacket):
     if isinstance(atomlist[0], int):
         atomlist = [atomlist]
 
-    wp = ('WP' if wavepacket else '')
-
-    os.system("mkdir -p HoppingDistances%s"%wp)
-    os.system("rm -rf HoppingDistances%s/*"%wp)
-    os.system("mkdir -p AllDistances%s"%wp)
-    os.system("rm -rf AllDistances%s/*"%wp)
+    os.system("mkdir -p HoppingDistances")
+    os.system("rm -rf HoppingDistances/*")
+    os.system("mkdir -p AllDistances")
+    os.system("rm -rf AllDistances/*")
 
     for i in range(trajs):
         if not os.path.isdir("TRAJ_%i.out"%i):
@@ -376,8 +363,8 @@ def ionDistance(trajs, atomlist, wavepacket):
 
         print("Trajectory %i calculating"%i)
 
-        if os.path.exists("TRAJ_%i.out/freeEl%s.dat"%(i,wp)):
-            freeEl = np.loadtxt("TRAJ_%i.out/freeEl%s.dat"%(i,wp))
+        if os.path.exists("TRAJ_%i.out/freeEl.dat"%(i)):
+            freeEl = np.loadtxt("TRAJ_%i.out/freeEl.dat"%(i))
         else:
             print("   No hops in trajectory")
             continue
@@ -405,17 +392,17 @@ def ionDistance(trajs, atomlist, wavepacket):
 
         for j, at in enumerate(atomlist):
             filename = "%i-%i.dat"%(at[0], at[1])
-            with open("AllDistances%s/%s"%(wp, filename),"a") as f:
+            with open("AllDistances/%s"%(filename),"a") as f:
                 for t, d in enumerate(l12[j]):
                     f.write("%5i %12.9f\n"%(t, d))
 
-            with open("HoppingDistances%s/%s"%(wp, filename),"a") as f:
+            with open("HoppingDistances/%s"%(filename),"a") as f:
                 for k in steps:
                     lh = la.norm(xyz[k, at[1]-1] - xyz[k, at[0]-1])
                     f.write("%5i %12.9f\n"%(k, lh))
 
 
-def hoppingAngle(trajs, inp, wavepacket):
+def hoppingAngle(trajs, inp):
     """
     calculates given angles at all hopping instances and writes it to
     HoppingAngles/
@@ -423,7 +410,7 @@ def hoppingAngle(trajs, inp, wavepacket):
 
     if isinstance(kDistr, list):
         import hortensia_latest.analysis_list as analysis_list
-        analysis_list.hoppingAngle(trajs, inp, wavepacket)
+        analysis_list.hoppingAngle(trajs, inp)
 
         return
 
@@ -433,12 +420,10 @@ def hoppingAngle(trajs, inp, wavepacket):
     if isinstance(inp[0], int):
         inp = [inp]
 
-    wp = ('WP' if wavepacket else '')
-
-    os.system("mkdir -p HoppingAngles%s"%wp)
-    os.system("rm -rf HoppingAngles%s/*"%wp)
-    os.system("mkdir -p AllAngles%s"%wp)
-    os.system("rm -rf AllAngles%s/*"%wp)
+    os.system("mkdir -p HoppingAngles")
+    os.system("rm -rf HoppingAngles/*")
+    os.system("mkdir -p AllAngles")
+    os.system("rm -rf AllAngles/*")
 
     for i in range(trajs):
         if not os.path.isdir("TRAJ_%i.out"%i):
@@ -446,8 +431,8 @@ def hoppingAngle(trajs, inp, wavepacket):
 
         print("Trajectory %i calculating"%i)
 
-        if os.path.exists("TRAJ_%i.out/freeEl%s.dat"%(i,wp)):
-            freeEl = np.loadtxt("TRAJ_%i.out/freeEl%s.dat"%(i,wp))
+        if os.path.exists("TRAJ_%i.out/freeEl.dat"%(i)):
+            freeEl = np.loadtxt("TRAJ_%i.out/freeEl.dat"%(i))
         else:
             print("   No hops in trajectory")
             continue
@@ -483,11 +468,11 @@ def hoppingAngle(trajs, inp, wavepacket):
 
         for j, at in enumerate(inp):
             filename = "%i-%i-%i.dat"%(at[0], at[1], at[2])
-            with open("AllAngles%s/%s"%(wp, filename), "a") as f:
+            with open("AllAngles/%s"%(filename), "a") as f:
                 for t, a in enumerate(angle[j]):
                     f.write("%5i %6.3f\n"%(t, a))
 
-            with open("HoppingAngles%s/%s"%(wp, filename),"a") as f:
+            with open("HoppingAngles/%s"%(filename),"a") as f:
                 for k in steps:
                     d1 = xyz[k, at[0]-1] - xyz[k, at[1]-1]
                     d2 = xyz[k, at[2]-1] - xyz[k, at[1]-1]
@@ -500,7 +485,7 @@ def hoppingAngle(trajs, inp, wavepacket):
                     f.write("%5i %6.3f\n"%(k,a))
 
 
-def hoppingDihedrals(trajs, inp, wavepacket):
+def hoppingDihedrals(trajs, inp):
     """
     calculates dihedral angles at all hopping instances and writes it to
     HoppingDihedrals/
@@ -508,7 +493,7 @@ def hoppingDihedrals(trajs, inp, wavepacket):
 
     if isinstance(kDistr, list):
         import hortensia_latest.analysis_list as analysis_list
-        analysis_list.hoppingDihedrals(trajs, inp, wavepacket)
+        analysis_list.hoppingDihedrals(trajs, inp)
 
         return
 
@@ -518,12 +503,10 @@ def hoppingDihedrals(trajs, inp, wavepacket):
     if isinstance(inp[0], int):
         inp = [inp]
 
-    wp = ('WP' if wavepacket else '')
-
-    os.system("mkdir -p HoppingDihedrals%s"%wp)
-    os.system("rm -rf HoppingDihedrals%s/*"%wp)
-    os.system("mkdir -p AllDihedrals%s"%wp)
-    os.system("rm -rf AllDihedrals%s/*"%wp)
+    os.system("mkdir -p HoppingDihedrals")
+    os.system("rm -rf HoppingDihedrals/*")
+    os.system("mkdir -p AllDihedrals")
+    os.system("rm -rf AllDihedrals/*")
 
     for i in range(trajs):
         if not os.path.isdir("TRAJ_%i.out"%i):
@@ -531,8 +514,8 @@ def hoppingDihedrals(trajs, inp, wavepacket):
 
         print("Trajectory %i calculating"%i)
 
-        if os.path.exists("TRAJ_%i.out/freeEl%s.dat"%(i,wp)):
-            freeEl = np.loadtxt("TRAJ_%i.out/freeEl%s.dat"%(i,wp))
+        if os.path.exists("TRAJ_%i.out/freeEl.dat"%(i)):
+            freeEl = np.loadtxt("TRAJ_%i.out/freeEl.dat"%(i))
         else:
             print("   No hops in trajectory")
             continue
@@ -575,11 +558,11 @@ def hoppingDihedrals(trajs, inp, wavepacket):
 
         for j, at in enumerate(inp):
             filename = "%i-%i-%i-%i.dat"%(at[0], at[1], at[2], at[3])
-            with open("AllDihedrals%s/%s"%(wp, filename), "a") as f:
+            with open("AllDihedrals/%s"%(filename), "a") as f:
                 for t, a in enumerate(angle[j]):
                     f.write("%5i %6.3f\n"%(t, a))
 
-            with open("HoppingDihedrals%s/%s"%(wp,filename),"a") as f:
+            with open("HoppingDihedrals/%s"%(filename), "a") as f:
                 for k in steps:
                     d1  = xyz[k, at[0]-1] - xyz[k, at[1]-1]
                     d2  = xyz[k, at[3]-1] - xyz[k, at[2]-1]

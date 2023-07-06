@@ -62,10 +62,10 @@ class NuclearDynamics:
         else:
             self.excited = False
 
-        self.zpeInclude = config['States']['zpeInclude'] == 'True'
+        self.zpeInclude = config['Continuum']['zpeInclude'] == 'True'
         if self.zpeInclude:
-            self.zpeDiff = ast.literal_eval(config['States']['zpeDiff'])
-            self.vibExEn = float(config['States']['vibExEn'])
+            self.zpeDiff = ast.literal_eval(config['Continuum']['zpeDiff'])
+            self.vibExEn = float(config['Continuum']['vibExEn'])
 
         self.steps    = int(config['Dynamics']['steps'])
         self.dt       = float(config['Dynamics']['timestep']) / misc.autime2fs
@@ -427,7 +427,7 @@ class NuclearDynamics:
                 self.velo   *= intRet[2]/self.kinEn
                 self.kinEn   = 1.0*intRet[2]
 
-                trajcheck += self.popDyn[j].trajpop[0]
+                trajcheck += self.popDyn[j].trajpop
 
             self.writeXyzVelo(i)
 

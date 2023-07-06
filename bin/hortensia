@@ -90,10 +90,6 @@ if __name__ == "__main__":
                         "1 for the first atom of a molecule \nthis will "
                         "produce output files in the folder 'HoppingDihedral'", 
                         dest="dhlist")
-    parser.add_argument("-wp", "--wavepacket", help="R|evaluate results of "
-                        "wavepacket hopping. \ndefault: 'False', which means "
-                        "that single state hopping is evaluated",
-                        action="store_true")
     parser.add_argument("-s", "--submit", help="R|write slurm submit script to "
                         "start dynamics calculations. \narguments: number of "
                         "processors, total simulation time in fs and "
