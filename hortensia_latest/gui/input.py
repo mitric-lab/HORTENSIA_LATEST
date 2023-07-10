@@ -43,15 +43,6 @@ def callWigner():
         elif qc == "QChem":
             from hortensia_latest.wigner.HarmonicQChem import \
                 HarmonicQChem as HarmonicInterface
-        elif qc == "Molpro":
-            from hortensia_latest.wigner.HarmonicMolpro import \
-                HarmonicMolpro as HarmonicInterface
-        elif qc == "Turbomole":
-            from hortensia_latest.wigner.HarmonicTurbomole import \
-                HarmonicTurbomole as HarmonicInterface
-        elif qc == "MNDO":
-            from hortensia_latest.wigner.HarmonicMndo import \
-                HarmonicMndo as HarmonicInterface
 
         if distType.get() == "w":
             DistClass = WignerEnsemble(HarmonicInterface(linWigner.get(),
@@ -302,7 +293,7 @@ notebook.add(frame7, text='Wigner')
 #def killed(event):
 #    quit("Killed program")
 #root.bind('<Return>', killed)
-#notebook.select(frame3) #!!!
+notebook.select(frame7) #!!!
 
 
 ################################################################################
@@ -1304,19 +1295,16 @@ def activateDist(doWigner):
         linWignerRB1["state"]  = "normal"
         linWignerRB2["state"]  = "normal"
         rbDist1["state"]       = "normal"
-        rbDist2["state"]       = "normal"
         rbDist3["state"]       = "normal"
         inConEntry["state"]    = "normal"
         modeTempEntry["state"] = "normal"
         WigQCOpt["state"]      = "normal"
         inpEntry1["state"]     = "normal"
-        if qcWigner.get() != "Molpro":
-            inpEntry2["state"] = "normal"
+        inpEntry2["state"]     = "normal"
     else:
         linWignerRB1["state"]  = "disabled"
         linWignerRB2["state"]  = "disabled"
         rbDist1["state"]       = "disabled"
-        rbDist2["state"]       = "disabled"
         rbDist3["state"]       = "disabled"
         inConEntry["state"]    = "disabled"
         modeTempEntry["state"] = "disabled"
@@ -1326,7 +1314,7 @@ def activateDist(doWigner):
 
 def changeDist(distType):
     distType = distType.get()
-    if distType == "v1" or distType == "h":
+    if distType == "v1":
         modeTemp["text"] = "Excited Modes (comma-separated)"
         modes.set("")
     elif distType == "w":
@@ -1346,24 +1334,6 @@ def changeQC(event, qc):
         input2.set("HESS")
         inpLabel1["text"] = "QChem standard ouput file"
         inpLabel2["text"] = "QChem HESS file (generated with -save)"
-        inpEntry2["state"] = "normal"
-    elif qc == 'Molpro':
-        input1.set("freq.log")
-        input2.set("")
-        inpLabel1["text"] = "Molpro standard output file"
-        inpLabel2["text"] = "No further file needed for Molpro"
-        inpEntry2["state"] = "disabled"
-    elif qc == "Turbomole":
-        input1.set("freq.log")
-        input2.set("coord")
-        inpLabel1["text"] = "Turbomole standard output file"
-        inpLabel2["text"] = "Turbomole coord file"
-        inpEntry2["state"] = "normal"
-    elif qc == "MNDO":
-        input1.set("freq.log")
-        input2.set("molden.dat")
-        inpLabel1["text"] = "MNDO standard output file"
-        inpLabel2["text"] = "MNDO molden file"
         inpEntry2["state"] = "normal"
 
 # headline
@@ -1418,17 +1388,12 @@ rbDist1 = tk.Radiobutton(frame7, state="disabled",
     bg=colorbg, fg='black', highlightthickness=0, activebackground=colorab,
     activeforeground='black', font=("Helvetica", 10),
     command=lambda c=distType: changeDist(c))
-rbDist1.place(x=20, y=135, width=100, height=25)
-rbDist2 = tk.Radiobutton(frame7, state="disabled", text='Husimi', value='h',
-    variable=distType, bg=colorbg, fg='black', highlightthickness=0,
-    activebackground=colorab, activeforeground='black', font=("Helvetica", 9),
-    command=lambda c=distType: changeDist(c))
-rbDist2.place(x=120, y=135, width=85, height=25)
+rbDist1.place(x=20, y=135, width=135, height=25)
 rbDist3 = tk.Radiobutton(frame7, state="disabled", text='Wigner', value='w',
     variable=distType, bg=colorbg, fg='black', highlightthickness=0,
     activebackground=colorab, activeforeground='black', font=("Helvetica", 9),
     command=lambda c=distType: changeDist(c))
-rbDist3.place(x=205, y=135, width=85, height=25)
+rbDist3.place(x=155, y=135, width=135, height=25)
 # tooltip
 q22 = tk.Label(frame7, image=question, bg=coloruw)
 q22.place(x=218, y=120, width=10, height=10)
@@ -1466,9 +1431,8 @@ qcWigner = tk.StringVar(value='g09')
 tk.Frame(frame7, bg=colorbg, width=270, height=45).place(x=165, y=225)
 tk.Label(frame7, text="QC program for distribution", bg=coloruw, fg='white',
     font=("Helvetica", 10)).place(x=165, y=225, width=270, height=20)
-WigQCOpt = tk.OptionMenu(frame7, qcWigner, *["g09", "QChem", "Molpro",
-    "Turbomole", "MNDO"], command=lambda event,
-    arg=qcWigner: changeQC(event, arg))
+WigQCOpt = tk.OptionMenu(frame7, qcWigner, *["g09", "QChem"], 
+    command=lambda event, arg=qcWigner: changeQC(event, arg))
 WigQCOpt.configure(bg=colorbg, fg='black', activebackground=colorab,
     activeforeground='black', borderwidth=0, highlightthickness=0,
     font=("Helvetica", 9))

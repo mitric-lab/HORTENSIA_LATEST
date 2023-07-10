@@ -88,7 +88,6 @@ q21 = "Needs the two files specified below in the current working " + \
 q22 = "|\u03a8(x)|\u00B2|\u03a8(q)|\u00B2\t: distribution according to " + \
       "the product of the square of the\n\t\t  momentum and position " + \
       "distribution\n" + \
-      "Husimi\t\t: Husimi distribution\n" + \
       "Wigner\t\t: Wigner distribution"
 q23 = "Vibrational modes sorted by rising energy, starting with index 1\n\n" + \
       "Temperature in K"
