@@ -30,7 +30,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=descr,
                                      formatter_class=SmartFormatter)
     parser.add_argument("-r", "--run", help="R|run dynamics simulation "
-                        "(requires: 'basis', 'config.ini', 'structure.in')\n"
+                        "(requires: 'basis' (basis file in Gaussian format),\n"
+                        "\t\t\t\t   'config.ini', 'structure.in')\n"
                         "if the trajectory is restarted, additionally "
                         "requires: \n'dynamics.xyz', 'velocities.dat', "
                         "'tempcoef.dat', 'boundPop.dat', 'trajpop.dat'",
